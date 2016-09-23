@@ -12,7 +12,7 @@
   <h2>Accordion Example</h2>
   <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
   <div class="panel-group" id="accordion">
-    <div class="panel panel-default">
+    <div id ="question1" class="panel panel-default">
       <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
         <h4 class="panel-title">
           <a>Question 1: What Gender is the patient?</a>
@@ -22,14 +22,14 @@
         <div class="panel-body">
         	What Gender is the patient?
         	<br/>
-        	<form>
-        		<input type="radio" name="gender" value="Male">Male</input><br/>
-        		<input type="radio" name="gender" value="Female">Female</input>
-        	</form>
+            <form  href="#question2" data-toggle="collapse">
+                <input type="radio" name="gender" value="Male" >Male</input><br/>
+                <input type="radio" name="gender" value="Female">Female</input>
+            </form>
         </div>
       </div>
     </div>
-    <div class="panel panel-default">
+    <div id ="question2" class="panel panel-default collapse">
       <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">
         <h4 class="panel-title">
           <a>Question 2: Does the patient have a history of intravenous drug use? </a>
@@ -39,7 +39,7 @@
        <div class="panel-body">
         	Does the patient have a history of intravenous drug use?
         	<br/>
-        	<form>
+        	<form href="#question3" data-toggle="collapse">
         		<input type="radio" name="answer1" value="Yes">Yes</input><br/>
         		<input type="radio" name="answer1" value="No">No</input>
         	</form>
@@ -47,7 +47,7 @@
       </div>
     </div>
     
-    <div class="panel panel-default">
+    <div id ="question3" class="panel panel-default collapse">
       <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse3">
         <h4 class="panel-title">
           <a>Question 3: Has the patient ever shared needles?</a>
