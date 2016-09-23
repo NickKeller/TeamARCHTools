@@ -23,8 +23,8 @@
         	What Gender is the patient?
         	<br/>
             <div>
-                <input type="radio" name="gender" value="Male" data-toggle="collapse" data-target="#question2,collapse2" data-parent="#accordion">Male</input><br/>
-                <input type="radio" name="gender" value="Female" data-toggle="collapse" data-target="#question2,collapse2" data-parent="#accordion">Female</input>
+                <input class="answer1" type="radio" name="gender" value="Male" >Male</input><br/>
+                <input class="answer1" type="radio" name="gender" value="Female">Female</input>
             </div>
         </div>
       </div>
@@ -40,7 +40,7 @@
         	Does the patient have a history of intravenous drug use?
         	<br/>
         	<div>
-        		<input type="radio" name="answer1" value="Yes" data-toggle="collapse" data-target="#question3,collapse3" data-parent="#accordion">Yes</input><br/>
+        		<input class="answer2" type="radio" name="answer1" value="Yes">Yes</input><br/>
         		<input type="radio" name="answer1" value="No">No</input>
         	</div>
         </div>
@@ -74,10 +74,15 @@
 		$("#question2").collapse({toggle:false});
 		$("#question3").collapse({toggle:false});
 	
-		//$("#question1").on("click",function(){
+		$(".answer1").on("click",function(){
 			
-		//	$("#question2").collapse("show");
-		//});	
+			$("#question2").collapse("show");
+		});	
+        
+        $(".answer2").on("click",function(){
+			
+			$("#question3").collapse("show");
+		});
 	});
 	
 </script>
