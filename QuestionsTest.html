@@ -22,10 +22,10 @@
         <div class="panel-body">
         	What Gender is the patient?
         	<br/>
-            <form  href="#question2" data-toggle="collapse">
-                <input type="radio" name="gender" value="Male" >Male</input><br/>
-                <input type="radio" name="gender" value="Female">Female</input>
-            </form>
+            <div>
+                <input type="radio" name="gender" value="Male" data-toggle="collapse" data-target="#question2,collapse2" data-parent="#accordion">Male</input><br/>
+                <input type="radio" name="gender" value="Female" data-toggle="collapse" data-target="#question2,collapse2" data-parent="#accordion">Female</input>
+            </div>
         </div>
       </div>
     </div>
@@ -39,10 +39,10 @@
        <div class="panel-body">
         	Does the patient have a history of intravenous drug use?
         	<br/>
-        	<form href="#question3" data-toggle="collapse">
-        		<input type="radio" name="answer1" value="Yes">Yes</input><br/>
+        	<div>
+        		<input type="radio" name="answer1" value="Yes" data-toggle="collapse" data-target="#question3,collapse3" data-parent="#accordion">Yes</input><br/>
         		<input type="radio" name="answer1" value="No">No</input>
-        	</form>
+        	</div>
         </div>
       </div>
     </div>
@@ -57,15 +57,29 @@
       <div class="panel-body">
      		Has the patient ever shared needles?
         	<br/>
-        	<form>
+        	<div>
         		<input type="radio" name="answer2" value="Yes">Yes</input><br/>
         		<input type="radio" name="answer2" value="No">No</input>
-        	</form>
+        	</div>
        </div>
     </div>
   </div>
 </div>
     
 </body>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		//init, don't let them toggle
+		$("#question2").collapse({toggle:false});
+		$("#question3").collapse({toggle:false});
+	
+		//$("#question1").on("click",function(){
+			
+		//	$("#question2").collapse("show");
+		//});	
+	});
+	
+</script>
 </html>
 
