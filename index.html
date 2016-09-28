@@ -8,83 +8,34 @@
 </head>
 <body>
 
-<div class="container">
-  <h2>Accordion Example</h2>
-  <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
-  <div class="panel-group" id="accordion">
-    <div id ="question1" class="panel panel-default">
-      <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-        <h4 class="panel-title">
-          <a>Question 1</a>
-        </h4>
-      </div>
-      <div id="collapse1" class="panel-collapse collapse in">
-        <div class="panel-body">
-        	What Gender is the patient?
-        	<br/>
-            <div>
-                <input class="answer1" type="radio" name="gender" value="Male" >Male</input><br/>
-                <input class="answer1" type="radio" name="gender" value="Female">Female</input>
-            </div>
+<div class="container-fluid">
+  <h1>Arch Tools Suite</h1>
+  <div class="row">
+    <a href="ivd.html">
+        <div class="col-sm-12 well well-lg">   
+            <h2>IDU </h2>
+            <h3> For injection drug users </h3>
         </div>
-      </div>
-    </div>
-    <div id ="question2" class="panel panel-default collapse">
-      <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-        <h4 class="panel-title">
-          <a>Question 2</a>
-        </h4>
-      </div>
-      <div id="collapse2" class="panel-collapse collapse">
-       <div class="panel-body">
-        	Does the patient have a history of intravenous drug use?
-        	<br/>
-        	<div>
-        		<input class="answer2" type="radio" name="answer1" value="Yes">Yes</input><br/>
-        		<input type="radio" name="answer1" value="No">No</input>
-        	</div>
-        </div>
-      </div>
-    </div>
+    </a>
     
-    <div id ="question3" class="panel panel-default collapse">
-      <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-        <h4 class="panel-title">
-          <a>Question 3</a>
-        </h4>
-      </div>
-      <div id="collapse3" class="panel-collapse collapse">
-      <div class="panel-body">
-     		Has the patient ever shared needles?
-        	<br/>
-        	<div>
-        		<input type="radio" name="answer2" value="Yes">Yes</input><br/>
-        		<input type="radio" name="answer2" value="No">No</input>
-        	</div>
-       </div>
-    </div>
+    <a href="test.html">
+        <div class="col-sm-12 well well-lg">   
+            <h2>MSM </h2>
+            <h3> For men who have sex with men </h3>
+        </div>
+    </a>
+    
+    <a href="test.html">
+        <div class="col-sm-12 well well-lg">   
+            <h2>HIV Discordant </h2>
+            <h3> For couples in which one partner has tested negative for HIV and the other has test positive. </h3>
+        </div>
+    </a>
   </div>
+  
 </div>
     
 </body>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-		//init, don't let them toggle
-		$("#question2").collapse({toggle:false});
-		$("#question3").collapse({toggle:false});
-	
-		$(".answer1").on("click",function(){
-			
-			$("#question2").collapse("show");
-		});	
-        
-        $(".answer2").on("click",function(){
-			
-			$("#question3").collapse("show");
-		});
-	});
-	
-</script>
 </html>
 
