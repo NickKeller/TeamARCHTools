@@ -61,20 +61,28 @@
         </h4>
       </div>
       <div id="collapse3" class="panel-collapse collapse" data-parent="#accordion">
-      <div class="panel-body">
-     		Has the patient ever shared needles?
-        	<br/>
-        	<div>
-				<label class="btn btn-primary">
-					<input type="radio" name="answer2" value="Yes">Yes</input>
-				</label>
-				<label class="btn btn-primary">
-					<input type="radio" name="answer2" value="No">No</input>
-				</label>
-        	</div>
-       </div>
-    </div>
-  </div>
+		<div class="panel-body">
+				Has the patient ever shared needles?
+				<br/>
+				<div>
+					<label class="btn btn-primary">
+						<input class="answer3" type="radio" name="answer2" value="Yes">Yes</input>
+					</label>
+					<label class="btn btn-primary">
+						<input class="answer3" type="radio" name="answer2" value="No">No</input>
+					</label>
+				</div>
+		   </div>
+		</div>
+	</div>
+  
+	<br/>
+  
+	<div id ="finish" class="collapse text-center">
+		<button type="button" id="finished-button" onclick="location.href='results.html';" data-loading-text="Loading..." class="btn btn-primary btn-lg" autocomplete="off">
+			Finished
+		</button>
+	</div>
 </div>
     
 </body>
@@ -92,15 +100,21 @@
 		});	
         
         $(".answer2pos").on("click",function(){
-			
+						
 			$("#question3").collapse("show");
 			$("#collapse3").collapse("show");
 		});
 		
 		$(".answer2neg").on("click",function(){
+			$("#finish").collapse("show");
 			
 			$("#question3").collapse("hide");
 			$("#collapse3").collapse("hide");
+		});
+		
+		$(".answer3").on("click",function(){
+						
+			$("#finish").collapse("show");
 		});
 	});
 	
