@@ -1,0 +1,40 @@
+{
+  "tests": {
+    "IDU": {
+    "name": "Intravaneous Drug Use",
+    "description": "For injection drug users",
+    "url": "idu.html",
+    "questions": {
+      "questions": ["gender", "iduhistory"]
+    }
+    },
+    
+    "HIV Discordant": {
+    "name": "HIV Discordant Couples",
+    "description": "For couples in which one partner has test HIV positive and one has not",
+    "url": "hivd.html"
+    }
+  },
+  
+  "questions": {
+    "idu1": {
+      "text": "What Gender is the patient?",
+      "type": "Radio",
+      "answers": ["Male, Female"],
+      "links": {
+        "Male": "idu2",
+        "Female": "idu2"
+      }
+    },
+    
+    "idu2": {
+      "text": "Does the patient have a history of intravenous drug use?",
+      "type": "Radio",
+      "answers": ["Yes, No"],
+      "links": {
+        "Yes": "idu3",
+        "No": "idu4"
+      }
+    }
+  }
+}
