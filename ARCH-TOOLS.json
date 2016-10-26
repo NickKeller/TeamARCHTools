@@ -1,39 +1,40 @@
 {
   "tests": {
     "IDU": {
-		"name": "Intravaneous Drug Use",
-		"description": "For injection drug users",
-		"url": "idu.html",
-		"questions": {
-			"1": {
-			  "text": "What Gender is the patient?",
-			  "type": "Radio",
-			  "answers": ["Male, Female"],
-			  "links": {
-				"Male": "2",
-				"Female": "2"
-			  }
-			},    
-			"2": {
-			  "text": "Does the patient have a history of intravenous drug use?",
-			  "type": "Radio",
-			  "answers": ["Yes, No"],
-			  "links": {
-				"Yes": "3",
-				"No": "4"
-			  }
-			},
-			"3": {
-				"text": "",
-				"type": "",
-				"answers": [],
-				"links":{
-					"Yes": "X"
-				}				
-			}
-		}
-	},
-    
+  		"name": "Intravaneous Drug Use",
+  		"description": "For injection drug users",
+  		"url": "idu.html",
+  		"questions": [
+  		    {
+	           "text": "What Gender is the patient?",
+  			    "type": "Radio",
+  			  "answers": ["Male, Female"],
+  			  "links": {
+  				"Male": "2",
+  				"Female": "2"
+  			  }
+  			},
+  		    {
+  			    "text": "Does the patient have a history of intravenous drug use?",
+  			    "type": "Radio",
+  			    "answers": ["Yes, No"],
+  			    "links": {
+      				"Yes": "3",
+      				"No": "4"
+  			    }
+  			},
+  			{
+  				"text": "Has the patient ever shared needles?",
+  				"type": "Radio",
+  				"answers": ["Yes", "No"],
+  				"links":{
+  					"Yes": "X"
+  				}
+            }
+  		}
+  	]
+  }
+
     "HIV Discordant": {
     "name": "HIV Discordant Couples",
     "description": "For couples in which one partner has test HIV positive and one has not",

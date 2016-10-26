@@ -5,13 +5,15 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <script src="jquery-3.1.1.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="loader.js"></script>
 </head>
 <body>
 
 <div class="container">
   <h2 id="title"></h2>
-  <div class="panel-group" id="accordion">
-    <div id ="question1" class="panel panel-default">
+  <div class="panel-group" id="accordion"></div>
+</div>
+    <!-- <div id ="question1" class="panel panel-default">
       <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
         <h4 class="panel-title">
           <a>Question 1</a>
@@ -22,7 +24,7 @@
         	What Gender is the patient?
         	<br/>
             <div>
-				<label class="btn btn-primary">
+				<label class="btn btn-primary">""
 					<input class="answer1" type="radio" name="gender" value="Male" >Male</input>
 				</label>
 				<label class="btn btn-primary">
@@ -53,7 +55,7 @@
         </div>
       </div>
     </div>
-    
+
     <div id ="question3" class="panel panel-default collapse">
       <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse3">
         <h4 class="panel-title">
@@ -75,57 +77,13 @@
 		   </div>
 		</div>
 	</div>
-  
+
 	<br/>
-  
+
 	<div id ="finish" class="collapse text-center">
 		<button type="button" id="finished-button" onclick="location.href='results.html';" data-loading-text="Loading..." class="btn btn-primary btn-lg" autocomplete="off">
 			Finished
 		</button>
-	</div>
-</div>
-    
+	</div> -->
 </body>
-
-<script type="text/javascript">
-	$(document).ready(function(){
-		//loads the json from the file, then sets the questions on the page
-		$.getJSON("ARCH-TOOLS.json", setPage);
-		//init, don't let them toggle
-		$("#question2").collapse({toggle:false});
-		$("#question3").collapse({toggle:false});
-
-		$(".answer1").on("click",function(){
-
-			$("#question2").collapse("show");
-			$("#collapse2").collapse("show");
-		});	
-
-		$(".answer2pos").on("click",function(){
-			
-			$("#question3").collapse("show");
-			$("#collapse3").collapse("show");
-		});
-
-		$(".answer2neg").on("click",function(){
-			$("#finish").collapse("show");
-
-			$("#question3").collapse("hide");
-			$("#collapse3").collapse("hide");
-		});
-
-		$(".answer3").on("click",function(){
-			
-			$("#finish").collapse("show");
-		});
-
-		function setPage(json){
-			//alert("Set page");
-			var iduData = json.tests.IDU;
-			$("#title").html(iduData.name);
-		}
-	});
-	
-</script>
 </html>
-
