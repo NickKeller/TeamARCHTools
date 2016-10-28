@@ -9,7 +9,7 @@
 <body>
 
 <div class="container">
-  <h2>Intravaneous Drug User - Risk Assesment</h2>
+  <h2>HIV Discordant - Risk Assesment</h2>
   <div class="panel-group" id="accordion">
     <div id ="question1" class="panel panel-default">
       <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-    
+
     <div id ="question3" class="panel panel-default collapse">
       <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse3">
         <h4 class="panel-title">
@@ -64,7 +64,7 @@
     </div>
   </div>
 </div>
-    
+
 </body>
 
 <script type="text/javascript">
@@ -72,18 +72,17 @@
 		//init, don't let them toggle
 		$("#question2").collapse({toggle:false});
 		$("#question3").collapse({toggle:false});
-	
+
 		$(".answer1").on("click",function(){
-			
+
 			$("#question2").collapse("show");
-		});	
-        
+		});
+
         $(".answer2").on("click",function(){
-			
+
 			$("#question3").collapse("show");
 		});
 	});
-	
+
 </script>
 </html>
-
