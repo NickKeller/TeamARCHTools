@@ -13,7 +13,33 @@
   <h2 id="title"></h2>
   <div class="panel-group" id="accordion"></div>
 </div>
-    <!-- <div id ="question1" class="panel panel-default">
+
+<script id="questionstemplate" type="text/x-jsrender">
+	<div id ="question1" class="panel panel-default">
+	  <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+		<h4 class="panel-title">
+		  <a>Question 1</a>
+		</h4>
+	  </div>
+	  <div id="collapse1" class="panel-collapse collapse in" data-parent="#accordion">
+		<div class="panel-body">
+			What Gender is the patient?
+			<br/>
+			{{if type="Radio"}}
+			<div>
+				<label class="btn btn-primary">
+					<input class="answer{{number}}" type="{{:type}}" name="gender" value="Male" >Male</input>
+				</label>
+				<label class="btn btn-primary">
+					<input class="answer{{number}}" type="radio" name="gender" value="Female">Female</input>
+				</label>
+			</div>
+			{{/if}}
+		</div>
+	  </div>
+	</div>
+</script>
+    <div id ="question1" class="panel panel-default">
       <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
         <h4 class="panel-title">
           <a>Question 1</a>
@@ -24,7 +50,7 @@
         	What Gender is the patient?
         	<br/>
             <div>
-				<label class="btn btn-primary">""
+				<label class="btn btn-primary">
 					<input class="answer1" type="radio" name="gender" value="Male" >Male</input>
 				</label>
 				<label class="btn btn-primary">
@@ -84,6 +110,6 @@
 		<button type="button" id="finished-button" onclick="location.href='results.html';" data-loading-text="Loading..." class="btn btn-primary btn-lg" autocomplete="off">
 			Finished
 		</button>
-	</div> -->
+	</div>
 </body>
 </html>

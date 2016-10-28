@@ -6,17 +6,20 @@
   		"url": "idu.html",
   		"questions": [
   		    {
-	           "text": "What Gender is the patient?",
-  			    "type": "Radio",
-  			  "answers": ["Male, Female"],
-  			  "links": {
-  				"Male": "2",
-  				"Female": "2"
-  			  }
+	          	"text": "What Gender is the patient?",
+  				"type": "radio",
+				"name": "gender",
+				"number": 1,
+  				"answers": ["Male, Female"],
+  				"links": {
+  					"Male": "2",
+  					"Female": "2"
+  			  	}
   			},
   		    {
   			    "text": "Does the patient have a history of intravenous drug use?",
-  			    "type": "Radio",
+  			    "type": "radio",
+				"number": 2,
   			    "answers": ["Yes, No"],
   			    "links": {
       				"Yes": "3",
@@ -25,20 +28,19 @@
   			},
   			{
   				"text": "Has the patient ever shared needles?",
-  				"type": "Radio",
+  				"type": "radio",
+				"number": 3,
   				"answers": ["Yes", "No"],
   				"links":{
   					"Yes": "X"
   				}
-            }
-  		}
-  	]
-  }
-
+        	}
+  		]
+  	},
     "HIV Discordant": {
-    "name": "HIV Discordant Couples",
-    "description": "For couples in which one partner has test HIV positive and one has not",
-    "url": "hivd.html"
+	    "name": "HIV Discordant Couples",
+	    "description": "For couples in which one partner has test HIV positive and one has not",
+	    "url": "hivd.html"
     }
   }
 }
