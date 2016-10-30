@@ -2,14 +2,15 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-  <script src="jquery-3.1.1.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 
 <div class="container">
-  <h2>Intravaneous Drug User - Risk Assesment</h2>
+  <h2>HIV Discordant - Risk Assesment</h2>
   <div class="panel-group" id="accordion">
     <div id ="question1" class="panel panel-default">
       <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
@@ -72,7 +73,6 @@
 		//init, don't let them toggle
 		$("#question2").collapse("hide");
 		$("#question3").collapse("hide");
-
 		$(".answer1").on("click",function(){
 
 			$("#question2").collapse("show");
