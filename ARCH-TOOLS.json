@@ -10,7 +10,7 @@
   				"type": "radio",
 				"name": "gender",
 				"number": 1,
-  				"answers": ["Male, Female"],
+  				"answers": ["Male", "Female"],
   				"links": {
   					"Male": "2",
   					"Female": "2"
@@ -20,7 +20,7 @@
   			    "text": "Does the patient have a history of intravenous drug use?",
   			    "type": "radio",
 				"number": 2,
-  			    "answers": ["Yes, No"],
+  			    "answers": ["Yes", "No"],
   			    "links": {
       				"Yes": "3",
       				"No": "4"
