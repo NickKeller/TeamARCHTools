@@ -12,8 +12,124 @@
 <body>
 
 <div class="container">
-  <h2 id="title"></h2>
-  <div class="panel-group" id="accordion"></div>
+    <h2 id="title"></h2>
+    <div class="panel-group" id="accordion">
+        <div id ="question1" class="panel panel-default">
+            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                <h4 class="panel-title">
+                <a>Question 1</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in" data-parent="#accordion">
+                <div class="panel-body">
+                    <div id="question1Text"></div>
+                    <br/>
+                    <div class="answersSection">
+                        <label class="btn btn-primary">
+                            <input class="answer1" type="radio" value="<30" >&lt;30 years</input>
+                        </label>
+                        <label class="btn btn-primary">
+                            <input class="answer1" type="radio" value="30-39" >30-39 years</input>
+                        </label>
+                        <label class="btn btn-primary">
+                            <input class="answer1" type="radio" value="40-49" >40-49 years</input>
+                        </label>
+                        <label class="btn btn-primary">
+                            <input class="answer1" type="radio" value=">50" >&gt; 50 years</input>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>In the last six months...</p>
+        <div id ="question2" class="panel panel-default">
+            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                <h4 class="panel-title">
+                <a>Question 2</a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse in" data-parent="#accordion">
+                <div class="panel-body">
+                    <div id="question2Text"></div>
+                    <br/>
+                    <div class="answersSection">
+                        <label class="btn btn-primary">
+                            <input class="answer2" type="radio" value="Yes" >Yes</input>
+                        </label>
+                        <label class="btn btn-primary">
+                            <input class="answer2" type="radio" value="No">No</input>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id ="question3" class="panel panel-default">
+            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                <h4 class="panel-title">
+                <a>Question 2</a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse in" data-parent="#accordion">
+                <div class="panel-body">
+                    <div id="question3Text"></div>
+                    <br/>
+                    <div class="answersSection">
+                        <label class="btn btn-primary">
+                            <input class="answer3" type="radio" value="0" >0 times</input>
+                        </label>
+                        <label class="btn btn-primary">
+                            <input class="answer3" type="radio" value="1">1 or more times</input>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id ="question4" class="panel panel-default">
+            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                <h4 class="panel-title">
+                <a>Question 2</a>
+                </h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse in" data-parent="#accordion">
+                <div class="panel-body">
+                    <div id="question4Text"></div>
+                    <br/>
+                    <div class="answersSection">
+                        <label class="btn btn-primary">
+                            <input class="answer4" type="radio" value="0" >0 times</input>
+                        </label>
+                        <label class="btn btn-primary">
+                            <input class="answer4" type="radio" value="1">1 or more times</input>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id ="question5" class="panel panel-default">
+            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                <h4 class="panel-title">
+                <a>Question 2</a>
+                </h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse in" data-parent="#accordion">
+                <div class="panel-body">
+                    <div id="question5Text"></div>
+                    <br/>
+                    <div class="answersSection">
+                        <label class="btn btn-primary">
+                            <input class="answer5" type="radio" value="0" >0 times</input>
+                        </label>
+                        <label class="btn btn-primary">
+                            <input class="answer5" type="radio" value="1">1 or more times</input>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 	<br/>
 	<div id ="finish" class="text-center">
 		<button type="button" id="finished-button" onclick="location.href='results.html';" data-loading-text="Loading..." class="btn btn-primary btn-lg" autocomplete="off">
@@ -21,95 +137,10 @@
 		</button>
 	</div>
 </div>
-
-<script id="questionstemplate" type="text/x-jsrender">
-	<div id ="question{{:number}}" class="panel panel-default">
-	  <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse{{:number}}">
-		<h4 class="panel-title">
-		  <a>Question {{:number}}</a>
-		</h4>
-	  </div>
-	  <div id="collapse{{:number}}" class="panel-collapse collapse" data-parent="#accordion">
-		<div class="panel-body">
-			{{:text}}
-			<br/>
-			{{if type="radio"}}
-			<div>
-				<label class="btn btn-primary">
-					<input class="answer{{:number}}" type="{{:type}}" name="{{:name}}" value="{{:answers[0]}}">{{:answers[0]}}</input>
-				</label>
-				<label class="btn btn-primary">
-					<input class="answer{{:number}}" type="{{:type}}" name="{{:name}}" value="{{:answers[1]}}">{{:answers[1]}}</input>
-				</label>
-			</div>
-			{{/if}}
-		</div>
-	  </div>
-	</div>
-</script>
-    <!-- <div id ="question1" class="panel panel-default">
-      <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-        <h4 class="panel-title">
-          <a>Question 1</a>
-        </h4>
-      </div>
-      <div id="collapse1" class="panel-collapse collapse in" data-parent="#accordion">
-        <div class="panel-body">
-        	What Gender is the patient?
-        	<br/>
-            <div>
-				<label class="btn btn-primary">
-					<input class="answer1" type="radio" name="gender" value="Male" >Male</input>
-				</label>
-				<label class="btn btn-primary">
-					<input class="answer1" type="radio" name="gender" value="Female">Female</input>
-				</label>
-            </div>
-        </div>
-      </div>
-    </div>
-    <div id ="question2" class="panel panel-default collapse">
-      <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-        <h4 class="panel-title">
-          <a>Question 2</a>
-        </h4>
-      </div>
-      <div id="collapse2" class="panel-collapse collapse" data-parent="#accordion">
-       <div class="panel-body">
-        	Does the patient have a history of intravenous drug use?
-        	<br/>
-        	<div>
-				<label class="btn btn-primary">
-					<input class="answer2pos" type="radio" name="answer1" value="Yes">Yes</input>
-				</label>
-				<label class="btn btn-primary">
-					<input class="answer2neg" type="radio" name="answer1" value="No">No</input>
-				</label>
-        	</div>
-        </div>
-      </div>
-    </div>
-
-    <div id ="question3" class="panel panel-default collapse">
-      <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-        <h4 class="panel-title">
-          <a>Question 3</a>
-        </h4>
-      </div>
-      <div id="collapse3" class="panel-collapse collapse" data-parent="#accordion">
-		<div class="panel-body">
-				Has the patient ever shared needles?
-				<br/>
-				<div>
-					<label class="btn btn-primary">
-						<input class="answer3" type="radio" name="answer2" value="Yes">Yes</input>
-					</label>
-					<label class="btn btn-primary">
-						<input class="answer3" type="radio" name="answer2" value="No">No</input>
-					</label>
-				</div>
-		   </div>
-		</div>
-	</div> -->
 </body>
+<script src="text/javascript">
+    $(document).ready(function(){
+        iduSetup();
+    })
+</script>
 </html>

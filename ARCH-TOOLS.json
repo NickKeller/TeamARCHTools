@@ -6,7 +6,7 @@
   		"url": "idu.html",
   		"questions": [
   		    {
-	          	"text": "What Gender is the patient?",
+	          	"text": "How old are you today?(Years)",
   				"type": "radio",
 				"name": "gender",
 				"number": 1,
