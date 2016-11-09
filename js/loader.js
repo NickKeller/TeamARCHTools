@@ -10,33 +10,20 @@ $(document).ready(function(){
 		//alert("Set page");
 		var iduData = json.tests.IDU;
 		$("#title").html(iduData.name);
-		//use jsrender to render the template
-		var template = $.templates("#questionstemplate");
-		var htmlOutput = template.render(iduData.questions);
-		$("#accordion").html(htmlOutput);
-		//init, don't let them toggle
-		$("#question2").collapse("hide");
-		$("#question3").collapse("hide");
+		$("#finish").collapse("hide");
+		//loop through the questions and set the text
+		for(var index in iduData.questions){
+			var question = iduData.questions[index];
+			var text = question["text"];
+			var num = question["number"];
+			//set the question text
+			$("#question" + num + "Text").html(text);
+			$("#question" + num).collapse({toggle:false});
+			$(".answer" + num).on("click", function(){
+				$("#question" + (num + 1)).collapse("show");
+				$("#collapse" + (num + 1)).collapse("show");
+			});
 
-		$(".answer1").on("click",function(){
-			$("#question2").collapse("show");
-			$("#collapse2").collapse("show");
-		});
-
-		$(".answer2pos").on("click",function(){
-			$("#question3").collapse("show");
-			$("#collapse3").collapse("show");
-		});
-
-		$(".answer2neg").on("click",function(){
-			$("#finish").collapse("show");
-			$("#question3").collapse("hide");
-			$("#collapse3").collapse("hide");
-		});
+		}
 	}
-
-
-	// $("#accordion").html("This is a test");
-	// $("#accordion").html("Test 2");
-	// $("#accordion").append("Test 3");
 });
