@@ -17,7 +17,7 @@
   			  	}
   			},
   		    {
-  			    "text": "Does the patient have a history of intravenous drug use?",
+  			    "text": "Were you in a Methadone maintenance program?",
   			    "type": "radio",
 				"number": 2,
   			    "answers": ["Yes", "No"],
@@ -27,9 +27,45 @@
   			    }
   			},
   			{
-  				"text": "Has the patient ever shared needles?",
+  				"text": "How often did you inject heroin?",
   				"type": "radio",
 				"number": 3,
+  				"answers": ["Yes", "No"],
+  				"links":{
+  					"Yes": "X"
+  				}
+        	},
+            {
+  				"text": "How often did you inject cocaine?",
+  				"type": "radio",
+				"number": 4,
+  				"answers": ["Yes", "No"],
+  				"links":{
+  					"Yes": "X"
+  				}
+        	},
+            {
+  				"text": "How often did you share a cooker?",
+  				"type": "radio",
+				"number": 5,
+  				"answers": ["Yes", "No"],
+  				"links":{
+  					"Yes": "X"
+  				}
+        	},
+            {
+  				"text": "How often did you share needles?",
+  				"type": "radio",
+				"number": 6,
+  				"answers": ["Yes", "No"],
+  				"links":{
+  					"Yes": "X"
+  				}
+        	},
+            {
+  				"text": "How often did you visit a shooting gallery?",
+  				"type": "radio",
+				"number": 7,
   				"answers": ["Yes", "No"],
   				"links":{
   					"Yes": "X"

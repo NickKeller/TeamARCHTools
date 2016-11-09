@@ -6,7 +6,6 @@
 
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/jsrender.min.js"></script>
   <script src="js/loader.js"></script>
 </head>
 <body>
@@ -14,7 +13,7 @@
 <div class="container">
     <h2 id="title"></h2>
     <div class="panel-group" id="accordion">
-        <div id ="question1" class="panel panel-default">
+        <div id ="question1" class="panel panel-default question">
             <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                 <h4 class="panel-title">
                 <a>Question 1</a>
@@ -26,23 +25,23 @@
                     <br/>
                     <div class="answersSection">
                         <label class="btn btn-primary">
-                            <input class="answer1" type="radio" value="<30" >&lt;30 years</input>
+                            <input class="answer1" type="radio" name="age" value="<30" >&lt;30 years</input>
                         </label>
                         <label class="btn btn-primary">
-                            <input class="answer1" type="radio" value="30-39" >30-39 years</input>
+                            <input class="answer1" type="radio" name="age" value="30-39" >30-39 years</input>
                         </label>
                         <label class="btn btn-primary">
-                            <input class="answer1" type="radio" value="40-49" >40-49 years</input>
+                            <input class="answer1" type="radio" name="age" value="40-49" >40-49 years</input>
                         </label>
                         <label class="btn btn-primary">
-                            <input class="answer1" type="radio" value=">50" >&gt; 50 years</input>
+                            <input class="answer1" type="radio" name="age" value=">50" >&gt; 50 years</input>
                         </label>
                     </div>
                 </div>
             </div>
         </div>
         <p>In the last six months...</p>
-        <div id ="question2" class="panel panel-default">
+        <div id ="question2" class="panel panel-default question">
             <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">
                 <h4 class="panel-title">
                 <a>Question 2</a>
@@ -54,20 +53,20 @@
                     <br/>
                     <div class="answersSection">
                         <label class="btn btn-primary">
-                            <input class="answer2" type="radio" value="Yes" >Yes</input>
+                            <input class="answer2" type="radio" name="methadone" value="Yes" >Yes</input>
                         </label>
                         <label class="btn btn-primary">
-                            <input class="answer2" type="radio" value="No">No</input>
+                            <input class="answer2" type="radio" name="methadone" value="No">No</input>
                         </label>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id ="question3" class="panel panel-default">
+        <div id ="question3" class="panel panel-default question">
             <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse3">
                 <h4 class="panel-title">
-                <a>Question 2</a>
+                <a>Question 3</a>
                 </h4>
             </div>
             <div id="collapse3" class="panel-collapse collapse in" data-parent="#accordion">
@@ -76,20 +75,20 @@
                     <br/>
                     <div class="answersSection">
                         <label class="btn btn-primary">
-                            <input class="answer3" type="radio" value="0" >0 times</input>
+                            <input class="answer3" type="radio" name="heroin" value="0" >0 times</input>
                         </label>
                         <label class="btn btn-primary">
-                            <input class="answer3" type="radio" value="1">1 or more times</input>
+                            <input class="answer3" type="radio" name="heroin" value="1">1 or more times</input>
                         </label>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id ="question4" class="panel panel-default">
+        <div id ="question4" class="panel panel-default question">
             <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse4">
                 <h4 class="panel-title">
-                <a>Question 2</a>
+                <a>Question 4</a>
                 </h4>
             </div>
             <div id="collapse4" class="panel-collapse collapse in" data-parent="#accordion">
@@ -98,20 +97,20 @@
                     <br/>
                     <div class="answersSection">
                         <label class="btn btn-primary">
-                            <input class="answer4" type="radio" value="0" >0 times</input>
+                            <input class="answer4" type="radio" name="cocaine" value="0" >0 times</input>
                         </label>
                         <label class="btn btn-primary">
-                            <input class="answer4" type="radio" value="1">1 or more times</input>
+                            <input class="answer4" type="radio" name="cocaine" value="1">1 or more times</input>
                         </label>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id ="question5" class="panel panel-default">
+        <div id ="question5" class="panel panel-default question">
             <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse5">
                 <h4 class="panel-title">
-                <a>Question 2</a>
+                <a>Question 5</a>
                 </h4>
             </div>
             <div id="collapse5" class="panel-collapse collapse in" data-parent="#accordion">
@@ -120,10 +119,54 @@
                     <br/>
                     <div class="answersSection">
                         <label class="btn btn-primary">
-                            <input class="answer5" type="radio" value="0" >0 times</input>
+                            <input class="answer5" type="radio" name="cooker" value="0" >0 times</input>
                         </label>
                         <label class="btn btn-primary">
-                            <input class="answer5" type="radio" value="1">1 or more times</input>
+                            <input class="answer5" type="radio" name="cooker" value="1">1 or more times</input>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id ="question6" class="panel panel-default question">
+            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                <h4 class="panel-title">
+                <a>Question 6</a>
+                </h4>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse in" data-parent="#accordion">
+                <div class="panel-body">
+                    <div id="question6Text"></div>
+                    <br/>
+                    <div class="answersSection">
+                        <label class="btn btn-primary">
+                            <input class="answer6" type="radio" name="needles" value="0" >0 times</input>
+                        </label>
+                        <label class="btn btn-primary">
+                            <input class="answer6" type="radio" name="needles" value="1">1 or more times</input>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id ="question7" class="panel panel-default question">
+            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+                <h4 class="panel-title">
+                <a>Question 7</a>
+                </h4>
+            </div>
+            <div id="collapse7" class="panel-collapse collapse in" data-parent="#accordion">
+                <div class="panel-body">
+                    <div id="question5Text"></div>
+                    <br/>
+                    <div class="answersSection">
+                        <label class="btn btn-primary">
+                            <input class="answer7" type="radio" name="gallery" value="0" >0 times</input>
+                        </label>
+                        <label class="btn btn-primary">
+                            <input class="answer7" type="radio" name="gallery" value="1">1 or more times</input>
                         </label>
                     </div>
                 </div>
