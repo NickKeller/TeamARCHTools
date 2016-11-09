@@ -73,34 +73,44 @@
                 }
             },
             {
-                "text": "How many times each month do you have vaginal sex with your partner?"
+                "text": "How many times each month do you have vaginal sex with your partner?",
+                "number": 4
             },
             {
-                "text": "How many times each month do you use condoms when you have vaginal sex with your partner?"
+                "text": "How many times each month do you use condoms when you have vaginal sex with your partner?",
+                "number": 5
             },
             {
-                "text": "How many times each month do you have insertive anal sex with your partner?"
+                "text": "How many times each month do you have insertive anal sex with your partner?",
+                "number": 6
             },
             {
-                "text": "How many times each month do you use condoms when you have insertive anal sex with your partner?"
+                "text": "How many times each month do you use condoms when you have insertive anal sex with your partner?",
+                "number": 7
             },
             {
-                "text": "How many times each month do you have receptive anal sex with your partner?"
+                "text": "How many times each month do you have receptive anal sex with your partner?",
+                "number": 8
             },
             {
-                "text": "How many times each month do you use condoms when you have receptive anal sex with your partner?"
+                "text": "How many times each month do you use condoms when you have receptive anal sex with your partner?",
+                "number": 9
             },
             {
-                "text": "How many times each month do you give oral sex to your partner?"
+                "text": "How many times each month do you give oral sex to your partner?",
+                "number": 10
             },
             {
-                "text": "How many times each month do you use condoms when you give oral sex to your partner?"
+                "text": "How many times each month do you use condoms when you give oral sex to your partner?",
+                "number": 11
             },
             {
-                "text": "How many times each month do you receive oral sex from your partner?"
+                "text": "How many times each month do you receive oral sex from your partner?",
+                "number": 12
             },
             {
-                "text": "How many times each month do you use condoms when receiving oral sex from your partner?"
+                "text": "How many times each month do you use condoms when receiving oral sex from your partner?",
+                "number": 13
             }
         ]
     },
