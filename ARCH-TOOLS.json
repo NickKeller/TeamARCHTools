@@ -103,6 +103,83 @@
                 "text": "How many times each month do you use condoms when receiving oral sex from your partner?"
             }
         ]
+    },
+    "MSM": {
+      "name": "MSM",
+      "description": "For men who have sex with other men",
+      "url": "msm.html",
+      "questions": [
+          {
+              "text": "How old are you today?(Years)",
+              "type": "radio",
+              "name": "age",
+              "number": 1,
+              "answers": ["18-29", "30-39", "40-49", "50+"],
+              "links": {
+                "18-29": "2",
+                "30-39": "2",
+                "40-49": "2",
+                "50+": "2"
+              }
+          },
+          {
+              "text": "In the last six months, how many men have you had sex with?",
+              "type": "radio",
+              "name": "sexFreq",
+              "number": 2,
+              "answers": ["0-5", "6-10", "10+"],
+              "links": {
+                "0-5": "3",
+                "6-10": "3",
+                "10+": "3"
+              }
+          },
+          {
+              "text": "In the last six months, how many times did you have receptive anal sex (you were the bottom) with a man when he did not use a condom?",
+              "type": "radio",
+              "name": "unprotFreq",
+              "number": 3,
+              "answers": ["0", "1+"],
+              "links": {
+                "0": "4",
+                "1+": "4"
+              }
+          },
+          {
+              "text": "In the last six months, how many of your male sexual partners were HIV positive?",
+              "type": "radio",
+              "name": "HIVpos",
+              "number": 4,
+              "answers": ["0", "1", "2+"],
+              "links": {
+                "0": "5",
+                "1": "5",
+                "2+": "5"
+              }
+          },
+          {
+              "text": "In the last six months, how many times did you have insertive anal sex (you were the top) with a man when you did not use a condom?",
+              "type": "radio",
+              "name": "unprotFreq",
+              "number": 5,
+              "answers": ["0-4", "5+"],
+              "links": {
+                "0-4": "6",
+                "5+": "6"
+              }
+          },
+          {
+              "text": "In the last six months, have you used methamphetamines such as crystal or speed?",
+              "type": "radio",
+              "name": "meth",
+              "number": 6,
+              "answers": ["Yes", "No"],
+              "links": {
+                "Yes": "X",
+                "No": "X"
+              }
+          }
+      ]
     }
   }
 }
