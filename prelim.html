@@ -67,37 +67,100 @@
                 </div>
                 <div id="collapse3" class="panel-collapse collapse">
                   <div class="panel-body">
-                    Has the patient ever shared needles?
+                    What sex is listed on the patient's birth certificate?
                     <br/>
                     <div>
-                      <input type="radio" name="answer2" value="Yes">Yes</input><br/>
-                      <input type="radio" name="answer2" value="No">No</input>
+                      <input class="answer3 gotoMSM" type="radio" name="answer3" value="Male">Male</input><br/>
+                      <input class="answer3 skipMSM" type="radio" name="answer3" value="Female">Female</input>
                     </div>
                   </div>
                 </div>
               </div>
+
+                <div id ="question4" class="panel panel-default collapse">
+                    <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                        <h4 class="panel-title">
+                            <a id="q4">Question 4</a>
+                        </h4>
+                    </div>
+                    <div id="collapse4" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            In the past 6 months, has the patient had sex with men, with women, or with both men and women?
+                            <br/>
+                            <div>
+                                <input class="answer4 yesMSM" type="radio" name="answer4" value="Men">Men</input><br/>
+                                <input class="answer4 noMSM" type="radio" name="answer4" value="Women">Women</input><br/>
+                                <input class="answer4 yesMSM" type="radio" name="answer4" value="Both">Both Men and Women</input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id ="question5" class="panel panel-default collapse">
+                    <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                        <h4 class="panel-title">
+                            <a id="q5">Question 5</a>
+                        </h4>
+                    </div>
+                    <div id="collapse5" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Has the patient ever injected drugs that were not prescribed by the physician.
+                            <br/>
+                            <div>
+                                <input class="answer5 gotoIDU" type="radio" name="answer5" value="Yes">Yes</input><br/>
+                                <input class="answer5 skipIDU" type="radio" name="answer5" value="No">No</input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id ="question6" class="panel panel-default collapse">
+                    <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                        <h4 class="panel-title">
+                            <a id="q6">Question 6</a>
+                        </h4>
+                    </div>
+                    <div id="collapse6" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Has the patient injected any drugs in the last 6 months?
+                            <br/>
+                            <div>
+                                <input class="answer6 yesIDU" type="radio" name="answer6" value="Yes">Yes</input><br/>
+                                <input class="answer6 noIDU" type="radio" name="answer6" value="No">No</input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
          </div>
 
          <!--Recommendations-->
          <div class="col-lg-6">
             <div class="col-sm-12 well " align="left">
-                <h5 >IDU Module<br/>
+                <h4 id="IDU">IDU Module<br/>
                 <small id="IDU result" >Not yet determined. Applicable questions not answered.</small>
-                </h5>
+                </h4>
                 <hr>
-                <h5 >MSM Module<br/>
+                <h4 id="MSM" >MSM Module<br/>
                 <small id="MSM result">Not yet determined. Applicable questions not answered.</small>
-                </h5>
+                </h4>
                 <hr>
-                <h5 id="DSC">Discordant Module<br/>
+                <h4 id="DSC">Discordant Module<br/>
                 <small id="DSC result">Not yet determined. Applicable questions not answered.</small>
-                </h5>
+                </h4>
 
 
             </div>
         </div>
     </div>
+
+     <nav class="navbar navbar-default navbar-fixed-bottom" >
+         <div class="container-fluid">
+             <ul class="nav navbar-center">
+                 <li class="active"><a class="btn btn-default btn-md" role="button" href="index.html">Home</a></li>
+             </ul>
+         </div>
+     </nav>
   </div>
 
   <script type="text/javascript">
@@ -114,23 +177,104 @@
 		$(".answer1yes").on("click",function(){
 
 			$("#question2").collapse("show");
+			$("#question3").collapse("hide");
 		});
 
     $(".answer1no").on("click",function(){
        $("#question2").collapse("hide");
        $("#question3").collapse("show");
+
     });
+
+    $(".answer1").on("click",function(){
+       $("#question2").collapse("hide");
+       $("#question3").collapse("show");
+
+    });
+    $(".answer2").on("click",function(){
+
+       $("#question3").collapse("show");
+
+    });
+    $(".gotoMSM").on("click",function(){
+        document.getElementById("MSM result").innerHTML = "Not yet determined. Applicable questions not answered.";
+        document.getElementById("MSM result").setAttribute("class", "");;
+        document.getElementById("MSM").setAttribute("class", "");;
+        $("#question4").collapse("show");
+        $("#question5").collapse("hide");
+
+    });
+
+    $(".skipMSM").on("click",function(){
+        document.getElementById("MSM result").innerHTML = "Not Necessary";
+        document.getElementById("MSM result").setAttribute("class", "text-muted");;
+        document.getElementById("MSM").setAttribute("class", "text-muted");;
+        $("#question4").collapse("hide");
+        $("#question5").collapse("show");
+
+    });
+
+    $(".gotoIDU").on("click",function(){
+        document.getElementById("IDU result").innerHTML = "Not yet determined. Applicable questions not answered.";
+        document.getElementById("IDU result").setAttribute("class", "");;
+        document.getElementById("IDU").setAttribute("class", "");;
+        $("#question6").collapse("show");
+
+    });
+
+    $(".skipIDU").on("click",function(){
+        document.getElementById("IDU result").innerHTML = "Not Necessary";
+        document.getElementById("IDU result").setAttribute("class", "text-muted");;
+        document.getElementById("IDU").setAttribute("class", "text-muted");;
+        $("#question6").collapse("hide");
+
+
+    });
+
+    $(".noIDU").on("click",function(){
+      document.getElementById("IDU result").innerHTML = "Not necessary";
+      document.getElementById("IDU result").setAttribute("class", "text-muted");;
+      document.getElementById("IDU").setAttribute("class", "text-muted");;
+
+    });
+
+    $(".yesIDU").on("click",function(){
+      document.getElementById("IDU result").innerHTML = "Should be administered";
+      document.getElementById("IDU result").setAttribute("class", "text-info");;
+      document.getElementById("IDU").setAttribute("class", "text-info");;
+    });
+
+
+
+
+
+
+
 
     $(".noDSC").on("click",function(){
       document.getElementById("DSC result").innerHTML = "Not necessary";
       document.getElementById("DSC result").setAttribute("class", "text-muted");;
       document.getElementById("DSC").setAttribute("class", "text-muted");;
+
     });
 
     $(".yesDSC").on("click",function(){
       document.getElementById("DSC result").innerHTML = "Should be administered";
       document.getElementById("DSC result").setAttribute("class", "text-info");;
       document.getElementById("DSC").setAttribute("class", "text-info");;
+    });
+
+    $(".noMSM").on("click",function(){
+      document.getElementById("MSM result").innerHTML = "Not necessary";
+      document.getElementById("MSM result").setAttribute("class", "text-muted");;
+      document.getElementById("MSM").setAttribute("class", "text-muted");;
+
+    });
+
+    $(".yesMSM").on("click",function(){
+      document.getElementById("MSM result").innerHTML = "Should be administered";
+      document.getElementById("MSM result").setAttribute("class", "text-info");;
+      document.getElementById("MSM").setAttribute("class", "text-info");;
     });
 
     $(".notYetDSC").on("click",function(){
@@ -142,20 +286,16 @@
 
 
 
-    $(".answer3").on("click",function(){
 
-      $("#question4").collapse("show");
-    });
+
+
 
     $(".answer4").on("click",function(){
 
       $("#question5").collapse("show");
     });
 
-    $(".answer5").on("click",function(){
 
-      $("#question6").collapse("show");
-    });
 
     $(".answer6").on("click",function(){
 
