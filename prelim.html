@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstraphacks.css">
+  <link rel="stylesheet" href="css/archtools.css">
+  
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+ <div class="container">
+     <!--Header-->
+     <div class="row">
+      <h2>Preliminary Questions</h2>
+    </div>
+     <!--Questions & Recommendations-->
+     <div class="row">
+         <!--Questions-->
+         <div class="col-lg-6">
+            <div class="panel-group" id="accordion">
+              <div id ="question1" class="panel panel-default">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                  <h4 class="panel-title">
+                    <a>Question 1</a>
+                  </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    In the past six months, has the patient had sex?
+                    <br/>
+                    <div>
+                      <input class="answer1yes notYetDSC" type="radio" name="answer1" value="Yes" >Yes</input><br/>
+                      <input class="answer1no noDSC" type="radio" name="answer1" value="No">No</input>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id ="question2" class="panel panel-default collapse">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                  <h4 class="panel-title">
+                    <a>Question 2</a>
+                  </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    As far as the patient knows, do they have a sex partner that has HIV infection?
+                    <br/>
+                    <div>
+                        <input class="answer2 yesDSC" type="radio" name="answer2" value="Yes">Yes</input><br/>
+                        <input class="answer2 noDSC" type="radio" name="answer2" value="No">No</input><br/>
+                        <input class="answer2 yesDSC" type="radio" name="answer2" value="IDK">I don't Know</input>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id ="question3" class="panel panel-default collapse">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                  <h4 class="panel-title">
+                    <a>Question 3</a>
+                  </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    Has the patient ever shared needles?
+                    <br/>
+                    <div>
+                      <input type="radio" name="answer2" value="Yes">Yes</input><br/>
+                      <input type="radio" name="answer2" value="No">No</input>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+         </div>
+
+         <!--Recommendations-->
+         <div class="col-lg-6">
+            <div class="col-sm-12 well " align="left">
+                <h5 >IDU Module<br/>
+                <small id="IDU result" >Not yet determined. Applicable questions not answered.</small>
+                </h5>
+                <hr>
+                <h5 >MSM Module<br/>
+                <small id="MSM result">Not yet determined. Applicable questions not answered.</small>
+                </h5>
+                <hr>
+                <h5 id="DSC">Discordant Module<br/>
+                <small id="DSC result">Not yet determined. Applicable questions not answered.</small>
+                </h5>
+
+
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+	$(document).ready(function(){
+		//init, don't let them toggle
+		$("#question2").collapse({toggle:false});
+		$("#question3").collapse({toggle:false});
+    $("#question4").collapse({toggle:false});
+    $("#question5").collapse({toggle:false});
+    $("#question6").collapse({toggle:false});
+    $("#question7").collapse({toggle:false});
+
+
+		$(".answer1yes").on("click",function(){
+
+			$("#question2").collapse("show");
+		});
+
+    $(".answer1no").on("click",function(){
+       $("#question2").collapse("hide");
+       $("#question3").collapse("show");
+    });
+
+    $(".noDSC").on("click",function(){
+      document.getElementById("DSC result").innerHTML = "Not necessary";
+      document.getElementById("DSC result").setAttribute("class", "text-muted");;
+      document.getElementById("DSC").setAttribute("class", "text-muted");;
+    });
+
+    $(".yesDSC").on("click",function(){
+      document.getElementById("DSC result").innerHTML = "Should be administered";
+      document.getElementById("DSC result").setAttribute("class", "text-info");;
+      document.getElementById("DSC").setAttribute("class", "text-info");;
+    });
+
+    $(".notYetDSC").on("click",function(){
+      document.getElementById("DSC result").innerHTML = "Not yet determined. Applicable questions not answered.";
+      document.getElementById("DSC result").setAttribute("class", "");;
+      document.getElementById("DSC").setAttribute("class", "");;
+    });
+
+
+
+
+    $(".answer3").on("click",function(){
+
+      $("#question4").collapse("show");
+    });
+
+    $(".answer4").on("click",function(){
+
+      $("#question5").collapse("show");
+    });
+
+    $(".answer5").on("click",function(){
+
+      $("#question6").collapse("show");
+    });
+
+    $(".answer6").on("click",function(){
+
+      $("#question7").collapse("show");
+    });
+
+	});
+
+</script>
+
+</body>
+</html>
