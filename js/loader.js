@@ -1,7 +1,4 @@
 function iduSetup(){
-	//hides all the questions
-	$(".question").hide();
-	$("#question1").show();
 	//loads the json from the file, then sets the questions on the page
 	$.getJSON("ARCH-TOOLS.json", setIDUPage);
 	//wait for success
@@ -16,6 +13,12 @@ function iduSetup(){
 		var iduData = json.tests.IDU;
 		$("#title").html(iduData.name);
 		$("#finish").collapse("hide");
+		$("#question2").collapse("hide");
+		$("#question3").collapse("hide");
+		$("#question4").collapse("hide");
+		$("#question5").collapse("hide");
+		$("#question6").collapse("hide");
+		$("#question7").collapse("hide");
 		//loop through the questions and set the text
 		for(var index in iduData.questions){
 			var question = iduData.questions[index];
@@ -23,12 +26,38 @@ function iduSetup(){
 			var num = question["number"];
 			//set the question text
 			$("#question" + num + "Text").html(text);
-			$("#question" + num).collapse({toggle:false});
-			$(".answer" + num).on("click", function(){
-				$("#question" + (num + 1)).show();
-				$("#question" + (num + 1)).collapse("show");
-				$("#collapse" + (num + 1)).collapse("show");
-			});
-
 		}
+
+
+
+		$(".answer1").on("click",function(){
+
+			$("#question2").collapse("show");
+		});
+
+	    $(".answer2").on("click",function(){
+
+	      $("#question3").collapse("show");
+	    });
+
+	    $(".answer3").on("click",function(){
+
+	      $("#question4").collapse("show");
+	    });
+
+	    $(".answer4").on("click",function(){
+
+	      $("#question5").collapse("show");
+	    });
+
+	    $(".answer5").on("click",function(){
+
+	      $("#question6").collapse("show");
+	    });
+
+	    $(".answer6").on("click",function(){
+
+	      $("#question7").collapse("show");
+	    });
+
 	}
