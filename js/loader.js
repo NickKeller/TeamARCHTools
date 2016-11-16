@@ -13,12 +13,12 @@ function iduSetup(){
 		var iduData = json.tests.IDU;
 		$("#title").html(iduData.name);
 		$("#finish").collapse("hide");
-		$("#question2").collapse("hide");
-		$("#question3").collapse("hide");
-		$("#question4").collapse("hide");
-		$("#question5").collapse("hide");
-		$("#question6").collapse("hide");
-		$("#question7").collapse("hide");
+		$("#question2").collapse({toggle:false});
+		$("#question3").collapse({toggle:false});
+		$("#question4").collapse({toggle:false});
+		$("#question5").collapse({toggle:false});
+		$("#question6").collapse({toggle:false});
+		$("#question7").collapse({toggle:false});
 		//loop through the questions and set the text
 		for(var index in iduData.questions){
 			var question = iduData.questions[index];
@@ -27,9 +27,7 @@ function iduSetup(){
 			//set the question text
 			$("#question" + num + "Text").html(text);
 		}
-
-
-
+		
 		$(".answer1").on("click",function(){
 
 			$("#question2").collapse("show");
