@@ -8,161 +8,207 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/loader.js"></script>
 </head>
+
 <body>
 
 <div class="container">
-    <h2 id="title"></h2>
-    <div class="panel-group" id="accordion">
-        <div id ="question1" class="panel panel-default question">
-            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                <h4 class="panel-title">
-                <a>Question 1</a>
-                </h4>
-            </div>
-            <div id="collapse1" class="panel-collapse collapse in" data-parent="#accordion">
-                <div class="panel-body">
-                    <div id="question1Text"></div>
-                    <br/>
-                    <div class="answersSection">
-                        <label class="btn btn-primary">
-                            <input class="answer1" type="radio" name="age" value="<30" >&lt;30 years</input>
-                        </label>
-                        <label class="btn btn-primary">
-                            <input class="answer1" type="radio" name="age" value="30-39" >30-39 years</input>
-                        </label>
-                        <label class="btn btn-primary">
-                            <input class="answer1" type="radio" name="age" value="40-49" >40-49 years</input>
-                        </label>
-                        <label class="btn btn-primary">
-                            <input class="answer1" type="radio" name="age" value=">50" >&gt; 50 years</input>
-                        </label>
+    <div class="row">
+        <h2 id="title"></h2>
+    </div>
+    <div class="panel-group row" id="accordion">
+        <div class="col-lg-6">
+            <div id ="question1" class="panel panel-default question">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    <h4 class="panel-title">
+                    <a>Question 1</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in" data-parent="#accordion">
+                    <div class="panel-body">
+                        <div id="question1Text"></div>
+                        <br/>
+                        <div class="answersSection">
+                            <div class="answer1 btn btn-primary" type="radio" name="age" value="<30" >&lt;30 years</div>
+                            <div class="answer1 btn btn-primary" type="radio" name="age" value="30-39" >30-39 years</div>
+                            <div class="answer1 btn btn-primary" type="radio" name="age" value="40-49" >40-49 years</div>
+                            <div class="answer1 btn btn-primary" type="radio" name="age" value=">50" >&gt; 50 years</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <p>In the last six months...</p>
-        <div id ="question2" class="panel panel-default question collapse">
-            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                <h4 class="panel-title">
-                <a>Question 2</a>
-                </h4>
-            </div>
-            <div id="collapse2" class="panel-collapse collapse" data-parent="#accordion">
-                <div class="panel-body">
-                    <div id="question2Text"></div>
-                    <br/>
-                    <div class="answersSection">
-                        <label class="btn btn-primary">
-                            <input class="answer2" type="radio" name="methadone" value="Yes" >Yes</input>
-                        </label>
-                        <label class="btn btn-primary">
-                            <input class="answer2" type="radio" name="methadone" value="No">No</input>
-                        </label>
+            <p>In the last six months...</p>
+            <div id ="question2" class="panel panel-default question collapse">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                    <h4 class="panel-title">
+                    <a>Question 2</a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse" data-parent="#accordion">
+                    <div class="panel-body">
+                        <div id="question2Text"></div>
+                        <br/>
+                        <div class="answersSection">
+                            <div class="answer2 btn btn-primary" type="radio" name="methadone" value="1-5" >1-5</div>
+                            <div class="answer2 btn btn-primary" type="radio" name="methadone" value="6+">6+</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id ="question3" class="panel panel-default question collapse">
-            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                <h4 class="panel-title">
-                <a>Question 3</a>
-                </h4>
-            </div>
-            <div id="collapse3" class="panel-collapse collapse" data-parent="#accordion">
-                <div class="panel-body">
-                    <div id="question3Text"></div>
-                    <br/>
-                    <div class="answersSection">
-                        <label class="btn btn-primary">
-                            <input class="answer3" type="radio" name="heroin" value="0" >0 times</input>
-                        </label>
-                        <label class="btn btn-primary">
-                            <input class="answer3" type="radio" name="heroin" value="1">1 or more times</input>
-                        </label>
+            <div id ="question3" class="panel panel-default question collapse">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                    <h4 class="panel-title">
+                    <a>Question 3</a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse" data-parent="#accordion">
+                    <div class="panel-body">
+                        <div id="question3Text"></div>
+                        <br/>
+                        <div class="answersSection">
+                            <div class="answer3 btn btn-primary" type="radio" name="heroin" value="1-5" >1-5 times</div>
+                            <div class="answer3 btn btn-primary" type="radio" name="heroin" value="6+">6+ times</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id ="question4" class="panel panel-default question collapse">
-            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-                <h4 class="panel-title">
-                <a>Question 4</a>
-                </h4>
-            </div>
-            <div id="collapse4" class="panel-collapse collapse" data-parent="#accordion">
-                <div class="panel-body">
-                    <div id="question4Text"></div>
-                    <br/>
-                    <div class="answersSection">
-                        <label class="btn btn-primary">
-                            <input class="answer4" type="radio" name="cocaine" value="0" >0 times</input>
-                        </label>
-                        <label class="btn btn-primary">
-                            <input class="answer4" type="radio" name="cocaine" value="1">1 or more times</input>
-                        </label>
+            <div id ="question4" class="panel panel-default question collapse">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                    <h4 class="panel-title">
+                    <a>Question 4</a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse" data-parent="#accordion">
+                    <div class="panel-body">
+                        <div id="question4Text"></div>
+                        <br/>
+                        <div class="answersSection">
+                            <div class="answer4 btn btn-primary" type="radio" name="cocaine" value="1-4" >1-4</div>
+                            <div class="answer4 btn btn-primary" type="radio" name="cocaine" value="5+">5 or more</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id ="question5" class="panel panel-default question collapse">
-            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-                <h4 class="panel-title">
-                <a>Question 5</a>
-                </h4>
-            </div>
-            <div id="collapse5" class="panel-collapse collapse" data-parent="#accordion">
-                <div class="panel-body">
-                    <div id="question5Text"></div>
-                    <br/>
-                    <div class="answersSection">
-                        <label class="btn btn-primary">
-                            <input class="answer5" type="radio" name="cooker" value="0" >0 times</input>
-                        </label>
-                        <label class="btn btn-primary">
-                            <input class="answer5" type="radio" name="cooker" value="1">1 or more times</input>
-                        </label>
+            <div id ="question5" class="panel panel-default question collapse">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                    <h4 class="panel-title">
+                    <a>Question 5</a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse" data-parent="#accordion">
+                    <div class="panel-body">
+                        <div id="question5Text"></div>
+                        <br/>
+                        <div class="answersSection">
+                            <div class="answer5 btn btn-primary" type="radio" name="cooker" value="1-4" >1-4 times</div>
+                            <div class="answer5 btn btn-primary" type="radio" name="cooker" value="5+">5+ times</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id ="question6" class="panel panel-default question collapse">
-            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse6">
-                <h4 class="panel-title">
-                <a>Question 6</a>
-                </h4>
-            </div>
-            <div id="collapse6" class="panel-collapse collapse" data-parent="#accordion">
-                <div class="panel-body">
-                    <div id="question6Text"></div>
-                    <br/>
-                    <div class="answersSection">
-                        <label class="btn btn-primary">
-                            <input class="answer6" type="radio" name="needles" value="0" >0 times</input>
-                        </label>
-                        <label class="btn btn-primary">
-                            <input class="answer6" type="radio" name="needles" value="1">1 or more times</input>
-                        </label>
+            <div id ="question6" class="panel panel-default question collapse">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                    <h4 class="panel-title">
+                    <a>Question 6</a>
+                    </h4>
+                </div>
+                <div id="collapse6" class="panel-collapse collapse" data-parent="#accordion">
+                    <div class="panel-body">
+                        <div id="question6Text"></div>
+                        <br/>
+                        <div class="answersSection">
+                            <div class="answer6 btn btn-primary" type="radio" name="meth" value="yes" >Yes</div>
+                            <div class="answer6 btn btn-primary" type="radio" name="meth" value="no">No</div>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+        </div>
+        <div class="col-lg-6">
+            <div class="row-lg-6">
+                <h2> Your Results </h2>
+            </div>
+            <div class="row-lg-6">
+                <h2> CDC Recommendations </h2>
             </div>
         </div>
     </div>
-  <br/>
-  <div id ="finish" class="text-center">
-    <button type="button" id="finished-button" onclick="location.href='results.html';" data-loading-text="Loading..." class="btn btn-primary btn-lg" autocomplete="off">
-      Finished
-    </button>
-  </div>
+    <br/>
+    <div class="mainButtons">
+        <div id ="clear" class="text-center">
+            <button type="button" id="clear-button" class="btn btn-primary btn-lg pull-right" autocomplete="off">
+                Clear All
+            </button>
+        </div>
+
+        <div id ="save" class="text-center">
+            <button type="button" id="pdf-button" data-loading-text="Loading..." class="btn btn-primary btn-lg pull-left" autocomplete="off">
+                Save to PDF
+            </button>
+        </div>
+    </div>
 </div>
 </body>
+
+</body>
+
 
 <script type="text/javascript">
     $(document).ready(function(){
         msmSetup();
     });
+
+    function msmSetup(){
+        //load json
+        $.getJSON("ARCH-TOOLS.json", setMSMPage);
+    }
+
+    function setMSMPage(json){
+        var msmData = json.tests.MSM;
+        $("#title").html(msmData.name);
+        $("#finish").collapse("hide");
+        //loop questions
+        for(var index in msmData.questions){
+            var question = msmData.questions[index];
+            var text = question["text"];
+            var num = question["number"];
+            $("#question" + num + "Text").html(text);
+            $("#question" + num).collapse({toggle:false});
+        }
+
+        $("#question1").collapse("show");
+
+        $(".answer1").on("click",function(){
+
+            $("#question2").collapse("show");
+        });
+
+        $(".answer2").on("click",function(){
+
+          $("#question3").collapse("show");
+        });
+
+        $(".answer3").on("click",function(){
+
+          $("#question4").collapse("show");
+        });
+
+        $(".answer4").on("click",function(){
+
+          $("#question5").collapse("show");
+        });
+
+        $(".answer5").on("click",function(){
+
+          $("#question6").collapse("show");
+        });
+    }
+
 </script>
+
+
 </html>
