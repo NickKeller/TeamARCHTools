@@ -6,200 +6,209 @@
 
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/loader.js"></script>
 </head>
+
 <body>
 
 <div class="container">
-  <div class="row">
-  	<h2>Men Who Have Sex With Men</h2>
-  </div>
-  <div class="row">
-    <div class="col-lg-6">
-    	<h3>Questions</h3>
-        <div class="panel-group" id="accordion">
-
-          <div id ="question1" class="panel panel-default">
-            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-              <h4 class="panel-title">
-                <a>Question 1</a>
-              </h4>
-            </div>
-            <div id="collapse1" class="panel-collapse collapse in">
-              <div class="panel-body">
-                How old are you today (in years)?
-                <br/>
-                  <div>
-                      <input class="answer1" type="radio" name="age" value="18 - 28" >18 - 28</input><br/>
-                      <input class="answer1" type="radio" name="age" value="29 - 38" >29 - 38</input><br/>
-                      <input class="answer1" type="radio" name="age" value="39 - 48" >39 - 48</input><br/>
-                      <input class="answer1" type="radio" name="age" value="49 - 58" >49 - 58</input><br/>
-                      <input class="answer1" type="radio" name="age" value="59 - 28" >59 - 68</input><br/>
-                      <input class="answer1" type="radio" name="age" value="69+" >69 years or older</input>
-                  </div>
-              </div>
-            </div>
-          </div>
-
-          <div id ="question2" class="panel panel-default collapse">
-            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-              <h4 class="panel-title">
-                <a>Question 2</a>
-              </h4>
-            </div>
-            <div id="collapse2" class="panel-collapse collapse">
-             <div class="panel-body">
-                How many men did you have sex with?
-                <br/>
-                <div>
-                  <input class="answer2" type="radio" name="answer2" value="Yes">1-5</input><br/>
-                  <input class="answer2" type="radio" name="answer2" value="No">6+</input>
+    <div class="row">
+        <h2 id="title"></h2>
+    </div>
+    <div class="panel-group row" id="accordion">
+        <div class="col-lg-6">
+            <div id ="question1" class="panel panel-default question">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    <h4 class="panel-title">
+                    <a>Question 1</a>
+                    </h4>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <div id ="question3" class="panel panel-default collapse">
-            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-              <h4 class="panel-title">
-                <a>Question 3</a>
-              </h4>
-            </div>
-            <div id="collapse3" class="panel-collapse collapse">
-            <div class="panel-body">
-              How many times did you have receptive anal sex (you were the bottom) with another man?
-                <br/>
-                <div>
-                  <input class="answer3" type="radio" name="answer3" value="Yes">1-5</input><br/>
-                  <input class="answer3" type="radio" name="answer3" value="No">6+</input>
+                <div id="collapse1" class="panel-collapse collapse in" data-parent="#accordion">
+                    <div class="panel-body">
+                        <div id="question1Text"></div>
+                        <br/>
+                        <div class="answersSection">
+                            <div class="answer1 btn btn-primary" type="radio" name="age" value="<30" >&lt;30 years</div>
+                            <div class="answer1 btn btn-primary" type="radio" name="age" value="30-39" >30-39 years</div>
+                            <div class="answer1 btn btn-primary" type="radio" name="age" value="40-49" >40-49 years</div>
+                            <div class="answer1 btn btn-primary" type="radio" name="age" value=">50" >&gt; 50 years</div>
+                        </div>
+                    </div>
                 </div>
-             </div>
-          </div>
-
-
-          <div id ="question4" class="panel panel-default collapse">
-            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-              <h4 class="panel-title">
-                <a>Question 4</a>
-              </h4>
             </div>
-            <div id="collapse4" class="panel-collapse collapse">
-             <div class="panel-body">
-                How many of your male sexual parters were HIV positive?
-                <br/>
-                <div>
-                  <input class="answer4" type="radio" name="answer4" value="Yes">1-4</input><br/>
-                  <input class="answer4" type="radio" name="answer4" value="No">5 or more times</input>
+            <p>In the last six months...</p>
+            <div id ="question2" class="panel panel-default question collapse">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                    <h4 class="panel-title">
+                    <a>Question 2</a>
+                    </h4>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <div id ="question5" class="panel panel-default collapse">
-            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-              <h4 class="panel-title">
-                <a>Question 5</a>
-              </h4>
-            </div>
-            <div id="collapse5" class="panel-collapse collapse">
-             <div class="panel-body">
-                How many times did you have insertive anal sex (you were the top) with a man who was HIV positive?
-                <br/>
-                <div>
-                  <input class="answer5" type="radio" name="answer5" value="Yes">1-4</input><br/>
-                  <input class="answer5" type="radio" name="answer5" value="No">5 or more times</input>
+                <div id="collapse2" class="panel-collapse collapse" data-parent="#accordion">
+                    <div class="panel-body">
+                        <div id="question2Text"></div>
+                        <br/>
+                        <div class="answersSection">
+                            <div class="answer2 btn btn-primary" type="radio" name="methadone" value="1-5" >1-5</div>
+                            <div class="answer2 btn btn-primary" type="radio" name="methadone" value="6+">6+</div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
 
-          <div id ="question6" class="panel panel-default collapse">
-            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse6">
-              <h4 class="panel-title">
-                <a>Question 6</a>
-              </h4>
-            </div>
-            <div id="collapse6" class="panel-collapse collapse">
-             <div class="panel-body">
-                Did you use methamphetamines such as crystal or speed?
-                <br/>
-                <div>
-                  <input class="answer6" type="radio" name="answer6" value="Yes">Yes</input><br/>
-                  <input class="answer6" type="radio" name="answer6" value="No">No</input>
+            <div id ="question3" class="panel panel-default question collapse">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                    <h4 class="panel-title">
+                    <a>Question 3</a>
+                    </h4>
                 </div>
-              </div>
+                <div id="collapse3" class="panel-collapse collapse" data-parent="#accordion">
+                    <div class="panel-body">
+                        <div id="question3Text"></div>
+                        <br/>
+                        <div class="answersSection">
+                            <div class="answer3 btn btn-primary" type="radio" name="heroin" value="1-5" >1-5 times</div>
+                            <div class="answer3 btn btn-primary" type="radio" name="heroin" value="6+">6+ times</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <div id ="question7" class="panel panel-default collapse">
-            <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse7">
-              <h4 class="panel-title">
-                <a>Question 7</a>
-              </h4>
-            </div>
-            <div id="collapse7" class="panel-collapse collapse">
-             <div class="panel-body">
-                Did you use poppers (amyl nitrate)?
-                <br/>
-                <div>
-                  <input class="answer7" type="radio" name="answer7" value="Yes">Yes</input><br/>
-                  <input class="answer7" type="radio" name="answer7" value="No">No</input>
+            <div id ="question4" class="panel panel-default question collapse">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                    <h4 class="panel-title">
+                    <a>Question 4</a>
+                    </h4>
                 </div>
-              </div>
+                <div id="collapse4" class="panel-collapse collapse" data-parent="#accordion">
+                    <div class="panel-body">
+                        <div id="question4Text"></div>
+                        <br/>
+                        <div class="answersSection">
+                            <div class="answer4 btn btn-primary" type="radio" name="cocaine" value="1-4" >1-4</div>
+                            <div class="answer4 btn btn-primary" type="radio" name="cocaine" value="5+">5 or more</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <div id ="question5" class="panel panel-default question collapse">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                    <h4 class="panel-title">
+                    <a>Question 5</a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse" data-parent="#accordion">
+                    <div class="panel-body">
+                        <div id="question5Text"></div>
+                        <br/>
+                        <div class="answersSection">
+                            <div class="answer5 btn btn-primary" type="radio" name="cooker" value="1-4" >1-4 times</div>
+                            <div class="answer5 btn btn-primary" type="radio" name="cooker" value="5+">5+ times</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id ="question6" class="panel panel-default question collapse">
+                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                    <h4 class="panel-title">
+                    <a>Question 6</a>
+                    </h4>
+                </div>
+                <div id="collapse6" class="panel-collapse collapse" data-parent="#accordion">
+                    <div class="panel-body">
+                        <div id="question6Text"></div>
+                        <br/>
+                        <div class="answersSection">
+                            <div class="answer6 btn btn-primary" type="radio" name="meth" value="yes" >Yes</div>
+                            <div class="answer6 btn btn-primary" type="radio" name="meth" value="no">No</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-6">
+            <div class="row-lg-6">
+                <h2> Your Results </h2>
+            </div>
+            <div class="row-lg-6">
+                <h2> CDC Recommendations </h2>
+            </div>
         </div>
     </div>
-    </div>
-    <div class="col-lg-6">
-      <h3>Results and Reccomendations</h3>
-    </div>
+    <br/>
+    <div class="mainButtons">
+        <div id ="clear" class="text-center">
+            <button type="button" id="clear-button" class="btn btn-primary btn-lg pull-right" autocomplete="off">
+                Clear All
+            </button>
+        </div>
 
+        <div id ="save" class="text-center">
+            <button type="button" id="pdf-button" data-loading-text="Loading..." class="btn btn-primary btn-lg pull-left" autocomplete="off">
+                Save to PDF
+            </button>
+        </div>
+    </div>
 </div>
+</body>
 
 </body>
 
+
 <script type="text/javascript">
-	$(document).ready(function(){
-		//init, don't let them toggle
-		$("#question2").collapse({toggle:false});
-		$("#question3").collapse({toggle:false});
-    $("#question4").collapse({toggle:false});
-    $("#question5").collapse({toggle:false});
-    $("#question6").collapse({toggle:false});
-    $("#question7").collapse({toggle:false});
-
-
-		$(".answer1").on("click",function(){
-
-			$("#question2").collapse("show");
-		});
-
-    $(".answer2").on("click",function(){
-
-      $("#question3").collapse("show");
+    $(document).ready(function(){
+        msmSetup();
     });
 
-    $(".answer3").on("click",function(){
+    function msmSetup(){
+        //load json
+        $.getJSON("ARCH-TOOLS.json", setMSMPage);
+    }
 
-      $("#question4").collapse("show");
-    });
+    function setMSMPage(json){
+        var msmData = json.tests.MSM;
+        $("#title").html(msmData.name);
+        $("#finish").collapse("hide");
+        //loop questions
+        for(var index in msmData.questions){
+            var question = msmData.questions[index];
+            var text = question["text"];
+            var num = question["number"];
+            $("#question" + num + "Text").html(text);
+            $("#question" + num).collapse({toggle:false});
+        }
 
-    $(".answer4").on("click",function(){
+        $("#question1").collapse("show");
 
-      $("#question5").collapse("show");
-    });
+        $(".answer1").on("click",function(){
 
-    $(".answer5").on("click",function(){
+            $("#question2").collapse("show");
+        });
 
-      $("#question6").collapse("show");
-    });
+        $(".answer2").on("click",function(){
 
-    $(".answer6").on("click",function(){
+          $("#question3").collapse("show");
+        });
 
-      $("#question7").collapse("show");
-    });
+        $(".answer3").on("click",function(){
 
-	});
+          $("#question4").collapse("show");
+        });
+
+        $(".answer4").on("click",function(){
+
+          $("#question5").collapse("show");
+        });
+
+        $(".answer5").on("click",function(){
+
+          $("#question6").collapse("show");
+        });
+    }
 
 </script>
+
+
 </html>
