@@ -160,9 +160,59 @@
 </div>
 </body>
 
+
 <script type="text/javascript">
     $(document).ready(function(){
         msmSetup();
     });
+
+    function msmSetup(){
+        //load json
+        $.getJSON("ARCH-TOOLS.json", setMSMPage);
+    }
+
+    function setMSMPage(json){
+        var msmData = json.tests.MSM;
+        $("#title").html(msmData.name);
+        $("#finish").collapse("hide");
+        //loop questions
+        for(var index in msmData.questions){
+            var question = msmData.questions[index];
+            var text = question["text"];
+            var num = question["number"];
+            $("#question" + num + "Text").html(text);
+            $("#question" + num).collapse({toggle:false});
+        }
+
+        $("#question1").collapse("show");
+
+        $(".answer1").on("click",function(){
+
+            $("#question2").collapse("show");
+        });
+
+        $(".answer2").on("click",function(){
+
+          $("#question3").collapse("show");
+        });
+
+        $(".answer3").on("click",function(){
+
+          $("#question4").collapse("show");
+        });
+
+        $(".answer4").on("click",function(){
+
+          $("#question5").collapse("show");
+        });
+
+        $(".answer5").on("click",function(){
+
+          $("#question6").collapse("show");
+        });
+    }
+
 </script>
+
+
 </html>
