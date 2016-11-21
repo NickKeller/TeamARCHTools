@@ -9,3 +9,10 @@ div.tool-link {
   display: flex;
   align-items: center;
 }
+
+.pie {
+	max-height: 200px;
+	max-width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}

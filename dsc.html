@@ -3,9 +3,12 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstraphacks.css">
 
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/chart.min.js"></script>
+  <script src="js/dsc_charts.js"></script>
 </head>
 <body>
 
@@ -135,7 +138,52 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <h3>Results and Recommendations</h3>
+            <div class="row text-center">
+                <h3>Results and Recommendations</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 well">
+                    <div class="row">
+                        <h3>Chances of contracting HIV from your partner:</h3>
+                        <table class="table table-condensed table-striped table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>Per Month</td>
+                                    <td>0.0%</td>
+                                    <td>OR</td>
+                                    <td>1 in 9727</td>
+                                </tr>
+                                <tr>
+                                    <td>Per Year</td>
+                                    <td>0.0%</td>
+                                    <td>OR</td>
+                                    <td>1 in 9727</td>
+                                </tr>
+                                <tr>
+                                    <td>In 10 years</td>
+                                    <td>0.0%</td>
+                                    <td>OR</td>
+                                    <td>1 in 9727</td>
+                                </tr>
+                                <tr>
+                                    <td>In 25 years</td>
+                                    <td>0.0%</td>
+                                    <td>OR</td>
+                                    <td>1 in 9727</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-lg-offset-1 well">
+                    <h3>How much your specific sexual acts contribute to your risk of contracting HIV</h3>
+                    <canvas id="actChart" class="img-responsive pie"></canvas>
+                </div>
+                <div class="col-lg-10 col-lg-offset-1 well">
+                    <h3>Contributions to chances of contracting HIV by condom use</h3>
+                    <canvas id="condomChart" class="img-responsive pie"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 </div>
