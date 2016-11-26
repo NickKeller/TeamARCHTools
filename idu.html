@@ -3,10 +3,12 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-slider.min.css">
   <link rel="stylesheet" href="css/archtools.css">
 
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-slider.min.js"></script>
   <script src="js/loader.js"></script>
 </head>
 <body>
@@ -28,10 +30,7 @@
                         <div id="question1Text"></div>
                         <br/>
                         <div class="answersSection">
-                            <div class="answer1 btn btn-primary" type="radio" name="age" value="<30" >&lt;30 years</div>
-                            <div class="answer1 btn btn-primary" type="radio" name="age" value="30-39" >30-39 years</div>
-                            <div class="answer1 btn btn-primary" type="radio" name="age" value="40-49" >40-49 years</div>
-                            <div class="answer1 btn btn-primary" type="radio" name="age" value=">50" >&gt; 50 years</div>
+                            <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="99" data-slider-step="1" data-slider-value="0"/>
                         </div>
                     </div>
                 </div>
@@ -313,10 +312,22 @@
             $("#score").html(score);
             setScore(score);
         });
+
+        setupSliders();
 	}
 
     function setScore(val){
         $("#gauge-score").html(val);
+    }
+
+    function setupSliders() {
+        $('#ex1').slider({
+        	formatter: function(value) {
+                if (value == 99)
+                    return 'Age: 99+'
+        		return 'Age: ' + value;
+        	}
+        });
     }
 
 </script>
