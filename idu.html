@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <p>In the last six months...</p>
+            <h3 id ="last6" class="collapse">In the last six months...</h3>
             <div id ="question2" class="panel panel-default question collapse">
                 <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">
                     <h4 class="panel-title">
@@ -224,6 +224,7 @@
             }
             $("#score").html(score);
             setScore(score);
+			$("#last6").collapse("show");
 			$("#question2").collapse("show");
 		});
 
