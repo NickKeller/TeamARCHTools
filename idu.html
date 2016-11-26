@@ -30,7 +30,7 @@
                         <div id="question1Text"></div>
                         <br/>
                         <div class="answersSection">
-                            <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="99" data-slider-step="1" data-slider-value="0"/>
+                            <input class="answer1" type="text" data-slider-min="0" data-slider-max="60" data-slider-step="1"/>
                         </div>
                     </div>
                 </div>
@@ -207,16 +207,17 @@
 
         //can't do this in a loop, because javascript will assume
         //the current value of num, which at the end will be 7
-		$(".answer1").on("click",function(){
+		$(".answer1").on("change",function(){
             //get the value of what was clicked
             var value = $(this).attr("value");
-            if(value === "<30"){
+            console.log(value);
+            if(value < 30){
                 score = 38;
             }
-            else if(value === "30-39"){
+            else if(value > 30 && value < 40){
                 score = 24;
             }
-            else if(value === "40-49"){
+            else if(value > 40 && value < 50){
                 score = 7;
             }
             else{
@@ -321,10 +322,10 @@
     }
 
     function setupSliders() {
-        $('#ex1').slider({
+        $('.answer1').slider({
         	formatter: function(value) {
-                if (value == 99)
-                    return 'Age: 99+'
+                if (value == 60)
+                    return 'Age: 60+'
         		return 'Age: ' + value;
         	}
         });
