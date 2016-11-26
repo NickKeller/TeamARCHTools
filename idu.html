@@ -17,8 +17,8 @@
     <div class="row">
         <h2 id="title"></h2>
     </div>
-    <div class="panel-group row" id="accordion">
-        <div class="col-lg-6">
+    <div class="row">
+        <div id="accordion" class="panel-group col-lg-6">
             <div id ="question1" class="panel panel-default question">
                 <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                     <h4 class="panel-title">
@@ -210,7 +210,6 @@
 		$(".answer1").on("change",function(){
             //get the value of what was clicked
             var value = $(this).attr("value");
-            console.log(value);
             if(value < 30){
                 score = 38;
             }
