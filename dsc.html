@@ -4,36 +4,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstraphacks.css">
+  <link rel="stylesheet" href="css/bootstrap-slider.min.css">
+  <link rel="stylesheet" href="css/archtools.css">
 
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-slider.min.js"></script>
   <script src="js/Chart.min.js"></script>
   <script src="js/dsc_charts.js"></script>
+  <script src="js/loader.js"></script>
+  <script src="js/raphael-2.1.4.min.js"></script>
 </head>
 <body>
 
 <div class="container">
     <div class="row">
-        <h2> Discordant Couples </h2>
+        <h2 id="title"></h2>
     </div>
     <div class="row">
         <div class="col-lg-6">
             <h3>Questions</h3>
             <div class="panel-group" id="accordion">
 
-                <div id="question1" class="panel panel-default">
+                <div id="question1" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                         <h4 class="panel-title">
                             <a>Question 1</a>
                         </h4>
                     </div>
-                    <div id="collapse1" class="panel-collapse collapse in">
+                    <div id="collapse1" class="panel-collapse collapse" data-parent="#accordion">
                         <div class="panel-body">
-                            Are you curcumcised?
+                            <div id="question1Text"></div>
                             <br/>
-                            <div>
-                                <input class="answer1" type="radio" name="circumcised" value="yes"> yes</input><br/>
-                                <input class="answer1" type="radio" name="circumcised" value="no"> no</input><br/>
+                            <!-- Radio Button answers -->
+                            <div class="answer1 btn-group" data-toggle="buttons">
+                                <label id="answer11" class="btn btn-primary">
+                                    <input type="radio" value="0"> Yes
+                                </label>
+                                <label id="answer12" class="btn btn-primary">
+                                    <input type="radio" value="1"> No
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -45,13 +55,18 @@
                             <a>Question 2</a>
                         </h4>
                     </div>
-                    <div id="collapse2" class="panel-collapse collapse">
+                    <div id="collapse2" class="panel-collapse collapse" data-parent="#accordion">
                         <div class="panel-body">
-                            Are you taking PrEP?
+                            <div id="question2Text"></div>
                             <br/>
-                            <div>
-                                <input class="answer2" type="radio" name="prep" value="yes"> yes</input><br/>
-                                <input class="answer2" type="radio" name="prep" value="no"> no</input><br/>
+                            <!-- Radio Button answers -->
+                            <div class="answer2 btn-group" data-toggle="buttons">
+                                <label id="answer21" class="btn btn-primary">
+                                    <input type="radio" value="0"> Yes
+                                </label>
+                                <label id="answer22" class="btn btn-primary">
+                                    <input type="radio" value="1"> No
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -63,13 +78,18 @@
                             <a>Question 3</a>
                         </h4>
                     </div>
-                    <div id="collapse3" class="panel-collapse collapse">
+                    <div id="collapse3" class="panel-collapse collapse" data-parent="#accordion">
                         <div class="panel-body">
-                            Is your partner with HIV infection male or female?
+                            <div id="question3Text"></div>
                             <br/>
-                            <div>
-                                <input class="answer3" type="radio" name="gender" value="male"> male</input><br/>
-                                <input class="answer3" type="radio" name="gender" value="female"> female</input><br/>
+                            <!-- Radio Button answers -->
+                            <div class="answer3 btn-group" data-toggle="buttons">
+                                <label id="answer31" class="btn btn-primary">
+                                    <input type="radio" value="0"> Male
+                                </label>
+                                <label id="answer32" class="btn btn-primary">
+                                    <input type="radio" value="1"> Female
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -81,13 +101,18 @@
                             <a>Question 4</a>
                         </h4>
                     </div>
-                    <div id="collapse4" class="panel-collapse collapse">
+                    <div id="collapse4" class="panel-collapse collapse" data-parent="#accordion">
                         <div class="panel-body">
-                            Is your partner with HIV infection male or female?
+                            <div id="question4Text"></div>
                             <br/>
-                            <div>
-                                <input class="answer4" type="radio" name="gender" value="male"> male</input><br/>
-                                <input class="answer4" type="radio" name="gender" value="female"> female</input><br/>
+                            <!-- Radio Button answers -->
+                            <div class="answer4 btn-group" data-toggle="buttons">
+                                <label id="answer41" class="btn btn-primary">
+                                    <input type="radio" value="0"> Yes
+                                </label>
+                                <label id="answer42" class="btn btn-primary">
+                                    <input type="radio" value="1"> No
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -99,42 +124,180 @@
                             <a>Question 5</a>
                         </h4>
                     </div>
-                    <div id="collapse5" class="panel-collapse collapse">
+                    <div id="collapse5" class="panel-collapse collapse" data-parent="#accordion">
                         <div class="panel-body">
-                            How many times each month do you have vaginal sex with your partner?
+                            <div id="question5Text"></div>
                             <br/>
-                            <div>
+                            <div class="answersSection">
+                                <input class="answer5 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer5slider">0</span></span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div id="question6" class="panel panel-default collapse">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                        <h4 class="panel-title">
+                            <a>Question 6</a>
+                        </h4>
+                    </div>
+                    <div id="collapse6" class="panel-collapse collapse" data-parent="#accordion">
+                        <div class="panel-body">
+                            <div id="question6Text"></div>
+                            <br/>
+                            <div class="answersSection">
+                                <input class="answer6 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer6slider">0</span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="question7" class="panel panel-default collapse">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+                        <h4 class="panel-title">
+                            <a>Question 7</a>
+                        </h4>
+                    </div>
+                    <div id="collapse7" class="panel-collapse collapse" data-parent="#accordion">
+                        <div class="panel-body">
+                            <div id="question7Text"></div>
+                            <br/>
+                            <div class="answersSection">
+                                <input class="answer7 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer7slider">0</span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="question8" class="panel panel-default collapse">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+                        <h4 class="panel-title">
+                            <a>Question 8</a>
+                        </h4>
+                    </div>
+                    <div id="collapse8" class="panel-collapse collapse" data-parent="#accordion">
+                        <div class="panel-body">
+                            <div id="question8Text"></div>
+                            <br/>
+                            <div class="answersSection">
+                                <input class="answer8 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer8slider">0</span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="question9" class="panel panel-default collapse">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+                        <h4 class="panel-title">
+                            <a>Question 9</a>
+                        </h4>
+                    </div>
+                    <div id="collapse9" class="panel-collapse collapse" data-parent="#accordion">
+                        <div class="panel-body">
+                            <div id="question9Text"></div>
+                            <br/>
+                            <div class="answersSection">
+                                <input class="answer9 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer9slider">0</span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="question10" class="panel panel-default collapse">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse10">
+                        <h4 class="panel-title">
+                            <a>Question 10</a>
+                        </h4>
+                    </div>
+                    <div id="collapse10" class="panel-collapse collapse" data-parent="#accordion">
+                        <div class="panel-body">
+                            <div id="question10Text"></div>
+                            <br/>
+                            <div class="answersSection">
+                                <input class="answer10 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer10slider">0</span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="question11" class="panel panel-default collapse">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse11">
+                        <h4 class="panel-title">
+                            <a>Question 11</a>
+                        </h4>
+                    </div>
+                    <div id="collapse11" class="panel-collapse collapse" data-parent="#accordion">
+                        <div class="panel-body">
+                            <div id="question11Text"></div>
+                            <br/>
+                            <div class="answersSection">
+                                <input class="answer11 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer11slider">0</span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="question12" class="panel panel-default collapse">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse12">
+                        <h4 class="panel-title">
+                            <a>Question 12</a>
+                        </h4>
+                    </div>
+                    <div id="collapse12" class="panel-collapse collapse" data-parent="#accordion">
+                        <div class="panel-body">
+                            <div id="question12Text"></div>
+                            <br/>
+                            <div class="answersSection">
+                                <input class="answer12 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer12slider">0</span></span>
+                            </div>
+                        </div>
+                    </div>                    
                 </div>
 
                 <div id="question13" class="panel panel-default collapse">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse13">
+                        <h4 class="panel-title">
+                            <a>Question 13</a>
+                        </h4>
+                    </div>
+                    <div id="collapse13" class="panel-collapse collapse" data-parent="#accordion">
+                            <div class="panel-body">
+                            <div id="question13Text"></div>
+                            <br/>
+                            <div class="answersSection">
+                                <input class="answer13 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer13slider">0</span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="question14" class="panel panel-default collapse">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse14">
+                        <h4 class="panel-title">
+                            <a>Question 14</a>
+                        </h4>
+                    </div>
+                    <div id="collapse14" class="panel-collapse collapse" data-parent="#accordion">
+                        <div class="panel-body">
+                            <div id="question14Text"></div>
+                            <br/>
+                            <div class="answersSection">
+                                <input class="answer14 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer14slider">0</span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
         <div class="col-lg-6">
@@ -191,42 +354,321 @@
 </body>
 
 <script type="text/javascript">
-	$(document).ready(function(){
-		//init, don't let them toggle
-		$("#question2").collapse("hide");
-		$("#question3").collapse("hide");
-        $("#question4").collapse("hide");
-        $("#question5").collapse("hide");
-        $("#question6").collapse("hide");
-        $("#question7").collapse("hide");
-        $("#question8").collapse("hide");
-        $("#question9").collapse("hide");
-        $("#question10").collapse("hide");
-        $("#question11").collapse("hide");
-        $("#question12").collapse("hide");
-        $("#question13").collapse("hide");
-        $("#question14").collapse("hide");
 
-		$(".answer1").on("click",function(){
+    $(document).ready(function(){
+        dscSetup();
+    });
 
-			$("#question2").collapse("show");
-		});
+    function dscSetup(){
+        //loads the json from the file, then sets the questions on the page
+        $.getJSON("ARCH-TOOLS.json", setDSCPage);
+    }
 
-        $(".answer2").on("click",function(){
+    function setDSCPage(json){
+        //alert("Set page");
+        var dscData = json.tests.DSC;
+        $("#title").html(dscData.name);
+        $("#finish").collapse("hide");
+        //loop through the questions and set the text
+        for(var index in dscData.questions){
+            var question = dscData.questions[index];
+            var text = question["text"];
+            var num = question["number"];
+            //set the question text
+            $("#question" + num + "Text").html(text);
+            $("#question" + num).collapse({toggle:false});
+        }
 
-			$("#question3").collapse("show");
-		});
+        //show question 1
+        $("#question1").collapse("show");
 
-        $(".answer3").on("click",function(){
+        $("#answer11").on("click", function(){
+
+            $("#question2").collapse("show");
+        });
+
+        $("#answer12").on("click", function(){
+
+            $("#question2").collapse("show");
+        });
+
+        $("#answer21").on("click", function(){
+
+            $("#question3").collapse("show");
+        });
+
+        $("#answer22").on("click", function(){
+
+            $("#question3").collapse("show");
+        });
+
+        $("#answer31").on("click", function(){
 
             $("#question4").collapse("show");
         });
 
-        $(".answer4").on("click",function(){
+        $("#answer32").on("click", function(){
+
+            $("#question4").collapse("show");
+        });
+
+        $("#answer41").on("click", function(){
 
             $("#question5").collapse("show");
         });
-	});
+
+        $("#answer42").on("click", function(){
+
+            $("#question5").collapse("show");
+        });
+
+        $(".answer5").on("change",function(){
+
+            $("#question6").collapse("show");
+        });
+
+        $(".answer5").on("slide", function(slideEvt) {
+            var out;
+            if (slideEvt.value == 50){
+                out = '50 or more';
+            }
+            else {
+                out = slideEvt.value
+            }
+            $("#answer5slider").text(out);
+        });
+
+        $(".answer6").on("change",function(){
+
+            $("#question7").collapse("show");
+        });
+
+        $(".answer6").on("slide", function(slideEvt) {
+            var out;
+            if (slideEvt.value == 100){
+                out = '100 or more';
+            }
+            else {
+                out = slideEvt.value
+            }
+            $("#answer6slider").text(out);
+        });
+
+        $(".answer7").on("change",function(){
+
+            $("#question8").collapse("show");
+        });
+
+        $(".answer7").on("slide", function(slideEvt) {
+            var out;
+            if (slideEvt.value == 50){
+                out = '50 or more';
+            }
+            else {
+                out = slideEvt.value
+            }
+            $("#answer7slider").text(out);
+        });
+
+        $(".answer8").on("change",function(){
+
+            $("#question9").collapse("show");
+        });
+
+        $(".answer8").on("slide", function(slideEvt) {
+            var out;
+            if (slideEvt.value == 100){
+                out = '100 or more';
+            }
+            else {
+                out = slideEvt.value
+            }
+            $("#answer8slider").text(out);
+        });
+
+        $(".answer9").on("change",function(){
+
+            $("#question10").collapse("show");
+        });
+
+        $(".answer9").on("slide", function(slideEvt) {
+            var out;
+            if (slideEvt.value == 50){
+                out = '50 or more';
+            }
+            else {
+                out = slideEvt.value
+            }
+            $("#answer9slider").text(out);
+        });
+
+        $(".answer10").on("change",function(){
+
+            $("#question11").collapse("show");
+        });
+
+        $(".answer10").on("slide", function(slideEvt) {
+            var out;
+            if (slideEvt.value == 100){
+                out = '100 or more';
+            }
+            else {
+                out = slideEvt.value
+            }
+            $("#answer10slider").text(out);
+        });
+
+        $(".answer11").on("change",function(){
+
+            $("#question12").collapse("show");
+        });
+
+        $(".answer11").on("slide", function(slideEvt) {
+            var out;
+            if (slideEvt.value == 50){
+                out = '50 or more';
+            }
+            else {
+                out = slideEvt.value
+            }
+            $("#answer11slider").text(out);
+        });
+
+        $(".answer12").on("change",function(){
+
+            $("#question13").collapse("show");
+        });
+
+        $(".answer12").on("slide", function(slideEvt) {
+            var out;
+            if (slideEvt.value == 100){
+                out = '100 or more';
+            }
+            else {
+                out = slideEvt.value
+            }
+            $("#answer12slider").text(out);
+        });
+
+        $(".answer13").on("change",function(){
+
+            $("#question14").collapse("show");
+        });
+
+        $(".answer13").on("slide", function(slideEvt) {
+            var out;
+            if (slideEvt.value == 50){
+                out = '50 or more';
+            }
+            else {
+                out = slideEvt.value
+            }
+            $("#answer13slider").text(out);
+        });
+
+        $(".answer14").on("slide", function(slideEvt) {
+            var out;
+            if (slideEvt.value == 100){
+                out = '100 or more';
+            }
+            else {
+                out = slideEvt.value
+            }
+            $("#answer14slider").text(out);
+        });
+
+
+
+
+        setupSliders();
+
+    }
+
+    function setupSliders() {
+
+        $('.answer5').slider({
+            formatter: function(value) {
+                if(value == 50) {
+                    return '50 or more'
+                }
+                return value;
+            }
+        })
+        $('.answer6').slider({
+            formatter: function(value) {
+                if(value == 100) {
+                    return '100 or more'
+                }
+                return value;
+            }
+        })
+        $('.answer7').slider({
+            formatter: function(value) {
+                if(value == 50) {
+                    return '50 or more'
+                }
+                return value;
+            }
+        })
+        $('.answer8').slider({
+            formatter: function(value) {
+                if(value == 100) {
+                    return '100 or more'
+                }
+                return value;
+            }
+        })
+        $('.answer9').slider({
+            formatter: function(value) {
+                if(value == 50) {
+                    return '50 or more'
+                }
+                return value;
+            }
+        })
+        $('.answer10').slider({
+            formatter: function(value) {
+                if(value == 100) {
+                    return '100 or more'
+                }
+                return value;
+            }
+        })
+        $('.answer11').slider({
+            formatter: function(value) {
+                if(value == 50) {
+                    return '50 or more'
+                }
+                return value;
+            }
+        })
+        $('.answer12').slider({
+            formatter: function(value) {
+                if(value == 100) {
+                    return '100 or more'
+                }
+                return value;
+            }
+        })
+        $('.answer13').slider({
+            formatter: function(value) {
+                if(value == 50) {
+                    return '50 or more'
+                }
+                return value;
+            }
+        })
+        $('.answer14').slider({
+            formatter: function(value) {
+                if(value == 100) {
+                    return '100 or more'
+                }
+                return value;
+            }
+        })                                           
+    }
+
+
 
 </script>
 </html>

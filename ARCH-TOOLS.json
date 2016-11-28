@@ -65,18 +65,18 @@
                }
            }]
        },
-       "HIV Discordant": {
-           "name": "HIV Discordant Couples",
+       "DSC": {
+           "name": "DSC",
            "description": "For couples in which one partner has test HIV positive and one has not",
-           "url": "hivd.html",
+           "url": "dsc.html",
            "questions": [{
                "text": "Are you circumcised?",
                "type": "radio",
                "number": 1,
                "answers": ["Yes", "No"],
                "links": {
-                   "Yes": "X",
-                   "No": "Y"
+                   "Yes": "2",
+                   "No": "2"
                }
            }, {
                "text": "Are you taking PrEP?",
@@ -84,8 +84,8 @@
                "number": 2,
                "answers": ["Yes", "No"],
                "links": {
-                   "Yes": "X",
-                   "No": "Y"
+                   "Yes": "3",
+                   "No": "3"
                }
            }, {
                "text": "Is your partner with HIV infection male or female?",
@@ -93,29 +93,108 @@
                "number": 3,
                "answers": ["Male", "Female"],
                "links": {
-                   "Male": "X",
-                   "Female": "Y"
+                   "Male": "4",
+                   "Female": "4"
                }
            }, {
-               "text": "How many times each month do you have vaginal sex with your partner?"
+               "text": "Is your partner with HIV infection taking antiretroviral medicines for treatment?",
+               "type": "radio",
+               "number": 4,
+               "answers": ["Yes", "No"],
+               "links": {
+                   "Yes": "5",
+                   "No": "5"
+               }
            }, {
-               "text": "How many times each month do you use condoms when you have vaginal sex with your partner?"
+               "text": "How many times each month do you have insertive vaginal sex with your partner?",
+               "type": "radio",
+               "number": 5,
+               "answers": ["Once", "A lot"],
+               "links": {
+                   "Once": "6",
+                   "A lot": "6"
+               }
            }, {
-               "text": "How many times each month do you have insertive anal sex with your partner?"
+               "text": "How many times each month do you use condoms when you have vaginal sex with your partner?",
+               "type": "radio",
+               "number": 6,
+               "answers": ["Once", "A lot"],
+               "links": {
+                   "Once": "7",
+                   "A lot": "7"
+               }
            }, {
-               "text": "How many times each month do you use condoms when you have insertive anal sex with your partner?"
+               "text": "How many times each month do you have insertive anal sex with your partner?",
+               "type": "radio",
+               "number": 7,
+               "answers": ["Once", "A lot"],
+               "links": {
+                   "Once": "8",
+                   "A lot": "8"
+               }
            }, {
-               "text": "How many times each month do you have receptive anal sex with your partner?"
+               "text": "How many times each month do you use condoms when you have insertive anal sex with your partner?",
+               "type": "radio",
+               "number": 8,
+               "answers": ["Once", "A lot"],
+               "links": {
+                   "Once": "9",
+                   "A lot": "9"
+               }
            }, {
-               "text": "How many times each month do you use condoms when you have receptive anal sex with your partner?"
+               "text": "How many times each month do you have receptive anal sex with your partner?",
+               "type": "radio",
+               "number": 9,
+               "answers": ["Once", "A lot"],
+               "links": {
+                   "Once": "10",
+                   "A lot": "10"
+               }
            }, {
-               "text": "How many times each month do you give oral sex to your partner?"
+               "text": "How many times each month do you use condoms when you have receptive anal sex with your partner?",
+               "type": "radio",
+               "number": 10,
+               "answers": ["Once", "A lot"],
+               "links": {
+                   "Once": "11",
+                   "A lot": "11"
+               }
            }, {
-               "text": "How many times each month do you use condoms when you give oral sex to your partner?"
+               "text": "How many times each month do you give oral sex to your partner?",
+               "type": "radio",
+               "number": 11,
+               "answers": ["Once", "A lot"],
+               "links": {
+                   "Once": "12",
+                   "A lot": "12"
+               }
            }, {
-               "text": "How many times each month do you receive oral sex from your partner?"
+               "text": "How many times each month do you use condoms when you give oral sex to your partner?",
+               "type": "radio",
+               "number": 12,
+               "answers": ["Once", "A lot"],
+               "links": {
+                   "Yes": "13",
+                   "No": "13"
+               }
            }, {
-               "text": "How many times each month do you use condoms when receiving oral sex from your partner?"
+               "text": "How many times each month do you receive oral sex from your partner?",
+               "type": "radio",
+               "number": 13,
+               "answers": ["Once", "A lot"],
+               "links": {
+                   "Yes": "14",
+                   "No": "14"
+               }
+           }, {
+               "text": "How many times each month do you use condoms when receiving oral sex from your partner?",
+               "type": "radio",
+               "number": 14,
+               "answers": ["Once", "A lot"],
+               "links": {
+                   "Yes": "X",
+                   "No": "Y"
+               }
            }]
        },
        "MSM": {
@@ -187,6 +266,18 @@
                    "No": "X"
                }
            }]
+       }
+   },
+   "results":{
+       "IDU":{
+           "<45": "Go to a doctor to provide indicated standard HIV prevention services",
+           ">45": "Go to a doctor to evaluate for PrEP or other intensive HIV prevention services"
+       },
+       "MSM":{
+           "placeholder":"placeholder"
+       },
+       "DSC":{
+           "placeholder":"placeholder"
        }
    }
 }
