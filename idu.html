@@ -47,13 +47,13 @@
                     <div class="panel-body">
                         <div id="question2Text"></div>
                         <br/>
-                        <!-- Radio Button answers | values are flipped to make jquery more sensical-->
+                        <!-- Radio Button answers -->
                         <div class="answer2 btn-group" data-toggle="buttons">
-                            <label class="btn btn-primary">
-                                <input class="answer" type="radio" name="methadone" value="No"> Yes
+                            <label id="answer21" class="btn btn-primary">
+                                <input type="radio" value="Yes"> Yes
                             </label>
-                            <label class="btn btn-primary">
-                                <input class="answer" type="radio" name="methadone" value="Yes"> No
+                            <label id="answer22" class="btn btn-primary">
+                                <input type="radio" value="No"> No
                             </label>
                         </div>
                     </div>
@@ -70,9 +70,14 @@
                     <div class="panel-body">
                         <div id="question3Text"></div>
                         <br/>
-                        <div class="answersSection">
-                            <div class="answer3 btn btn-primary" type="radio" name="heroin" value="0" >0 times</div>
-                            <div class="answer3 btn btn-primary" type="radio" name="heroin" value="1">1 or more times</div>
+                        <!-- Radio Button answers -->
+                        <div class="answer3 btn-group" data-toggle="buttons">
+                            <label id="answer31" class="btn btn-primary">
+                                <input type="radio" value="0"> 0 times
+                            </label>
+                            <label id="answer32" class="btn btn-primary">
+                                <input type="radio" value="1"> 1 or more times
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -87,10 +92,15 @@
                 <div id="collapse4" class="panel-collapse collapse" data-parent="#accordion">
                     <div class="panel-body">
                         <div id="question4Text"></div>
-                        <br/>collapse
-                        <div class="answersSection">
-                            <div class="answer4 btn btn-primary" type="radio" name="cocaine" value="0" >0 times</div>
-                            <div class="answer4 btn btn-primary" type="radio" name="cocaine" value="1">1 or more times</div>
+                        <br/>
+                        <!-- Radio Button answers -->
+                        <div class="answer4 btn-group" data-toggle="buttons">
+                            <label id="answer41" class="btn btn-primary">
+                                <input type="radio" value="0"> 0 times
+                            </label>
+                            <label id="answer42" class="btn btn-primary">
+                                <input type="radio" value="1"> 1 or more times
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -106,9 +116,14 @@
                     <div class="panel-body">
                         <div id="question5Text"></div>
                         <br/>
-                        <div class="answersSection">
-                            <div class="answer5 btn btn-primary" type="radio" name="cooker" value="0" >0 times</div>
-                            <div class="answer5 btn btn-primary" type="radio" name="cooker" value="1">1 or more times</div>
+                        <!-- Radio Button answers -->
+                        <div class="answer5 btn-group" data-toggle="buttons">
+                            <label id="answer51" class="btn btn-primary">
+                                <input type="radio" value="0"> 0 times
+                            </label>
+                            <label id="answer52" class="btn btn-primary">
+                                <input type="radio" value="1"> 1 or more times
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -124,9 +139,14 @@
                     <div class="panel-body">
                         <div id="question6Text"></div>
                         <br/>
-                        <div class="answersSection">
-                            <div class="answer6 btn btn-primary" type="radio" name="needles" value="0" >0 times</div>
-                            <div class="answer6 btn btn-primary" type="radio" name="needles" value="1">1 or more times</div>
+                        <!-- Radio Button answers -->
+                        <div class="answer6 btn-group" data-toggle="buttons">
+                            <label id="answer61" class="btn btn-primary">
+                                <input type="radio" value="0"> 0 times
+                            </label>
+                            <label id="answer62" class="btn btn-primary">
+                                <input type="radio" value="1"> 1 or more times
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -142,9 +162,14 @@
                     <div class="panel-body">
                         <div id="question7Text"></div>
                         <br/>
-                        <div class="answersSection">
-                            <div class="answer7 btn btn-primary" type="radio" name="gallery" value="0" >0 times</div>
-                            <div class="answer7 btn btn-primary" type="radio" name="gallery" value="1">1 or more times</div>
+                        <!-- Radio Button answers -->
+                        <div class="answer7 btn-group" data-toggle="buttons">
+                            <label id="answer71" class="btn btn-primary">
+                                <input type="radio" value="0"> 0 times
+                            </label>
+                            <label id="answer72" class="btn btn-primary">
+                                <input type="radio" value="1"> 1 or more times
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -182,8 +207,8 @@
         iduSetup();
     });
 
-    var score = 0;
-    var subscore = 0;
+    var score = [0,0];
+    var subscore = [0,0,0,0,0];
 
     function iduSetup(){
     	//loads the json from the file, then sets the questions on the page
@@ -220,108 +245,103 @@
             //get the value of what was clicked
             var value = $(this).attr("value");
             if(value < 30){
-                score = 38;
+                score[0] = 38;
             }
             else if(value > 30 && value < 40){
-                score = 24;
+                score[0] = 24;
             }
             else if(value > 40 && value < 50){
-                score = 7;
+                score[0] = 7;
             }
             else{
-                score = 0;
+                score[0] = 0;
             }
-            $("#score").html(score);
+
             setScore(score);
+
 			$("#last6").collapse("show");
 			$("#question2").collapse("show");
 		});
 
-        $(".answer2").on("click", function(){
-            // Get the value
-            var radioValue = $("input[name='methadone']:checked").val();
+        $("#answer21").on("click", function(){
+            score[1] = 0;
 
-            if(radioValue === "No"){
-                score += 31;
-            }
-            $("#score").html(score);
             setScore(score);
             $("#question3").collapse("show");
         });
 
+        $("#answer22").on("click", function(){
+            score[1] = 31;
 
-        $(".answer3").on("click",function(){
-            //get the value
-            var value = $(this).attr("value");
-            if(value === "1"){
-                subscore += 1;
-            }
-            $("#subscore").html(subscore);
+            setScore(score);
+            $("#question3").collapse("show");
+        });
+
+        $("#answer31").on("click", function(){
+            subscore[0] = 0;
+
+            setScore(score);
             $("#question4").collapse("show");
         });
 
-	    $(".answer4").on("click",function(){
-            //get the value
-            var value = $(this).attr("value");
-            if(value === "1"){
-                subscore += 1;
-            }
-            $("#subscore").html(subscore);
+        $("#answer32").on("click", function(){
+            subscore[0] = 1;
 
+            setScore(score);
+            $("#question4").collapse("show");
+        });
+
+        $("#answer41").on("click", function(){
+            subscore[1] = 0;
+
+            setScore(score);
             $("#question5").collapse("show");
-	    });
+        });
 
-	    $(".answer5").on("click",function(){
-            //get the value
-            var value = $(this).attr("value");
-            if(value === "1"){
-                subscore += 1;
-            }
-            $("#subscore").html(subscore);
+        $("#answer42").on("click", function(){
+            subscore[1] = 1;
 
-	        $("#question6").collapse("show");
-	    });
+            setScore(score);
+            $("#question5").collapse("show");
+        });
 
-	    $(".answer6").on("click",function(){
-            //get the value
-            var value = $(this).attr("value");
-            if(value === "1"){
-                subscore += 1;
-            }
-            $("#subscore").html(subscore);
+        $("#answer51").on("click", function(){
+            subscore[2] = 0;
 
-	        $("#question7").collapse("show");
-	    });
+            setScore(score);
+            $("#question6").collapse("show");
+        });
 
-        $(".answer7").on("click", function(){
-            //get the value
-            var value = $(this).attr("value");
-            if(value === "1"){
-                subscore += 1;
-            }
-            $("#subscore").html(subscore);
+        $("#answer52").on("click", function(){
+            subscore[2] = 1;
 
-            switch (subscore) {
-                case 1:
-                    score += 7;
-                    break;
-                case 2:
-                    score += 21;
-                    break;
-                case 3:
-                    score += 24;
-                    break;
-                case 4:
-                    score += 24;
-                    break;
-                case 5:
-                    score += 31;
-                    break;
-                case 0:
-                default:
-                    break;
-            }
-            $("#score").html(score);
+            setScore(score);
+            $("#question6").collapse("show");
+        });
+
+        $("#answer61").on("click", function(){
+            subscore[3] = 0;
+
+            setScore(score);
+            $("#question7").collapse("show");
+        });
+
+        $("#answer62").on("click", function(){
+            subscore[3] = 1;
+
+            setScore(score);
+            $("#question7").collapse("show");
+        });
+
+        $("#answer71").on("click", function(){
+            subscore[4] = 0;
+
+            setScore(score);
+        });
+
+        $("#answer72").on("click", function(){
+            subscore[4] = 1;
+
             setScore(score);
         });
 
@@ -329,7 +349,34 @@
 	}
 
     function setScore(val){
-        $("#gauge-score").html(val);
+        var total = score[0] + score[1];
+        var sub_total = 0;
+        for (var i = 0, len = subscore.length; i < len; i++) {
+            sub_total += subscore[i];
+        }
+
+        switch (sub_total) {
+            case 1:
+                total += 7;
+                break;
+            case 2:
+                total += 21;
+                break;
+            case 3:
+                total += 24;
+                break;
+            case 4:
+                total += 24;
+                break;
+            case 5:
+                total += 31;
+                break;
+            case 0:
+            default:
+                break;
+        }
+
+        $("#gauge-score").html(total);
     }
 
     function setupSliders() {
