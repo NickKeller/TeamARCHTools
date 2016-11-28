@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap-slider.min.css">
-  <link rel="stylesheet" href="css/archtools.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-slider.min.css">
+    <link rel="stylesheet" href="css/archtools.css">
 
-  <script src="js/jquery-3.1.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/bootstrap-slider.min.js"></script>
-  <script src="js/loader.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-slider.min.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/justgage.js"></script>
+    <script src="js/raphael-2.1.4.min.js"></script>
 </head>
 <body>
 
@@ -147,16 +149,7 @@
         <div class="col-lg-6">
             <h2>Results and Recommendations</h2>
             <p>Score:</p><p id="score"></p>
-            <p>Subscore:</p><p id="subscore"></p>
-            <div class="gauge-area">
-                <div class="gauge-a"></div>
-                <div class="gauge-b"></div>
-                <div class="gauge-c"></div>
-                <div class="gauge-data">
-                    <h1 id="gauge-score">0</h1>
-                </div>
-            </div>
-
+            <div id="gauge" style="width:400px; height:320px"></div>
         </div>
     </div>
 	<br/>
@@ -175,6 +168,17 @@
 
     var score = 0;
     var subscore = 0;
+
+    var g = new JustGage({
+        id: "gauge",
+        value: 0,
+        min: 0,
+        max: 100,
+        title: "HIV Risk Index",
+        shadowSize: 5,
+        shadowOpacity: 0.75,
+        levelColorsGradient: true
+    });
 
     function iduSetup(){
     	//loads the json from the file, then sets the questions on the page
@@ -213,15 +217,19 @@
             if(value < 30){
                 score = 38;
             }
-            else if(value > 30 && value < 40){
+            else if(value >= 30 && value < 40){
                 score = 24;
             }
             else if(value > 40 && value < 50){
                 score = 7;
             }
-            else{
+            else {
                 score = 0;
             }
+
+            g.refresh(score)
+
+
             $("#score").html(score);
             setScore(score);
 			$("#last6").collapse("show");
