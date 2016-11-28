@@ -122,7 +122,7 @@
                 <div id="question5" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
                         <h4 class="panel-title">
-                            <a>Receptive Vaginal Sex</a>
+                            <a>Insertive Vaginal Sex</a>
                         </h4>
                     </div>
                     <div id="collapse5" class="panel-collapse collapse" data-parent="#accordion">
@@ -146,7 +146,7 @@
                 <div id="question7" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
                         <h4 class="panel-title">
-                            <a>Insertive Anal Sex</a>
+                            <a>Receptive Vaginal Sex</a>
                         </h4>
                     </div>
                     <div id="collapse7" class="panel-collapse collapse" data-parent="#accordion">
@@ -170,7 +170,7 @@
                 <div id="question9" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse9">
                         <h4 class="panel-title">
-                            <a>Receptive Anal Sex</a>
+                            <a>Insertive Anal Sex</a>
                         </h4>
                     </div>
                     <div id="collapse9" class="panel-collapse collapse" data-parent="#accordion">
@@ -194,7 +194,7 @@
                 <div id="question11" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse11">
                         <h4 class="panel-title">
-                            <a>Giving Oral Sex</a>
+                            <a>Receptive Anal Sex</a>
                         </h4>
                     </div>
                     <div id="collapse11" class="panel-collapse collapse" data-parent="#accordion">
@@ -218,7 +218,7 @@
                 <div id="question13" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse13">
                         <h4 class="panel-title">
-                            <a>Receiving Oral Sex</a>
+                            <a>Giving Oral Sex</a>
                         </h4>
                     </div>
                     <div id="collapse13" class="panel-collapse collapse" data-parent="#accordion">
@@ -234,6 +234,30 @@
                             <div class="answersSection">
                                 <input class="answer14 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer14slider">0</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="question15" class="panel panel-default collapse">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse15">
+                        <h4 class="panel-title">
+                            <a>Receiving Oral Sex</a>
+                        </h4>
+                    </div>
+                    <div id="collapse15" class="panel-collapse collapse" data-parent="#accordion">
+                            <div class="panel-body">
+                            <div id="question15Text"></div>
+                            <br/>
+                            <div class="answersSection">
+                                <input class="answer15 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer15slider">0</span></span>
+                            </div>
+                            <div id="question16Text"></div>
+                            <br/>
+                            <div class="answersSection">
+                                <input class="answer16 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer16slider">0</span></span>
                             </div>
                         </div>
                     </div>
@@ -493,7 +517,7 @@
 
         // $(".answer13").on("change",function(){
 
-        //     $("#question14").collapse("show");
+        //      $("#question14").collapse("show");
         // });
 
         $(".answer13").on("slide", function(slideEvt) {
@@ -507,6 +531,11 @@
             $("#answer13slider").text(out);
         });
 
+        $(".answer14").on("change",function(){
+
+            $("#question15").collapse("show");
+        });
+
         $(".answer14").on("slide", function(slideEvt) {
             var out;
             if (slideEvt.value == 100){
@@ -517,6 +546,38 @@
             }
             $("#answer14slider").text(out);
         });
+
+        // $(".answer15").on("change",function(){
+
+        //     $("#question16").collapse("show");
+        // });
+
+        $(".answer15").on("slide", function(slideEvt) {
+            var out;
+            if (slideEvt.value == 50){
+                out = '50 or more';
+            }
+            else {
+                out = slideEvt.value
+            }
+            $("#answer15slider").text(out);
+        });
+
+        // $(".answer16").on("change",function(){
+
+        //     $("#question16").collapse("show");
+        // });
+
+        $(".answer16").on("slide", function(slideEvt) {
+            var out;
+            if (slideEvt.value == 100){
+                out = '100 or more';
+            }
+            else {
+                out = slideEvt.value
+            }
+            $("#answer16slider").text(out);
+        });        
 
 
 
@@ -607,6 +668,23 @@
                 return value;
             }
         })
+        $('.answer15').slider({
+            formatter: function(value) {
+                if(value == 50) {
+                    return '50 or more'
+                }
+                return value;
+            }
+        })
+        $('.answer16').slider({
+            formatter: function(value) {
+                if(value == 100) {
+                    return '100 or more'
+                }
+                return value;
+            }
+        })
+
     }
 
 
