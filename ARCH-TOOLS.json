@@ -193,6 +193,12 @@
        "IDU":{
            "<45": "Go to a doctor to provide indicated standard HIV prevention services",
            ">45": "Go to a doctor to evaluate for PrEP or other intensive HIV prevention services"
+       },
+       "MSM":{
+           "placeholder":"placeholder"
+       },
+       "HIV Discordant":{
+           "placeholder":"placeholder"
        }
    }
 }
