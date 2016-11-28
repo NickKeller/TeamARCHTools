@@ -129,7 +129,7 @@
                             <div id="question5Text"></div>
                             <br/>
                             <div class="answersSection">
-                                <input class="answer5 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <input class="answer5 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer5slider">0</span></span>
                             </div>
                         </div>
@@ -165,7 +165,7 @@
                             <div id="question7Text"></div>
                             <br/>
                             <div class="answersSection">
-                                <input class="answer7 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <input class="answer7 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer7slider">0</span></span>
                             </div>
                         </div>
@@ -201,7 +201,7 @@
                             <div id="question9Text"></div>
                             <br/>
                             <div class="answersSection">
-                                <input class="answer9 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <input class="answer9 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer9slider">0</span></span>
                             </div>
                         </div>
@@ -237,7 +237,7 @@
                             <div id="question11Text"></div>
                             <br/>
                             <div class="answersSection">
-                                <input class="answer11 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <input class="answer11 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer11slider">0</span></span>
                             </div>
                         </div>
@@ -273,7 +273,7 @@
                             <div id="question13Text"></div>
                             <br/>
                             <div class="answersSection">
-                                <input class="answer13 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <input class="answer13 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer13slider">0</span></span>
                             </div>
                         </div>
@@ -429,8 +429,8 @@
 
         $(".answer5").on("slide", function(slideEvt) {
             var out;
-            if (slideEvt.value == 11){
-                out = '100 or more';
+            if (slideEvt.value == 50){
+                out = '50 or more';
             }
             else {
                 out = slideEvt.value
@@ -445,7 +445,7 @@
 
         $(".answer6").on("slide", function(slideEvt) {
             var out;
-            if (slideEvt.value == 11){
+            if (slideEvt.value == 100){
                 out = '100 or more';
             }
             else {
@@ -461,8 +461,8 @@
 
         $(".answer7").on("slide", function(slideEvt) {
             var out;
-            if (slideEvt.value == 11){
-                out = '100 or more';
+            if (slideEvt.value == 50){
+                out = '50 or more';
             }
             else {
                 out = slideEvt.value
@@ -477,7 +477,7 @@
 
         $(".answer8").on("slide", function(slideEvt) {
             var out;
-            if (slideEvt.value == 11){
+            if (slideEvt.value == 100){
                 out = '100 or more';
             }
             else {
@@ -493,8 +493,8 @@
 
         $(".answer9").on("slide", function(slideEvt) {
             var out;
-            if (slideEvt.value == 11){
-                out = '100 or more';
+            if (slideEvt.value == 50){
+                out = '50 or more';
             }
             else {
                 out = slideEvt.value
@@ -509,7 +509,7 @@
 
         $(".answer10").on("slide", function(slideEvt) {
             var out;
-            if (slideEvt.value == 11){
+            if (slideEvt.value == 100){
                 out = '100 or more';
             }
             else {
@@ -525,8 +525,8 @@
 
         $(".answer11").on("slide", function(slideEvt) {
             var out;
-            if (slideEvt.value == 11){
-                out = '100 or more';
+            if (slideEvt.value == 50){
+                out = '50 or more';
             }
             else {
                 out = slideEvt.value
@@ -541,7 +541,7 @@
 
         $(".answer12").on("slide", function(slideEvt) {
             var out;
-            if (slideEvt.value == 11){
+            if (slideEvt.value == 100){
                 out = '100 or more';
             }
             else {
@@ -557,8 +557,8 @@
 
         $(".answer13").on("slide", function(slideEvt) {
             var out;
-            if (slideEvt.value == 11){
-                out = '100 or more';
+            if (slideEvt.value == 50){
+                out = '50 or more';
             }
             else {
                 out = slideEvt.value
@@ -568,7 +568,7 @@
 
         $(".answer14").on("slide", function(slideEvt) {
             var out;
-            if (slideEvt.value == 11){
+            if (slideEvt.value == 100){
                 out = '100 or more';
             }
             else {
@@ -588,8 +588,8 @@
 
         $('.answer5').slider({
             formatter: function(value) {
-                if(value == 100) {
-                    return '100 or more'
+                if(value == 50) {
+                    return '50 or more'
                 }
                 return value;
             }
@@ -604,8 +604,8 @@
         })
         $('.answer7').slider({
             formatter: function(value) {
-                if(value == 100) {
-                    return '100 or more'
+                if(value == 50) {
+                    return '50 or more'
                 }
                 return value;
             }
@@ -620,8 +620,8 @@
         })
         $('.answer9').slider({
             formatter: function(value) {
-                if(value == 100) {
-                    return '100 or more'
+                if(value == 50) {
+                    return '50 or more'
                 }
                 return value;
             }
@@ -636,8 +636,8 @@
         })
         $('.answer11').slider({
             formatter: function(value) {
-                if(value == 100) {
-                    return '100 or more'
+                if(value == 50) {
+                    return '50 or more'
                 }
                 return value;
             }
@@ -652,8 +652,8 @@
         })
         $('.answer13').slider({
             formatter: function(value) {
-                if(value == 100) {
-                    return '100 or more'
+                if(value == 50) {
+                    return '50 or more'
                 }
                 return value;
             }
