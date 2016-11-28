@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-slider.min.css">
+    <link rel="stylesheet" href="css/archtools.css">
 
-  <script src="js/jquery-3.1.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/loader.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-slider.min.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/justgage.js"></script>
+    <script src="js/raphael-2.1.4.min.js"></script>
 </head>
-
 <body>
 
 <div class="container">
     <div class="row">
         <h2 id="title"></h2>
     </div>
-    <div class="panel-group row" id="accordion">
-        <div class="col-lg-6">
+    <div class="row">
+        <div id="accordion" class="panel-group col-lg-6">
+            <h2>Questions</h2>
             <div id ="question1" class="panel panel-default question">
                 <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                     <h4 class="panel-title">
@@ -28,15 +33,11 @@
                         <div id="question1Text"></div>
                         <br/>
                         <div class="answersSection">
-                            <div class="answer1 btn btn-primary" type="radio" name="age" value="<30" >&lt;30 years</div>
-                            <div class="answer1 btn btn-primary" type="radio" name="age" value="30-39" >30-39 years</div>
-                            <div class="answer1 btn btn-primary" type="radio" name="age" value="40-49" >40-49 years</div>
-                            <div class="answer1 btn btn-primary" type="radio" name="age" value=">50" >&gt; 50 years</div>
+                            <input class="answer1" type="text" data-slider-min="17" data-slider-max="49" data-slider-step="1" data-slider-value="17"/>
                         </div>
                     </div>
                 </div>
             </div>
-            <p>In the last six months...</p>
             <div id ="question2" class="panel panel-default question collapse">
                 <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">
                     <h4 class="panel-title">
@@ -48,8 +49,7 @@
                         <div id="question2Text"></div>
                         <br/>
                         <div class="answersSection">
-                            <div class="answer2 btn btn-primary" type="radio" name="methadone" value="1-5" >1-5</div>
-                            <div class="answer2 btn btn-primary" type="radio" name="methadone" value="6+">6+</div>
+                            <input class="answer2" type="text" data-slider-min="0" data-slider-max="11" data-slider-step="1" data-slider-value="0"/>
                         </div>
                     </div>
                 </div>
@@ -65,9 +65,14 @@
                     <div class="panel-body">
                         <div id="question3Text"></div>
                         <br/>
-                        <div class="answersSection">
-                            <div class="answer3 btn btn-primary" type="radio" name="heroin" value="1-5" >1-5 times</div>
-                            <div class="answer3 btn btn-primary" type="radio" name="heroin" value="6+">6+ times</div>
+                        <!-- Radio Button answers -->
+                        <div class="answer3 btn-group" data-toggle="buttons">
+                            <label id="answer31" class="btn btn-primary">
+                                <input type="radio" value="0"> 0 times
+                            </label>
+                            <label id="answer32" class="btn btn-primary">
+                                <input type="radio" value="10"> 1 or more times
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -83,9 +88,17 @@
                     <div class="panel-body">
                         <div id="question4Text"></div>
                         <br/>
-                        <div class="answersSection">
-                            <div class="answer4 btn btn-primary" type="radio" name="cocaine" value="1-4" >1-4</div>
-                            <div class="answer4 btn btn-primary" type="radio" name="cocaine" value="5+">5 or more</div>
+                        <!-- Radio Button answers -->
+                        <div class="answer4 btn-group" data-toggle="buttons">
+                            <label id="answer41" class="btn btn-primary">
+                                <input type="radio" value="0"> 0 parters
+                            </label>
+                            <label id="answer42" class="btn btn-primary">
+                                <input type="radio" value="1"> 1 partner
+                            </label>
+                            <label id="answer43" class="btn btn-primary">
+                                <input type="radio" value="2"> More than 1 partner
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -101,9 +114,14 @@
                     <div class="panel-body">
                         <div id="question5Text"></div>
                         <br/>
-                        <div class="answersSection">
-                            <div class="answer5 btn btn-primary" type="radio" name="cooker" value="1-4" >1-4 times</div>
-                            <div class="answer5 btn btn-primary" type="radio" name="cooker" value="5+">5+ times</div>
+                        <!-- Radio Button answers -->
+                        <div class="answer5 btn-group" data-toggle="buttons">
+                            <label id="answer51" class="btn btn-primary">
+                                <input type="radio" value="0"> Less than 5 times
+                            </label>
+                            <label id="answer52" class="btn btn-primary">
+                                <input type="radio" value="1"> 5 or more times
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -119,96 +137,220 @@
                     <div class="panel-body">
                         <div id="question6Text"></div>
                         <br/>
-                        <div class="answersSection">
-                            <div class="answer6 btn btn-primary" type="radio" name="meth" value="yes" >Yes</div>
-                            <div class="answer6 btn btn-primary" type="radio" name="meth" value="no">No</div>
+                        <!-- Radio Button answers -->
+                        <div class="answer6 btn-group" data-toggle="buttons">
+                            <label id="answer61" class="btn btn-primary">
+                                <input type="radio" value="0"> Yes
+                            </label>
+                            <label id="answer62" class="btn btn-primary">
+                                <input type="radio" value="1"> No
+                            </label>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="col-lg-6">
-            <div class="row-lg-6">
-                <h2> Your Results </h2>
-            </div>
-            <div class="row-lg-6">
-                <h2> CDC Recommendations </h2>
-            </div>
+            <h2>Results and Recommendations</h2>
+            <div id="gauge" style="width:400px; height:320px"></div>
         </div>
     </div>
-    <br/>
-    <div class="mainButtons">
-        <div id ="clear" class="text-center">
-            <button type="button" id="clear-button" class="btn btn-primary btn-lg pull-right" autocomplete="off">
-                Clear All
-            </button>
-        </div>
-
-        <div id ="save" class="text-center">
-            <button type="button" id="pdf-button" data-loading-text="Loading..." class="btn btn-primary btn-lg pull-left" autocomplete="off">
-                Save to PDF
-            </button>
-        </div>
-    </div>
+	<br/>
+	<div id ="finish" class="text-center">
+		<button type="button" id="pdf-button" data-loading-text="Loading..." class="btn btn-primary btn-lg speedometer" autocomplete="off">
+			Save to PDF
+		</button>
+	</div>
 </div>
 </body>
-
-</body>
-
 
 <script type="text/javascript">
     $(document).ready(function(){
         msmSetup();
     });
 
+    var score = [0,0,0,0,0,0];
+
+    var g = new JustGage({
+        id: "gauge",
+        value: 0,
+        min: 0,
+        max: 45,
+        title: "HIV Risk Index",
+        shadowSize: 5,
+        shadowOpacity: 0.75,
+        levelColorsGradient: true
+    });
+
     function msmSetup(){
-        //load json
-        $.getJSON("ARCH-TOOLS.json", setMSMPage);
+    	//loads the json from the file, then sets the questions on the page
+    	$.getJSON("ARCH-TOOLS.json", setMSMPage);
+    	//wait for success
     }
 
-    function setMSMPage(json){
-        var msmData = json.tests.MSM;
-        $("#title").html(msmData.name);
-        $("#finish").collapse("hide");
-        //loop questions
-        for(var index in msmData.questions){
-            var question = msmData.questions[index];
-            var text = question["text"];
-            var num = question["number"];
-            $("#question" + num + "Text").html(text);
-            $("#question" + num).collapse({toggle:false});
-        }
+    	// $(".answer3").on("click",function(){
+    	// 	$("#finish").collapse("show");
+    	// });
 
+	function setMSMPage(json){
+		//alert("Set page");
+		var msmData = json.tests.MSM;
+		$("#title").html(msmData.name);
+		$("#finish").collapse("hide");
+		//loop through the questions and set the text
+		for(var index in msmData.questions){
+			var question = msmData.questions[index];
+			var text = question["text"];
+			var num = question["number"];
+			//set the question text
+			$("#question" + num + "Text").html(text);
+            $("#question" + num).collapse({toggle:false});
+		}
+
+        //show question 1
         $("#question1").collapse("show");
 
-        $(".answer1").on("click",function(){
 
-            $("#question2").collapse("show");
+        //can't do this in a loop, because javascript will assume
+        //the current value of num, which at the end will be 7
+		$(".answer1").on("change",function(){
+            //get the value of what was clicked
+            var value = $(this).attr("value");
+            if(value < 18){
+                score[0] = 0;
+            }
+            else if(value >= 18 && value <= 28){
+                score[0] = 8;
+            }
+            else if(value >= 29 && value <= 40){
+                score[0] = 5;
+            }
+            else if(value >= 41 && value <= 48) {
+                score[0] = 2;
+            }
+            else {
+                score[0] = 0;
+            }
+
+            setScore(score);
+
+			$("#last6").collapse("show");
+			$("#question2").collapse("show");
+		});
+
+        $(".answer2").on("change",function(){
+            //get the value of what was clicked
+            var value = $(this).attr("value");
+            if(value <= 5){
+                score[1] = 0;
+            }
+            else if(value >= 6 && value <= 10){
+                score[1] = 4;
+            }
+            else {
+                score[1] = 7;
+            }
+
+            setScore(score);
+
+			// $("#last6").collapse("show");
+			$("#question3").collapse("show");
+		});
+
+
+        $("#answer31").on("click", function(){
+            score[2] = 0;
+
+            setScore(score);
+            $("#question4").collapse("show");
         });
 
-        $(".answer2").on("click",function(){
+        $("#answer32").on("click", function(){
+            score[2] = 10;
 
-          $("#question3").collapse("show");
+            setScore(score);
+            $("#question4").collapse("show");
         });
 
-        $(".answer3").on("click",function(){
+        $("#answer41").on("click", function(){
+            score[3] = 0;
 
-          $("#question4").collapse("show");
+            setScore(score);
+            $("#question5").collapse("show");
         });
 
-        $(".answer4").on("click",function(){
+        $("#answer42").on("click", function(){
+            score[3] = 4;
 
-          $("#question5").collapse("show");
+            setScore(score);
+            $("#question5").collapse("show");
         });
 
-        $(".answer5").on("click",function(){
+        $("#answer43").on("click", function(){
+            score[3] = 8;
 
-          $("#question6").collapse("show");
+            setScore(score);
+            $("#question5").collapse("show");
+        })
+
+        $("#answer51").on("click", function(){
+            score[4] = 0;
+
+            setScore(score);
+            $("#question6").collapse("show");
         });
+
+        $("#answer52").on("click", function(){
+            score[4] = 6;
+
+            setScore(score);
+            $("#question6").collapse("show");
+        });
+
+        $("#answer61").on("click", function(){
+            score[5] = 6;
+
+            setScore(score);
+        });
+
+        $("#answer62").on("click", function(){
+            score[5] = 0;
+
+            setScore(score);
+        });
+
+        setupSliders();
+	}
+
+    function setScore(val){
+        var total = 0;
+
+        for(var i = 0; i < val.length; i++) {
+            total += val[i];
+        }
+
+        g.refresh(total);
+    }
+
+    function setupSliders() {
+        $('.answer1').slider({
+        	formatter: function(value) {
+                if (value == 49)
+                    return '49 or above'
+                if (value == 17)
+                    return '17 or below'
+        		return value;
+        	}
+        });
+        $('.answer2').slider({
+            formatter: function(value) {
+                if(value == 11) {
+                    return '11 or more'
+                }
+                return value;
+            }
+        })
     }
 
 </script>
-
-
 </html>
