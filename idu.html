@@ -32,7 +32,8 @@
                         <div id="question1Text"></div>
                         <br/>
                         <div class="answersSection">
-                            <input class="answer1" type="text" data-slider-min="0" data-slider-max="60" data-slider-step="1"/>
+                            <input class="answer1" type="text"  data-slider-tooltip="hide" data-slider-min="17" data-slider-max="50" data-slider-step="1" data-slider-value="17"/>
+                            <span>Age: <span id="answer1slider">17 or younger</span></span>
                         </div>
                     </div>
                 </div>
@@ -262,6 +263,20 @@
 			$("#last6").collapse("show");
 			$("#question2").collapse("show");
 		});
+
+        $(".answer1").on("slide", function(slideEvt) {
+            var out;
+            if (slideEvt.value == 50){
+                out = '50 or older';
+            }
+            else if (slideEvt.value == 17) {
+                out = '17 or younger'
+            }
+            else {
+                out = slideEvt.value
+            }
+        	$("#answer1slider").text(out);
+        });
 
         $("#answer21").on("click", function(){
             score[1] = 0;
