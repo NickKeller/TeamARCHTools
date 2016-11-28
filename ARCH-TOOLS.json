@@ -106,7 +106,7 @@
                    "No": "5"
                }
            }, {
-               "text": "How many times each month do you use condoms when you have vaginal sex with your partner?",
+               "text": "How many times each month do you have insertive vaginal sex with your partner?",
                "type": "radio",
                "number": 5,
                "answers": ["Once", "A lot"],
