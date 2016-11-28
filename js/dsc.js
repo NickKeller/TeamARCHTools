@@ -17,7 +17,7 @@ const RR_CIRC_ANAL = 3.41;
 var ulcerPresentPercent = 0;
 var _rrCondom, _rrArt, _rrPrepHetro, _rrPrepMsm, _rrCircVag, _rrCircAnal;
 
-function UpdateRiskRatios(isOnArt, isOnPrep, isCircumcised, isMale)
+function UpdateRiskRatios(isCircumcised, isOnPrep, isMale, isOnArt)
 {
 
     _rrCondom = RR_CONDOM;
