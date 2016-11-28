@@ -133,18 +133,6 @@
                                 <input class="answer5 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer5slider">0</span></span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="question6" class="panel panel-default collapse">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
-                        <h4 class="panel-title">
-                            <a>Question 6</a>
-                        </h4>
-                    </div>
-                    <div id="collapse6" class="panel-collapse collapse" data-parent="#accordion">
-                        <div class="panel-body">
                             <div id="question6Text"></div>
                             <br/>
                             <div class="answersSection">
@@ -169,18 +157,6 @@
                                 <input class="answer7 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer7slider">0</span></span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="question8" class="panel panel-default collapse">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse8">
-                        <h4 class="panel-title">
-                            <a>Question 8</a>
-                        </h4>
-                    </div>
-                    <div id="collapse8" class="panel-collapse collapse" data-parent="#accordion">
-                        <div class="panel-body">
                             <div id="question8Text"></div>
                             <br/>
                             <div class="answersSection">
@@ -205,18 +181,6 @@
                                 <input class="answer9 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer9slider">0</span></span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="question10" class="panel panel-default collapse">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse10">
-                        <h4 class="panel-title">
-                            <a>Question 10</a>
-                        </h4>
-                    </div>
-                    <div id="collapse10" class="panel-collapse collapse" data-parent="#accordion">
-                        <div class="panel-body">
                             <div id="question10Text"></div>
                             <br/>
                             <div class="answersSection">
@@ -241,18 +205,6 @@
                                 <input class="answer11 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer11slider">0</span></span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="question12" class="panel panel-default collapse">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse12">
-                        <h4 class="panel-title">
-                            <a>Question 12</a>
-                        </h4>
-                    </div>
-                    <div id="collapse12" class="panel-collapse collapse" data-parent="#accordion">
-                        <div class="panel-body">
                             <div id="question12Text"></div>
                             <br/>
                             <div class="answersSection">
@@ -276,6 +228,12 @@
                             <div class="answersSection">
                                 <input class="answer13 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer13slider">0</span></span>
+                            </div>
+                            <div id="question14Text"></div>
+                            <br/>
+                            <div class="answersSection">
+                                <input class="answer14 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer14slider">0</span></span>
                             </div>
                         </div>
                     </div>
@@ -423,10 +381,10 @@
             $("#question5").collapse("show");
         });
 
-        $(".answer5").on("change",function(){
+        // $(".answer5").on("change",function(){
 
-            $("#question6").collapse("show");
-        });
+        //     $("#question7").collapse("show");
+        // });
 
         $(".answer5").on("slide", function(slideEvt) {
             var out;
@@ -455,10 +413,10 @@
             $("#answer6slider").text(out);
         });
 
-        $(".answer7").on("change",function(){
+        // $(".answer7").on("change",function(){
 
-            $("#question8").collapse("show");
-        });
+        //     $("#question9").collapse("show");
+        // });
 
         $(".answer7").on("slide", function(slideEvt) {
             var out;
@@ -487,10 +445,10 @@
             $("#answer8slider").text(out);
         });
 
-        $(".answer9").on("change",function(){
+        // $(".answer9").on("change",function(){
 
-            $("#question10").collapse("show");
-        });
+        //     $("#question11").collapse("show");
+        // });
 
         $(".answer9").on("slide", function(slideEvt) {
             var out;
@@ -519,10 +477,10 @@
             $("#answer10slider").text(out);
         });
 
-        $(".answer11").on("change",function(){
+        // $(".answer11").on("change",function(){
 
-            $("#question12").collapse("show");
-        });
+        //     $("#question13").collapse("show");
+        // });
 
         $(".answer11").on("slide", function(slideEvt) {
             var out;
@@ -551,10 +509,10 @@
             $("#answer12slider").text(out);
         });
 
-        $(".answer13").on("change",function(){
+        // $(".answer13").on("change",function(){
 
-            $("#question14").collapse("show");
-        });
+        //     $("#question14").collapse("show");
+        // });
 
         $(".answer13").on("slide", function(slideEvt) {
             var out;
