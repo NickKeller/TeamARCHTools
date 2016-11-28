@@ -182,10 +182,16 @@
         <div class="col-lg-6">
             <h2>Results and Recommendations</h2>
             <div id="gauge" style="width:400px; height:320px"></div>
+            <h3>Recommended Actions</h3>
+            <div id="recommended-actions-display">
+                <ul>
+                    <li id="recommended-actions"></li>
+                </ul>
+            </div>
         </div>
     </div>
 	<br/>
-	<div id ="finish" class="text-center">
+	<div id="finish" class="text-center">
 		<button type="button" id="pdf-button" data-loading-text="Loading..." class="btn btn-primary btn-lg speedometer" autocomplete="off">
 			Save to PDF
 		</button>
@@ -200,6 +206,8 @@
 
     var score = [0,0];
     var subscore = [0,0,0,0,0];
+    var resultsToTake;
+    var iduData;
 
     var g = new JustGage({
         id: "gauge",
@@ -224,7 +232,8 @@
 
 	function setIDUPage(json){
 		//alert("Set page");
-		var iduData = json.tests.IDU;
+		iduData = json.tests.IDU;
+        resultsToTake = json.results.IDU;
 		$("#title").html(iduData.name);
 		$("#finish").collapse("hide");
 		//loop through the questions and set the text
@@ -264,6 +273,9 @@
 			$("#last6").collapse("show");
 			$("#question2").collapse("show");
 		});
+
+        //hide the results
+        $("#recommended-actions-display").hide();
 
         $(".answer1").on("slide", function(slideEvt) {
             var out;
@@ -393,6 +405,12 @@
         }
 
         g.refresh(total);
+        var actionToDisplay = resultsToTake[">45"];
+        if(total <= 45){
+            actionToDisplay = resultsToTake["<45"];
+        }
+        $("#recommended-actions-display").show();
+        $("#recommended-actions").html(actionToDisplay);
     }
 
     function setupSliders() {
