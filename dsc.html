@@ -128,14 +128,9 @@
                         <div class="panel-body">
                             <div id="question5Text"></div>
                             <br/>
-                            <!-- Radio Button answers -->
-                            <div class="answer5 btn-group" data-toggle="buttons">
-                                <label id="answer51" class="btn btn-primary">
-                                    <input type="radio" value="0"> Yes
-                                </label>
-                                <label id="answer52" class="btn btn-primary">
-                                    <input type="radio" value="1"> No
-                                </label>
+                            <div class="answersSection">
+                                <input class="answer5 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer5slider">0</span></span>
                             </div>
                         </div>
                     </div>
@@ -471,14 +466,20 @@
             $("#question5").collapse("show");
         });
 
-        $("#answer51").on("click", function(){
+        $(".answer5").on("change",function(){
 
             $("#question6").collapse("show");
         });
 
-        $("#answer52").on("click", function(){
-
-            $("#question6").collapse("show");
+        $(".answer5").on("slide", function(slideEvt) {
+            var out;
+            if (slideEvt.value == 11){
+                out = '11 or more';
+            }
+            else {
+                out = slideEvt.value
+            }
+            $("#answer5slider").text(out);
         });
 
         $("#answer61").on("click", function(){
@@ -561,7 +562,20 @@
             $("#question14").collapse("show");
         });
 
+        setupSliders();
 
+    }
+
+    function setupSliders() {
+
+        $('.answer5').slider({
+            formatter: function(value) {
+                if(value == 100) {
+                    return '100 or more'
+                }
+                return value;
+            }
+        })
     }
 
 
