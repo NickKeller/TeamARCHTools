@@ -17,30 +17,30 @@ const RR_CIRC_ANAL = 3.41;
 var ulcerPresentPercent = 0;
 var _rrCondom, _rrArt, _rrPrepHetro, _rrPrepMsm, _rrCircVag, _rrCircAnal;
 
-function SetupRiskRatios();
+function UpdateRiskRatios(isOnArt, isOnPrep, isCircumcised, isMale)
 {
 
     _rrCondom = RR_CONDOM;
-    if (_hivPosPartner.isOnArt)
+    if (isOnArt)
         _rrArt = RR_ART;
     else
         _rrArt = 1;
-    if (_hivNegPartner.isOnPrep)
+    if (isOnPrep)
         _rrPrepHetro = RR_PREP_HET;
     else
         _rrPrepHetro = 1;
 
-    if (_hivNegPartner.isOnPrep)
+    if (isOnPrep)
         _rrPrepMsm = RR_PREP_MSM;
     else
         _rrPrepMsm = 1;
 
-    if (_hivNegPartner.isCircumcised && _hivNegPartner.isMale)
+    if (isCircumcised && isMale)
         _rrCircVag = RR_CIRC_VAG;
     else
         _rrCircVag = 1;
 
-    if (_hivNegPartner.isCircumcised && _hivNegPartner.isMale)
+    if (isCircumcised && isMale)
         _rrCircAnal = RR_CIRC_ANAL;
     else
         _rrCircAnal = 1;
@@ -59,8 +59,8 @@ function calcInsertVagProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 
 function calcInsertVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
-   NSUInteger actsPerMonth = timesPerMonth;
-   double percentCondomUsage = percentWithCondomUsage/100.0;
+   var actsPerMonth = timesPerMonth;
+   var percentCondomUsage = percentWithCondomUsage/100.0;
 
    var riskFactor = pow(1-(pIV/(_rrArt*_rrPrepHetro*_rrCircVag)), actsPerMonth*(1-percentCondomUsage));
 
@@ -71,7 +71,7 @@ function calcInsertVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsag
 function calcReceptiveVagProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     var actsPerMonth = timesPerMonth;
-    var percentCondomUsage = selpercentWithCondomUsage/100.0;
+    var percentCondomUsage = percentWithCondomUsage/100.0;
 
     var riskFactor = pow(1-(pRV/(_rrCondom*_rrArt*_rrPrepHetro)), actsPerMonth*percentCondomUsage);
 
@@ -81,7 +81,7 @@ function calcReceptiveVagProtectedRiskFactor(timesPerMonth, percentWithCondomUsa
 function calcReceptiveVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     var actsPerMonth = timesPerMonth;
-    var percentCondomUsage = selpercentWithCondomUsage/100.0;
+    var percentCondomUsage = percentWithCondomUsage/100.0;
 
     var riskFactor = pow(1-(pRV/(_rrArt*_rrPrepHetro)), actsPerMonth*(1-percentCondomUsage));
 
@@ -92,7 +92,7 @@ function calcReceptiveVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomU
 function calcReceiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     var actsPerMonth = timesPerMonth;
-    var percentCondomUsage percentWithCondomUsage/100.0;
+    var percentCondomUsage = percentWithCondomUsage/100.0;
 
     var riskFactor = pow(1-(pIO/(_rrCondom*_rrArt*_rrPrepHetro)), actsPerMonth*percentCondomUsage);
 
@@ -103,7 +103,7 @@ function calcReceiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsag
 function calcReceiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     var actsPerMonth = timesPerMonth;
-    var percentCondomUsage percentWithCondomUsage/100.0;
+    var percentCondomUsage = percentWithCondomUsage/100.0;
 
     var riskFactor = pow(1-(pIO/(_rrArt*_rrPrepHetro)), actsPerMonth*(1-percentCondomUsage));
 
@@ -114,7 +114,7 @@ function calcReceiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUs
 function calcGiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     var actsPerMonth = timesPerMonth;
-    var percentCondomUsapercentWithCondomUsage/100.0;
+    var percentCondomUsage = percentWithCondomUsage/100.0;
 
     var riskFactor = pow(1-(pRO/(_rrCondom*_rrArt*_rrPrepHetro)), actsPerMonth*percentCondomUsage);
 
@@ -125,7 +125,7 @@ function calcGiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 function calcGiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     var actsPerMonth = timesPerMonth;
-    var percentCondomUsapercentWithCondomUsage/100.0;
+    var percentCondomUsage = percentWithCondomUsage/100.0;
 
     var riskFactor = pow(1-(pRO/(_rrArt*_rrPrepHetro)), actsPerMonth*(1-percentCondomUsage));
 
