@@ -192,11 +192,36 @@
         </div>
     </div>
 	<br/>
-	<div id="finish" class="text-center">
-		<button type="button" id="pdf-button" data-loading-text="Loading..." class="btn btn-primary btn-lg speedometer download-pdf" autocomplete="off">
-			Save to PDF
-		</button>
-	</div>
+	<!--<div id="finish" class="text-center">-->
+		<!--<button type="button" id="pdf-button" data-loading-text="Loading..." class="btn btn-primary btn-lg speedometer download-pdf" autocomplete="off">-->
+			<!--Save to PDF-->
+		<!--</button>-->
+	<!--</div>-->
+    <nav id="navbar" class="navbar navbar-inverse navbar-fixed-bottom" >
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"> ARCH Tools</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="msm.html">MSM</a></li>
+                    <li class="active"><a href="idu.html">IDU</a></li>
+                    <li ><a href="dsc.html">DSC</a></li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="download-pdf" href="#"><span class="glyphicon glyphicon-save-file"></span> Save to PDF</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
 </div>
 </body>
 
@@ -416,10 +441,14 @@
     }
 
     $(".download-pdf").on("click",function(){
+        $("#gauge").find("text")[1].style.fontSize = "125px";
+        $("#navbar").addClass("collapse");
         var pdf = new jsPDF('p', 'pt', 'letter');
         pdf.addHTML($('document')[0], function () {
             pdf.save('Test.pdf');
         });
+        $("#navbar").removeClass("collapse");
+        $("#gauge").find("text")[1].style.fontSize = "49px";
     });
 
     function setupSliders() {

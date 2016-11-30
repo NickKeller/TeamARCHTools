@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/bootstrap-slider.min.css">
   <link rel="stylesheet" href="css/archtools.css">
 
+    <script src="js/jspdf.debug.js"></script>
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/bootstrap-slider.min.js"></script>
@@ -323,6 +324,36 @@
             </div>
         </div>
     </div>
+    <!--<div id ="finish" class="text-center">-->
+        <!--<button type="button" id="pdf-button" data-loading-text="Loading..." class="btn btn-primary btn-lg speedometer download-pdf" autocomplete="off">-->
+            <!--Save to PDF-->
+        <!--</button>-->
+    <!--</div>-->
+    <nav id="navbar" class="navbar navbar-inverse navbar-fixed-bottom" >
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"> ARCH Tools</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="msm.html">MSM</a></li>
+                    <li><a href="idu.html">IDU</a></li>
+                    <li class="active"><a href="dsc.html">DSC</a></li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="download-pdf" href="#"><span class="glyphicon glyphicon-save-file"></span> Save to PDF</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
 </div>
 
 </body>
@@ -765,6 +796,15 @@
         setupSliders();
 
     }
+
+    $(".download-pdf").on("click",function(){
+        $("#navbar").addClass("collapse");
+        var pdf = new jsPDF('p', 'pt', 'letter');
+        pdf.addHTML($('document')[0], function () {
+            pdf.save('Test.pdf');
+        });
+        $("#navbar").removeClass("collapse");
+    });
 
     function setupSliders() {
 
