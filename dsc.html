@@ -509,7 +509,7 @@
 
         $(".answer5").on("change", function() {
             var out;
-            $(".answer5").data('slider').getValue();
+            value = $(".answer5").data('slider').getValue();
             if (value == 50){
                 out = '50 or more';
             }
@@ -532,8 +532,7 @@
 
         $(".answer6").on("change", function() {
             var out;
-            $(".answer6").data('slider').getValue();
-            value = $(".answer6").attr("slider-value");
+            value = $(".answer6").data('slider').getValue();
             if (value == 100){
                 out = '100%';
             }
