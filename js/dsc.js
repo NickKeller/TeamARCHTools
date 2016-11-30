@@ -20,12 +20,12 @@ var isMale = true;
 var _rrCondom, _rrArt, _rrPrepHetro, _rrPrepMsm, _rrCircVag, _rrCircAnal;
 _rrCondom = RR_CONDOM;
 
-var InsertVagProtectedRiskFactor, InsertVagUnprotectedRiskFactor,
-    ReceptiveVagProtectedRiskFactor, ReceptiveVagUnprotectedRiskFactor,
-    InsertAnalProtectedRiskFactor, InsertAnalUnprotectedRiskFactor,
-    ReceptiveAnalProtectedRiskFactor, ReceptiveAnalUnprotectedRiskFactor,
-    GiveOralProtectedRiskFactor, GiveOralUnprotectedRiskFactor,
-    ReceiveOralProtectedRiskFactor, ReceiveOralUnprotectedRiskFactor = 1;
+var InsertVagProtectedRiskFactor=1, InsertVagUnprotectedRiskFactor=1,
+    ReceptiveVagProtectedRiskFactor=1, ReceptiveVagUnprotectedRiskFactor=1,
+    InsertAnalProtectedRiskFactor=1, InsertAnalUnprotectedRiskFactor=1,
+    ReceptiveAnalProtectedRiskFactor=1, ReceptiveAnalUnprotectedRiskFactor=1,
+    GiveOralProtectedRiskFactor=1, GiveOralUnprotectedRiskFactor=1,
+    ReceiveOralProtectedRiskFactor=1, ReceiveOralUnprotectedRiskFactor = 1;
 
 function UpdateArtRatios(isOnArt) {
     if (isOnArt)
@@ -215,6 +215,15 @@ function updateStats ()
     var _chancesPerTwentyFiveYearPercent = 1-Math.pow(1-_chancesPerYearPercent,25);
     var _chancesPerTwentyFiveYearRatio = 1 / _chancesPerTwentyFiveYearPercent;
 
+    $("#monthper").html((100*_chancesPerMonthPercent).toFixed(1)+"%");
+    $("#yearper").html((100*_chancesPerYearPercent).toFixed(1)+"%");
+    $("#10yearper").html((100*_chancesPerTenYearPercent).toFixed(1)+"%");
+    $("#25yearper").html((100*_chancesPerTwentyFiveYearPercent).toFixed(1)+"%");
+
+    $("#monthodds").html("1 in " + _chancesPerMonthRatio.toFixed(0));
+    $("#yearodds").html("1 in " + _chancesPerYearRatio.toFixed(0));
+    $("#10yearodds").html("1 in " + _chancesPerTenYearRatio.toFixed(0));
+    $("#25yearodds").html("1 in " + _chancesPerTwentyFiveYearRatio.toFixed(0));
 
     var _riskProductByIV = InsertVagUnprotectedRiskFactor * InsertVagProtectedRiskFactor;
     var _riskProductByRV = ReceptiveVagProtectedRiskFactor * ReceptiveVagUnprotectedRiskFactor;

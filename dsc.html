@@ -277,27 +277,27 @@
                             <tbody>
                                 <tr>
                                     <td>Per Month</td>
-                                    <td>0.0%</td>
+                                    <td id="monthper">0.0%</td>
                                     <td>OR</td>
-                                    <td>1 in 9727</td>
+                                    <td id="monthodds">1 in 9727</td>
                                 </tr>
                                 <tr>
                                     <td>Per Year</td>
-                                    <td>0.0%</td>
+                                    <td id="yearper">0.0%</td>
                                     <td>OR</td>
-                                    <td>1 in 9727</td>
+                                    <td id="yearodds">1 in 9727</td>
                                 </tr>
                                 <tr>
-                                    <td>In 10 years</td>
-                                    <td>0.0%</td>
+                                    <td id>In 10 years</td>
+                                    <td id="10yearper">0.0%</td>
                                     <td>OR</td>
-                                    <td>1 in 9727</td>
+                                    <td id="10yearodds">1 in 9727</td>
                                 </tr>
                                 <tr>
                                     <td>In 25 years</td>
-                                    <td>0.0%</td>
+                                    <td id="25yearper">0.0%</td>
                                     <td>OR</td>
-                                    <td>1 in 9727</td>
+                                    <td id="25yearodds">1 in 9727</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -327,6 +327,7 @@
     function dscSetup(){
         //loads the json from the file, then sets the questions on the page
         $.getJSON("ARCH-TOOLS.json", setDSCPage);
+        updateStats();
     }
 
     function setDSCPage(json){
