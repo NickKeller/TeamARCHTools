@@ -46,12 +46,12 @@
         var ctxCondom = "condomChart";
         var dataCondom = {
             labels: [
-                "HIV",
-                "Condoms",
-                "Drugs"
+                "No condom used",
+                "Condom used, but used incorrrectly OR the condom broke/slipped during use",
+                "Condom used without errors"
             ],
             datasets: [{
-                data: [300, 50, 100],
+                data: [0, 0, 0],
                 backgroundColor: [
                     "#FF6384",
                     "#36A2EB",

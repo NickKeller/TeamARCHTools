@@ -70,6 +70,7 @@ function calcInsertVagProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
     var riskFactor = Math.pow(1-(pIV/(_rrCondom*_rrArt*_rrPrepHetro*_rrCircVag)), timesPerMonth*percentWithCondomUsage);
 
     InsertVagProtectedRiskFactor = riskFactor;
+    updateStats();
 }
 
 function calcInsertVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
@@ -80,6 +81,7 @@ function calcInsertVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsag
    var riskFactor = Math.pow(1-(pIV/(_rrArt*_rrPrepHetro*_rrCircVag)), actsPerMonth*(1-percentCondomUsage));
 
    InsertVagUnprotectedRiskFactor = riskFactor;
+   updateStats();
 }
 
 
@@ -91,7 +93,7 @@ function calcReceptiveVagProtectedRiskFactor(timesPerMonth, percentWithCondomUsa
     var riskFactor = Math.pow(1-(pRV/(_rrCondom*_rrArt*_rrPrepHetro)), actsPerMonth*percentCondomUsage);
 
     ReceptiveVagProtectedRiskFactor =  riskFactor;
-
+    updateStats();
 }
 function calcReceptiveVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
@@ -101,7 +103,7 @@ function calcReceptiveVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomU
     var riskFactor = Math.pow(1-(pRV/(_rrArt*_rrPrepHetro)), actsPerMonth*(1-percentCondomUsage));
 
     ReceptiveVagUnprotectedRiskFactor = riskFactor;
-
+    updateStats();
 }
 
 function calcReceiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
@@ -112,7 +114,7 @@ function calcReceiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsag
     var riskFactor = Math.pow(1-(pIO/(_rrCondom*_rrArt*_rrPrepHetro)), actsPerMonth*percentCondomUsage);
 
     ReceiveOralProtectedRiskFactor = riskFactor;
-
+    updateStats();
 }
 
 function calcReceiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
@@ -123,7 +125,7 @@ function calcReceiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUs
     var riskFactor =Math.pow(1-(pIO/(_rrArt*_rrPrepHetro)), actsPerMonth*(1-percentCondomUsage));
 
     ReceiveOralUnprotectedRiskFactor = riskFactor;
-
+    updateStats();
 }
 
 function calcGiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
@@ -134,7 +136,7 @@ function calcGiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
     var riskFactor =Math.pow(1-(pRO/(_rrCondom*_rrArt*_rrPrepHetro)), actsPerMonth*percentCondomUsage);
 
     GiveOralProtectedRiskFactor = riskFactor;
-
+    updateStats();
 }
 
 function calcGiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
@@ -145,7 +147,7 @@ function calcGiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage
     var riskFactor =Math.pow(1-(pRO/(_rrArt*_rrPrepHetro)), actsPerMonth*(1-percentCondomUsage));
 
     GiveOralUnprotectedRiskFactor = riskFactor;
-
+    updateStats();
 }
 
 function calcInsertAnalProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
@@ -156,8 +158,7 @@ function calcInsertAnalProtectedRiskFactor(timesPerMonth, percentWithCondomUsage
     var riskFactor =Math.pow(1-(pIA/(_rrCondom*_rrArt*_rrPrepMsm*_rrCircAnal)), actsPerMonth*percentCondomUsage);
 
     InsertAnalProtectedRiskFactor = riskFactor;
-
-
+    updateStats();
 }
 
 function calcInsertAnalUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
@@ -168,8 +169,7 @@ function calcInsertAnalUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsa
     var riskFactor =Math.pow(1-(pIA/(_rrArt*_rrPrepMsm*_rrCircAnal)), actsPerMonth*(1-percentCondomUsage));
 
     InsertAnalUnprotectedRiskFactor = riskFactor;
-
-
+    updateStats();
 }
 
 function calcReceptiveAnalProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
@@ -180,8 +180,7 @@ function calcReceptiveAnalProtectedRiskFactor(timesPerMonth, percentWithCondomUs
     var riskFactor =Math.pow(1-(pRA/(_rrCondom*_rrArt*_rrPrepMsm)), actsPerMonth*percentCondomUsage);
 
     ReceptiveAnalProtectedRiskFactor = riskFactor;
-    return riskFactor;
-
+    updateStats();
 }
 
 function calcReceptiveAnalUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
@@ -192,10 +191,11 @@ function calcReceptiveAnalUnprotectedRiskFactor(timesPerMonth, percentWithCondom
     var riskFactor =Math.pow(1-(pRA/(_rrArt*_rrPrepMsm)), actsPerMonth*(1-percentCondomUsage));
 
     ReceptiveAnalUnprotectedRiskFactor = riskFactor;
+    updateStats();
 }
 
 
-function updateStats ()
+function updateStats()
 {
     var _chancesPerMonthPercent = 1 - (InsertVagUnprotectedRiskFactor * InsertVagProtectedRiskFactor *
                           ReceptiveVagProtectedRiskFactor * ReceptiveVagUnprotectedRiskFactor *
@@ -256,13 +256,12 @@ function updateStats ()
     var _raContribPercent = (_riskByRA / totalContribToRisk) * 100;
     var _iaContribPercent = (_riskByIA / totalContribToRisk) * 100;
 
-    console.log(_ivContribPercent);
-    actChart.data.datasets[0].data[0] = _ivContribPercent;
-    actChart.data.datasets[0].data[1] = _rvContribPercent;
-    actChart.data.datasets[0].data[2] = _roContribPercent;
-    actChart.data.datasets[0].data[3] = _goContribPercent;
-    actChart.data.datasets[0].data[4] = _raContribPercent;
-    actChart.data.datasets[0].data[5] = _iaContribPercent;
+    actChart.data.datasets[0].data[0] = _ivContribPercent.toFixed(1);
+    actChart.data.datasets[0].data[1] = _rvContribPercent.toFixed(1);
+    actChart.data.datasets[0].data[2] = _roContribPercent.toFixed(1);
+    actChart.data.datasets[0].data[3] = _goContribPercent.toFixed(1);
+    actChart.data.datasets[0].data[4] = _raContribPercent.toFixed(1);
+    actChart.data.datasets[0].data[5] = _iaContribPercent.toFixed(1);
 
     actChart.update();
 
@@ -283,4 +282,9 @@ function updateStats ()
     var _unprotectedPieSlice = (riskUnprotected/ totalCondomUsageContributions) * 360;
     var _protectedPercent = (riskProtected/ totalCondomUsageContributions) * 100;
     var _unprotectedPercent = (riskUnprotected/ totalCondomUsageContributions) * 100;
+
+    condomChart.data.datasets[0].data[0] = _unprotectedPercent.toFixed(1);
+    condomChart.data.datasets[0].data[1] = _protectedPercent.toFixed(1);
+    condomChart.update();
+
 }
