@@ -27,11 +27,32 @@ var InsertVagProtectedRiskFactor=1, InsertVagUnprotectedRiskFactor=1,
     GiveOralProtectedRiskFactor=1, GiveOralUnprotectedRiskFactor=1,
     ReceiveOralProtectedRiskFactor=1, ReceiveOralUnprotectedRiskFactor = 1;
 
+var InsertVagProtectedLastAPM = 0, InsertVagUnprotectedLastAPM = 0,
+    ReceptiveVagProtectedLastAPM = 0, ReceptiveVagUnprotectedLastAPM = 0,
+    InsertAnalProtectedLastAPM = 0, InsertAnalUnprotectedLastAPM = 0,
+    ReceptiveAnalProtectedLastAPM = 0, ReceptiveAnalUnprotectedLastAPM = 0,
+    GiveOralProtectedLastAPM = 0, GiveOralUnprotectedLastAPM = 0,
+    ReceiveOralProtectedLastAPM = 0, ReceiveOralUnprotectedRiLastAPM = 0;
+
+var InsertVagProtectedLastPCU = 0, InsertVagUnprotectedLastPCU = 0,
+    ReceptiveVagProtectedLastPCU = 0, ReceptiveVagUnprotectedLastPCU = 0,
+    InsertAnalProtectedLastPCU = 0, InsertAnalUnprotectedLastPCU = 0,
+    ReceptiveAnalProtectedLastPCU = 0, ReceptiveAnalUnprotectedLastPCU = 0,
+    GiveOralProtectedLastPCU = 0, GiveOralUnprotectedLastPCU = 0,
+    ReceiveOralProtectedLastPCU = 0, ReceiveOralUnprotectedLastPCU = 0;
+
 function UpdateArtRatios(isOnArt) {
     if (isOnArt)
         _rrArt = RR_ART;
     else
         _rrArt = 1;
+
+    try {
+        recalcStats();
+        updateStats();
+    } catch(err) {
+
+    }
 }
 
 function UpdateCircumsizeRatios(isCircumcised) {
@@ -44,11 +65,24 @@ function UpdateCircumsizeRatios(isCircumcised) {
         _rrCircAnal = RR_CIRC_ANAL;
     else
         _rrCircAnal = 1;
+
+    try {
+        recalcStats();
+        updateStats();
+    } catch(err) {
+
+    }
 }
 
 function UpdateGenderRatios(_isMale) {
     isMale = _isMale;
-    updateStats()
+
+    try {
+        recalcStats();
+        updateStats();
+    } catch(err) {
+
+    }
 }
 
 function UpdatePrepRatios(isOnPrep) {
@@ -61,15 +95,21 @@ function UpdatePrepRatios(isOnPrep) {
         _rrPrepMsm = RR_PREP_MSM;
     else
         _rrPrepMsm = 1;
-    updateStats();
+
+    try {
+        recalcStats();
+        updateStats();
+    } catch(err) {
+
+    }
 }
 
 function calcInsertVagProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
-    var actsPerMonth = timesPerMonth;
-    var percentCondomUsage = percentWithCondomUsage/100.0;
+    InsertVagProtectedLastAPM = timesPerMonth;
+    InsertVagProtectedLastPCU = percentWithCondomUsage/100.0;
 
-    var riskFactor = Math.pow(1-(pIV/(_rrCondom*_rrArt*_rrPrepHetro*_rrCircVag)), timesPerMonth*percentWithCondomUsage);
+    var riskFactor = Math.pow(1-(pIV/(_rrCondom*_rrArt*_rrPrepHetro*_rrCircVag)), InsertVagProtectedLastAPM*InsertVagProtectedLastPCU);
 
     InsertVagProtectedRiskFactor = riskFactor;
     updateStats();
@@ -77,10 +117,10 @@ function calcInsertVagProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 
 function calcInsertVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
-   var actsPerMonth = timesPerMonth;
-   var percentCondomUsage = percentWithCondomUsage/100.0;
+   InsertVagUnprotectedLastAPM = timesPerMonth;
+   InsertVagUnprotectedLastPCU = percentWithCondomUsage/100.0;
 
-   var riskFactor = Math.pow(1-(pIV/(_rrArt*_rrPrepHetro*_rrCircVag)), actsPerMonth*(1-percentCondomUsage));
+   var riskFactor = Math.pow(1-(pIV/(_rrArt*_rrPrepHetro*_rrCircVag)), InsertVagUnprotectedLastAPM*(1-InsertVagUnprotectedLastPCU));
 
    InsertVagUnprotectedRiskFactor = riskFactor;
    updateStats();
@@ -89,20 +129,20 @@ function calcInsertVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsag
 
 function calcReceptiveVagProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
-    var actsPerMonth = timesPerMonth;
-    var percentCondomUsage = percentWithCondomUsage/100.0;
+    ReceptiveVagProtectedLastAPM = timesPerMonth;
+    ReceptiveVagProtectedLastPCU = percentWithCondomUsage/100.0;
 
-    var riskFactor = Math.pow(1-(pRV/(_rrCondom*_rrArt*_rrPrepHetro)), actsPerMonth*percentCondomUsage);
+    var riskFactor = Math.pow(1-(pRV/(_rrCondom*_rrArt*_rrPrepHetro)), ReceptiveVagProtectedLastAPM*ReceptiveVagProtectedLastPCU);
 
     ReceptiveVagProtectedRiskFactor =  riskFactor;
     updateStats();
 }
 function calcReceptiveVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
-    var actsPerMonth = timesPerMonth;
-    var percentCondomUsage = percentWithCondomUsage/100.0;
+    ReceptiveVagUnprotectedLastAPM = timesPerMonth;
+    ReceptiveVagUnprotectedLastPCU = percentWithCondomUsage/100.0;
 
-    var riskFactor = Math.pow(1-(pRV/(_rrArt*_rrPrepHetro)), actsPerMonth*(1-percentCondomUsage));
+    var riskFactor = Math.pow(1-(pRV/(_rrArt*_rrPrepHetro)), ReceptiveVagUnprotectedLastAPM*(1-ReceptiveVagUnprotectedLastPCU));
 
     ReceptiveVagUnprotectedRiskFactor = riskFactor;
     updateStats();
@@ -110,10 +150,10 @@ function calcReceptiveVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomU
 
 function calcReceiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
-    var actsPerMonth = timesPerMonth;
-    var percentCondomUsage = percentWithCondomUsage/100.0;
+    ReceiveOralProtectedLastAPM = timesPerMonth;
+    ReceiveOralProtectedLastPCU = percentWithCondomUsage/100.0;
 
-    var riskFactor = Math.pow(1-(pIO/(_rrCondom*_rrArt*_rrPrepHetro)), actsPerMonth*percentCondomUsage);
+    var riskFactor = Math.pow(1-(pIO/(_rrCondom*_rrArt*_rrPrepHetro)), ReceiveOralProtectedLastAPM*ReceiveOralProtectedLastPCU);
 
     ReceiveOralProtectedRiskFactor = riskFactor;
     updateStats();
@@ -121,10 +161,10 @@ function calcReceiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsag
 
 function calcReceiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
-    var actsPerMonth = timesPerMonth;
-    var percentCondomUsage = percentWithCondomUsage/100.0;
+    ReceiveOralUnprotectedLastAPM = timesPerMonth;
+    ReceiveOralUnprotectedLastPCU = percentWithCondomUsage/100.0;
 
-    var riskFactor =Math.pow(1-(pIO/(_rrArt*_rrPrepHetro)), actsPerMonth*(1-percentCondomUsage));
+    var riskFactor =Math.pow(1-(pIO/(_rrArt*_rrPrepHetro)), ReceiveOralUnprotectedLastAPM*(1-ReceiveOralUnprotectedLastPCU));
 
     ReceiveOralUnprotectedRiskFactor = riskFactor;
     updateStats();
@@ -132,10 +172,10 @@ function calcReceiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUs
 
 function calcGiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
-    var actsPerMonth = timesPerMonth;
-    var percentCondomUsage = percentWithCondomUsage/100.0;
+    GiveOralProtectedLastAPM = timesPerMonth;
+    GiveOralProtectedLastPCU = percentWithCondomUsage/100.0;
 
-    var riskFactor =Math.pow(1-(pRO/(_rrCondom*_rrArt*_rrPrepHetro)), actsPerMonth*percentCondomUsage);
+    var riskFactor =Math.pow(1-(pRO/(_rrCondom*_rrArt*_rrPrepHetro)), GiveOralProtectedLastAPM*GiveOralProtectedLastPCU);
 
     GiveOralProtectedRiskFactor = riskFactor;
     updateStats();
@@ -143,10 +183,10 @@ function calcGiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 
 function calcGiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
-    var actsPerMonth = timesPerMonth;
-    var percentCondomUsage = percentWithCondomUsage/100.0;
+    GiveOralUnprotectedLastAPM = timesPerMonth;
+    GiveOralUnprotectedLastPCU = percentWithCondomUsage/100.0;
 
-    var riskFactor =Math.pow(1-(pRO/(_rrArt*_rrPrepHetro)), actsPerMonth*(1-percentCondomUsage));
+    var riskFactor =Math.pow(1-(pRO/(_rrArt*_rrPrepHetro)), GiveOralUnprotectedLastAPM*(1-GiveOralUnprotectedLastPCU));
 
     GiveOralUnprotectedRiskFactor = riskFactor;
     updateStats();
@@ -154,10 +194,10 @@ function calcGiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage
 
 function calcInsertAnalProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
-    var actsPerMonth = timesPerMonth;
-    var percentCondomUsage = percentWithCondomUsage/100.0;
+    InsertAnalProtectedLastAPM = timesPerMonth;
+    InsertAnalProtectedLastPCU = percentWithCondomUsage/100.0;
 
-    var riskFactor =Math.pow(1-(pIA/(_rrCondom*_rrArt*_rrPrepMsm*_rrCircAnal)), actsPerMonth*percentCondomUsage);
+    var riskFactor =Math.pow(1-(pIA/(_rrCondom*_rrArt*_rrPrepMsm*_rrCircAnal)), InsertAnalProtectedLastAPM*InsertAnalProtectedLastPCU);
 
     InsertAnalProtectedRiskFactor = riskFactor;
     updateStats();
@@ -165,10 +205,10 @@ function calcInsertAnalProtectedRiskFactor(timesPerMonth, percentWithCondomUsage
 
 function calcInsertAnalUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
-    var actsPerMonth = timesPerMonth;
-    var percentCondomUsage = percentWithCondomUsage/100.0;
+    InsertAnalUnprotectedLastAPM = timesPerMonth;
+    InsertAnalUnprotectedLastPCU = percentWithCondomUsage/100.0;
 
-    var riskFactor =Math.pow(1-(pIA/(_rrArt*_rrPrepMsm*_rrCircAnal)), actsPerMonth*(1-percentCondomUsage));
+    var riskFactor =Math.pow(1-(pIA/(_rrArt*_rrPrepMsm*_rrCircAnal)), InsertAnalUnprotectedLastAPM*(1-InsertAnalUnprotectedLastPCU));
 
     InsertAnalUnprotectedRiskFactor = riskFactor;
     updateStats();
@@ -176,10 +216,10 @@ function calcInsertAnalUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsa
 
 function calcReceptiveAnalProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
-    var actsPerMonth = timesPerMonth;
-    var percentCondomUsage = percentWithCondomUsage/100.0;
+    ReceptiveAnalProtectedLastAPM = timesPerMonth;
+    ReceptiveAnalProtectedLastPCU = percentWithCondomUsage/100.0;
 
-    var riskFactor =Math.pow(1-(pRA/(_rrCondom*_rrArt*_rrPrepMsm)), actsPerMonth*percentCondomUsage);
+    var riskFactor =Math.pow(1-(pRA/(_rrCondom*_rrArt*_rrPrepMsm)), ReceptiveAnalProtectedLastAPM*ReceptiveAnalProtectedLastPCU);
 
     ReceptiveAnalProtectedRiskFactor = riskFactor;
     updateStats();
@@ -187,10 +227,123 @@ function calcReceptiveAnalProtectedRiskFactor(timesPerMonth, percentWithCondomUs
 
 function calcReceptiveAnalUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
-    var actsPerMonth = timesPerMonth;
-    var percentCondomUsage = percentWithCondomUsage/100.0;
+    ReceptiveAnalUnprotectedLastAPM = timesPerMonth;
+    ReceptiveAnalUnprotectedLastPCU = percentWithCondomUsage/100.0;
 
-    var riskFactor =Math.pow(1-(pRA/(_rrArt*_rrPrepMsm)), actsPerMonth*(1-percentCondomUsage));
+    var riskFactor =Math.pow(1-(pRA/(_rrArt*_rrPrepMsm)), ReceptiveAnalUnprotectedLastAPM*(1-ReceptiveAnalUnprotectedLastPCU));
+
+    ReceptiveAnalUnprotectedRiskFactor = riskFactor;
+    updateStats();
+}
+
+function recalcStats()
+{
+    recalcInsertVagProtectedRiskFactor();
+    recalcInsertVagUnprotectedRiskFactor();
+    recalcReceptiveVagProtectedRiskFactor();
+    recalcReceptiveVagUnprotectedRiskFactor();
+    recalcReceiveOralProtectedRiskFactor();
+    recalcReceiveOralUnprotectedRiskFactor();
+    recalcGiveOralProtectedRiskFactor();
+    recalcGiveOralUnprotectedRiskFactor();
+    recalcInsertAnalProtectedRiskFactor();
+    recalcInsertAnalUnprotectedRiskFactor();
+    recalcReceptiveAnalProtectedRiskFactor();
+    recalcReceptiveAnalUnprotectedRiskFactor();
+}
+
+
+function recalcInsertVagProtectedRiskFactor()
+{
+    var riskFactor = Math.pow(1-(pIV/(_rrCondom*_rrArt*_rrPrepHetro*_rrCircVag)), InsertVagProtectedLastAPM*InsertVagProtectedLastPCU);
+
+    InsertVagProtectedRiskFactor = riskFactor;
+    updateStats();
+}
+
+function recalcInsertVagUnprotectedRiskFactor()
+{
+   var riskFactor = Math.pow(1-(pIV/(_rrArt*_rrPrepHetro*_rrCircVag)), InsertVagUnprotectedLastAPM*(1-InsertVagUnprotectedLastPCU));
+
+   InsertVagUnprotectedRiskFactor = riskFactor;
+   updateStats();
+}
+
+
+function recalcReceptiveVagProtectedRiskFactor()
+{
+    var riskFactor = Math.pow(1-(pRV/(_rrCondom*_rrArt*_rrPrepHetro)), ReceptiveVagProtectedLastAPM*ReceptiveVagProtectedLastPCU);
+
+    ReceptiveVagProtectedRiskFactor =  riskFactor;
+    updateStats();
+}
+function recalcReceptiveVagUnprotectedRiskFactor()
+{
+    var riskFactor = Math.pow(1-(pRV/(_rrArt*_rrPrepHetro)), ReceptiveVagUnprotectedLastAPM*(1-ReceptiveVagUnprotectedLastPCU));
+
+    ReceptiveVagUnprotectedRiskFactor = riskFactor;
+    updateStats();
+}
+
+function recalcReceiveOralProtectedRiskFactor()
+{
+    var riskFactor = Math.pow(1-(pIO/(_rrCondom*_rrArt*_rrPrepHetro)), ReceiveOralProtectedLastAPM*ReceiveOralProtectedLastPCU);
+
+    ReceiveOralProtectedRiskFactor = riskFactor;
+    updateStats();
+}
+
+function recalcReceiveOralUnprotectedRiskFactor()
+{
+    var riskFactor =Math.pow(1-(pIO/(_rrArt*_rrPrepHetro)), ReceiveOralUnprotectedLastAPM*(1-ReceiveOralUnprotectedLastPCU));
+
+    ReceiveOralUnprotectedRiskFactor = riskFactor;
+    updateStats();
+}
+
+function recalcGiveOralProtectedRiskFactor()
+{
+    var riskFactor =Math.pow(1-(pRO/(_rrCondom*_rrArt*_rrPrepHetro)), GiveOralProtectedLastAPM*GiveOralProtectedLastPCU);
+
+    GiveOralProtectedRiskFactor = riskFactor;
+    updateStats();
+}
+
+function recalcGiveOralUnprotectedRiskFactor()
+{
+    var riskFactor =Math.pow(1-(pRO/(_rrArt*_rrPrepHetro)), GiveOralUnprotectedLastAPM*(1-GiveOralUnprotectedLastPCU));
+
+    GiveOralUnprotectedRiskFactor = riskFactor;
+    updateStats();
+}
+
+function recalcInsertAnalProtectedRiskFactor()
+{
+    var riskFactor =Math.pow(1-(pIA/(_rrCondom*_rrArt*_rrPrepMsm*_rrCircAnal)), InsertAnalProtectedLastAPM*InsertAnalProtectedLastPCU);
+
+    InsertAnalProtectedRiskFactor = riskFactor;
+    updateStats();
+}
+
+function recalcInsertAnalUnprotectedRiskFactor()
+{
+    var riskFactor =Math.pow(1-(pIA/(_rrArt*_rrPrepMsm*_rrCircAnal)), InsertAnalUnprotectedLastAPM*(1-InsertAnalUnprotectedLastPCU));
+
+    InsertAnalUnprotectedRiskFactor = riskFactor;
+    updateStats();
+}
+
+function recalcReceptiveAnalProtectedRiskFactor()
+{
+    var riskFactor =Math.pow(1-(pRA/(_rrCondom*_rrArt*_rrPrepMsm)), ReceptiveAnalProtectedLastAPM*ReceptiveAnalProtectedLastPCU);
+
+    ReceptiveAnalProtectedRiskFactor = riskFactor;
+    updateStats();
+}
+
+function recalcReceptiveAnalUnprotectedRiskFactor()
+{
+    var riskFactor =Math.pow(1-(pRA/(_rrArt*_rrPrepMsm)), ReceptiveAnalUnprotectedLastAPM*(1-ReceptiveAnalUnprotectedLastPCU));
 
     ReceptiveAnalUnprotectedRiskFactor = riskFactor;
     updateStats();
@@ -198,11 +351,24 @@ function calcReceptiveAnalUnprotectedRiskFactor(timesPerMonth, percentWithCondom
 
 function resetCalculations() {
         InsertVagProtectedRiskFactor=1, InsertVagUnprotectedRiskFactor=1,
-        ReceptiveVagProtectedRiskFactor=1, ReceptiveVagUnprotectedRiskFactor=1,
-        InsertAnalProtectedRiskFactor=1, InsertAnalUnprotectedRiskFactor=1,
-        ReceptiveAnalProtectedRiskFactor=1, ReceptiveAnalUnprotectedRiskFactor=1,
-        GiveOralProtectedRiskFactor=1, GiveOralUnprotectedRiskFactor=1,
-        ReceiveOralProtectedRiskFactor=1, ReceiveOralUnprotectedRiskFactor = 1;
+            ReceptiveVagProtectedRiskFactor=1, ReceptiveVagUnprotectedRiskFactor=1,
+            InsertAnalProtectedRiskFactor=1, InsertAnalUnprotectedRiskFactor=1,
+            ReceptiveAnalProtectedRiskFactor=1, ReceptiveAnalUnprotectedRiskFactor=1,
+            GiveOralProtectedRiskFactor=1, GiveOralUnprotectedRiskFactor=1,
+            ReceiveOralProtectedRiskFactor=1, ReceiveOralUnprotectedRiskFactor = 1;
+        InsertVagProtectedLastAPM = 0, InsertVagUnprotectedLastAPM = 0,
+            ReceptiveVagProtectedLastAPM = 0, ReceptiveVagUnprotectedLastAPM = 0,
+            InsertAnalProtectedLastAPM = 0, InsertAnalUnprotectedLastAPM = 0,
+            ReceptiveAnalProtectedLastAPM = 0, ReceptiveAnalUnprotectedLastAPM = 0,
+            GiveOralProtectedLastAPM = 0, GiveOralUnprotectedLastAPM = 0,
+            ReceiveOralProtectedLastAPM = 0, ReceiveOralUnprotectedRiLastAPM = 0;
+
+        InsertVagProtectedLastPCU = 0, InsertVagUnprotectedLastPCU = 0,
+            ReceptiveVagProtectedLastPCU = 0, ReceptiveVagUnprotectedLastPCU = 0,
+            InsertAnalProtectedLastPCU = 0, InsertAnalUnprotectedLastPCU = 0,
+            ReceptiveAnalProtectedLastPCU = 0, ReceptiveAnalUnprotectedLastPCU = 0,
+            GiveOralProtectedLastPCU = 0, GiveOralUnprotectedLastPCU = 0,
+            ReceiveOralProtectedLastPCU = 0, ReceiveOralUnprotectedLastPCU = 0;
 
         updateStats();
 }
