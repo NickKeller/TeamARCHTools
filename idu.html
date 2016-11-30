@@ -278,18 +278,19 @@
         //hide the results
         $("#recommended-actions-display").hide();
 
-        $(".answer1").on("slide", function(slideEvt) {
+        $(".answer1").on("change", function() {
             var out;
-            if (slideEvt.value == 50){
+            var value = $(".answer1").data('slider').getValue();
+            if (value == 50){
                 out = '50 or older';
             }
-            else if (slideEvt.value == 17) {
+            else if (value == 17) {
                 out = '17 or younger'
             }
             else {
-                out = slideEvt.value
+                out = value
             }
-        	$("#answer1slider").text(out);
+            $("#answer1slider").text(out);
         });
 
         $("#answer21").on("click", function(){

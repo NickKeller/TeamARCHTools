@@ -242,16 +242,17 @@
 			$("#question2").collapse("show");
 		});
 
-        $(".answer1").on("slide", function(slideEvt) {
+        $(".answer1").on("change", function() {
             var out;
-            if (slideEvt.value == 49){
+            value = $(".answer1").data('slider').getValue();
+            if (value == 49){
                 out = '49 or older';
             }
-            else if (slideEvt.value == 17) {
+            else if (value == 17) {
                 out = '17 or younger'
             }
             else {
-                out = slideEvt.value
+                out = value
             }
         	$("#answer1slider").text(out);
         });
@@ -275,14 +276,16 @@
 			$("#question3").collapse("show");
 		});
 
-        $(".answer2").on("slide", function(slideEvt) {
+        $(".answer2").on("change", function() {
             var out;
-            if (slideEvt.value == 11){
+            var value = $(".answer2").data('slider').getValue();
+            if (value == 11){
                 out = '11 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
+            
         	$("#answer2slider").text(out);
         });
 
