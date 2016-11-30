@@ -394,7 +394,8 @@
         $("#navbar").addClass("collapse");
         var pdf = new jsPDF('p', 'pt', 'letter');
         pdf.addHTML($('document')[0], function () {
-            pdf.save('Test.pdf');
+            //pdf.save('Test.pdf');
+            pdf.output('datauri')
         });
         $("#navbar").removeClass("collapse");
         $("#gauge").find("text")[1].style.fontSize = "49px";
