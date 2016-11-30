@@ -228,9 +228,9 @@ function updateStats ()
     var _riskProductByIV = InsertVagUnprotectedRiskFactor * InsertVagProtectedRiskFactor;
     var _riskProductByRV = ReceptiveVagProtectedRiskFactor * ReceptiveVagUnprotectedRiskFactor;
     var _riskProductByRO = ReceiveOralProtectedRiskFactor * ReceiveOralUnprotectedRiskFactor;
-    var _riskProductByGO = calcGiveOralProtectedRiskFactor * GiveOralUnprotectedRiskFactor;
-    var _riskProductByIA = calcInsertAnalProtectedRiskFactor * InsertAnalUnprotectedRiskFactor;
-    var _riskProductByRA = calcReceptiveAnalProtectedRiskFactor * ReceptiveAnalUnprotectedRiskFactor;
+    var _riskProductByGO = GiveOralProtectedRiskFactor * GiveOralUnprotectedRiskFactor;
+    var _riskProductByIA = InsertAnalProtectedRiskFactor * InsertAnalUnprotectedRiskFactor;
+    var _riskProductByRA = ReceptiveAnalProtectedRiskFactor * ReceptiveAnalUnprotectedRiskFactor;
 
     var _totalProtectedRiskFactor = InsertVagProtectedRiskFactor * ReceptiveVagProtectedRiskFactor * ReceiveOralProtectedRiskFactor *
       GiveOralProtectedRiskFactor * InsertAnalProtectedRiskFactor * ReceptiveAnalProtectedRiskFactor;
@@ -255,6 +255,16 @@ function updateStats ()
     var _goContribPercent = (_riskByGO / totalContribToRisk) * 100;
     var _raContribPercent = (_riskByRA / totalContribToRisk) * 100;
     var _iaContribPercent = (_riskByIA / totalContribToRisk) * 100;
+
+    console.log(_ivContribPercent);
+    actChart.data.datasets[0].data[0] = _ivContribPercent;
+    actChart.data.datasets[0].data[1] = _rvContribPercent;
+    actChart.data.datasets[0].data[2] = _roContribPercent;
+    actChart.data.datasets[0].data[3] = _goContribPercent;
+    actChart.data.datasets[0].data[4] = _raContribPercent;
+    actChart.data.datasets[0].data[5] = _iaContribPercent;
+
+    actChart.update();
 
     var _ivPieSlice = (_riskByIV / totalContribToRisk) * 360;
     var _rvPieSlice = (_riskByRV / totalContribToRisk) * 360;
