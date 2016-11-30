@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/bootstraphacks.css">
     <link rel="stylesheet" href="css/archtools.css">
 
+    <script src="js/jspdf.debug.js"></script>
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-slider.min.js"></script>
@@ -414,7 +415,10 @@
     }
 
     $(".download-pdf").on("click",function(){
-        window.print();
+        var pdf = new jsPDF('p', 'pt', 'letter');
+        pdf.addHTML($('document')[0], function () {
+            pdf.save('Test.pdf');
+        });
     });
 
     function setupSliders() {
