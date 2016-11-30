@@ -48,6 +48,7 @@ function UpdateCircumsizeRatios(isCircumcised) {
 
 function UpdateGenderRatios(_isMale) {
     isMale = _isMale;
+    updateStats()
 }
 
 function UpdatePrepRatios(isOnPrep) {
@@ -60,6 +61,7 @@ function UpdatePrepRatios(isOnPrep) {
         _rrPrepMsm = RR_PREP_MSM;
     else
         _rrPrepMsm = 1;
+    updateStats();
 }
 
 function calcInsertVagProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
@@ -192,6 +194,17 @@ function calcReceptiveAnalUnprotectedRiskFactor(timesPerMonth, percentWithCondom
 
     ReceptiveAnalUnprotectedRiskFactor = riskFactor;
     updateStats();
+}
+
+function resetCalculations() {
+        InsertVagProtectedRiskFactor=1, InsertVagUnprotectedRiskFactor=1,
+        ReceptiveVagProtectedRiskFactor=1, ReceptiveVagUnprotectedRiskFactor=1,
+        InsertAnalProtectedRiskFactor=1, InsertAnalUnprotectedRiskFactor=1,
+        ReceptiveAnalProtectedRiskFactor=1, ReceptiveAnalUnprotectedRiskFactor=1,
+        GiveOralProtectedRiskFactor=1, GiveOralUnprotectedRiskFactor=1,
+        ReceiveOralProtectedRiskFactor=1, ReceiveOralUnprotectedRiskFactor = 1;
+
+        updateStats();
 }
 
 

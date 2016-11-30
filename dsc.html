@@ -324,6 +324,12 @@
 <script type="text/javascript">
 
     var negIsMale;
+    var firstOther1 = false;
+    var firstOther2 = false;
+    var otherOption1Chosen = false;
+    var otherOption2Chosen = false;
+    var filledOnce = false;
+    var circDone = false;
 
     $(document).ready(function(){
         dscSetup();
@@ -355,71 +361,142 @@
         $("#collapse1").collapse("show");
 
         $("#answer11").on("click", function(){
+            if (!negIsMale)
+            {
+                GenderReset(false);
+                $("#answer31").removeClass("active");
+                $("#answer32").removeClass("active");
+                $("#answer41").removeClass("active");
+                $("#answer42").removeClass("active");
+                otherOption1Chosen = false;
+                otherOption2Chosen = false;
+            }
             negIsMale = true;
 
             $("#question2").collapse("show");
+            $("#answer311").removeClass("active");
+            $("#answer312").removeClass("active");
             $("#answer32").removeClass('disabled');
+
+            if (firstOther2 && (!negIsMale || circDone))
+                $("#question3").collapse("show");
+            firstOther1 = true;
         });
 
         $("#answer12").on("click", function(){
-            negIsMale = false;
+            if (negIsMale)
+            {
+                GenderReset(false);
+                $("#answer31").removeClass("active");
+                $("#answer32").removeClass("active");
+                $("#answer41").removeClass("active");
+                $("#answer42").removeClass("active");
+                otherOption1Chosen = false;
+                otherOption2Chosen = false;
+            }
 
-            UpdateCircumsizeRatios(false);
             $("#question2").collapse("hide");
             $("#answer311").removeClass("active");
             $("#answer312").removeClass("active");
-
             $("#answer32").addClass('disabled');
+            negIsMale = false;
+            UpdateCircumsizeRatios(false);
+
+            if (firstOther2 && (!negIsMale || circDone))
+                $("#question3").collapse("show");
+            firstOther1 = true;
         });
 
         $("#answer21").on("click", function(){
             UpdatePrepRatios(true);
-            $("#question3").collapse("show");
+
+            if (firstOther1 && (!negIsMale || circDone))
+                $("#question3").collapse("show");
+            firstOther2 = true;
         });
 
         $("#answer22").on("click", function(){
             UpdatePrepRatios(false);
-            $("#question3").collapse("show");
+
+            if (firstOther1 && (!negIsMale || circDone))
+                $("#question3").collapse("show");
+            firstOther2 = true;
         });
 
         $("#answer311").on("click", function(){
             UpdateCircumsizeRatios(true);
-            $("#question2").collapse("show");
+            $("#question3").collapse("show");
+            circDone = true;
         });
 
         $("#answer312").on("click", function(){
             UpdateCircumsizeRatios(false);
-            $("#question2").collapse("show");
+            $("#question3").collapse("show");
+            circDone = true;
         });
 
         $("#answer31").on("click", function(){
+            if (!isMale)
+                GenderReset(true);
+
             UpdateGenderRatios(true);
+            if (otherOption2Chosen) {
+                if (negIsMale && !isMale)
+                    $("#question5").collapse("show");
+                else if (!negIsMale && isMale)
+                    $("#question7").collapse("show");
+                else
+                    $("#question9").collapse("show");
+            }
+            otherOption1Chosen = true;
         });
 
         $("#answer32").on("click", function(){
+            if (isMale)
+                GenderReset(true);
+
             UpdateGenderRatios(false);
+            if (otherOption2Chosen) {
+                if (negIsMale && !isMale)
+                    $("#question5").collapse("show");
+                else if (!negIsMale && isMale)
+                    $("#question7").collapse("show");
+                else
+                    $("#question9").collapse("show");
+            }
+            otherOption1Chosen = true;
         });
 
         $("#answer41").on("click", function(){
             UpdateArtRatios(true);
 
-            if (negIsMale && !isMale)
-                $("#question5").collapse("show");
-            else if (!negIsMale && isMale)
-                $("#question7").collapse("show");
-            else
-                $("#question9").collapse("show");
+            if (otherOption1Chosen) {
+                if (negIsMale && !isMale)
+                    $("#question5").collapse("show");
+                else if (!negIsMale && isMale)
+                    $("#question7").collapse("show");
+                else
+                    $("#question9").collapse("show");
+            }
+            otherOption2Chosen = true;
+
+            filledOnce = true;
         });
 
         $("#answer42").on("click", function(){
             UpdateArtRatios(false);
 
-            if (negIsMale && !isMale)
-                $("#question5").collapse("show");
-            else if (!negIsMale && isMale)
-                $("#question7").collapse("show");
-            else
-                $("#question9").collapse("show");
+            if (otherOption1Chosen) {
+                if (negIsMale && !isMale)
+                    $("#question5").collapse("show");
+                else if (!negIsMale && isMale)
+                    $("#question7").collapse("show");
+                else
+                    $("#question9").collapse("show");
+            }
+            otherOption2Chosen = true;
+
+            filledOnce = true;
         });
 
         $(".answer5").on("change",function(){
@@ -772,11 +849,68 @@
 
     }
 
-    function closeSliders() {
+    function GenderReset(isSecond) {
+        $("#question5").collapse("hide");
+        $("#question7").collapse("hide");
+        $("#question9").collapse("hide");
+        $("#question11").collapse("hide");
+        $("#question13").collapse("hide");
+        $("#question15").collapse("hide");
 
+
+        $(".answer5").attr('data-slider-value', 0);
+        $("#answer5slider").text(0);
+        $(".answer5").slider('refresh');
+        $(".answer6").attr('data-slider-value', 0);
+        $("#answer6slider").text(0);
+        $(".answer6").slider('refresh');
+        $(".answer7").attr('data-slider-value', 0);
+        $("#answer7slider").text(0);
+        $(".answer7").slider('refresh');
+        $(".answer8").attr('data-slider-value', 0);
+        $("#answer8slider").text(0);
+        $(".answer8").slider('refresh');
+        $(".answer9").attr('data-slider-value', 0);
+        $("#answer9slider").text(0);
+        $(".answer9").slider('refresh');
+        $(".answer10").attr('data-slider-value', 0);
+        $("#answer10slider").text(0);
+        $(".answer10").slider('refresh');
+        $(".answer11").attr('data-slider-value', 0);
+        $("#answer11slider").text(0);
+        $(".answer11").slider('refresh');
+        $(".answer12").attr('data-slider-value', 0);
+        $("#answer12slider").text(0);
+        $(".answer12").slider('refresh');
+        $(".answer13").attr('data-slider-value', 0);
+        $("#answer13slider").text(0);
+        $(".answer13").slider('refresh');
+        $(".answer14").attr('data-slider-value', 0);
+        $("#answer14slider").text(0);
+        $(".answer14").slider('refresh');
+        $(".answer15").attr('data-slider-value', 0);
+        $("#answer15slider").text(0);
+        $(".answer15").slider('refresh');
+        $(".answer16").attr('data-slider-value', 0);
+        $("#answer16slider").text(0);
+        $(".answer16").slider('refresh');
+
+
+
+
+
+        resetCalculations();
+
+        console.log("reset");
+        if (filledOnce && isMale) {
+            if (negIsMale && !isMale)
+                $("#question5").collapse("show");
+            else if (!negIsMale && isMale)
+                $("#question7").collapse("show");
+            else
+                $("#question9").collapse("show");
+        }
     }
-
-
 
 </script>
 </html>
