@@ -158,6 +158,12 @@
         <div class="col-lg-6">
             <h2>Results and Recommendations</h2>
             <div id="gauge" style="width:350px; height:280px"></div>
+            <h3>Recommended Actions</h3>
+            <div id="recommended-actions-display">
+                <ul>
+                    <li id="recommended-actions"></li>
+                </ul>
+            </div>
         </div>
     </div>
 	<br/>
@@ -388,6 +394,12 @@
         }
 
         g.refresh(total);
+        var actionToDisplay = resultsToTake[">10"];
+        if(total <= 10){
+            actionToDisplay = resultsToTake["<10"];
+        }
+        $("#recommended-actions-display").show();
+        $("#recommended-actions").html(actionToDisplay);
     }
 
    $(".download-pdf").on("click",function(){
