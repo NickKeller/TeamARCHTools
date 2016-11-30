@@ -140,7 +140,7 @@
                             <br/>
                             <div class="answersSection">
                                 <input class="answer6 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
-                                <span><span id="answer6slider">0</span></span>
+                                <span><span id="answer6slider">0%</span></span>
                             </div>
                         </div>
                     </div>
@@ -164,7 +164,7 @@
                             <br/>
                             <div class="answersSection">
                                 <input class="answer8 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
-                                <span><span id="answer8slider">0</span></span>
+                                <span><span id="answer8slider">0%</span></span>
                             </div>
                         </div>
                     </div>
@@ -188,7 +188,7 @@
                             <br/>
                             <div class="answersSection">
                                 <input class="answer10 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
-                                <span><span id="answer10slider">0</span></span>
+                                <span><span id="answer10slider">0%</span></span>
                             </div>
                         </div>
                     </div>
@@ -212,7 +212,7 @@
                             <br/>
                             <div class="answersSection">
                                 <input class="answer12 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
-                                <span><span id="answer12slider">0</span></span>
+                                <span><span id="answer12slider">0%</span></span>
                             </div>
                         </div>
                     </div>
@@ -236,7 +236,7 @@
                             <br/>
                             <div class="answersSection">
                                 <input class="answer14 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
-                                <span><span id="answer14slider">0</span></span>
+                                <span><span id="answer14slider">0%</span></span>
                             </div>
                         </div>
                     </div>
@@ -260,7 +260,7 @@
                             <br/>
                             <div class="answersSection">
                                 <input class="answer16 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
-                                <span><span id="answer16slider">0</span></span>
+                                <span><span id="answer16slider">0%</span></span>
                             </div>
                         </div>
                     </div>
@@ -577,10 +577,10 @@
             var out;
             value = $(".answer8").data('slider').getValue();
             if (value == 100){
-                out = '100 or more';
+                out = '100%';
             }
             else {
-                out = value
+                out = value + "%"
             }
             $("#answer8slider").text(out);
         });
@@ -622,10 +622,10 @@
             var out;
             value = $(".answer10").data('slider').getValue();
             if (value == 100){
-                out = '100 or more';
+                out = '100%';
             }
             else {
-                out = value
+                out = value + "%"
             }
             $("#answer10slider").text(out);
         });
@@ -664,10 +664,10 @@
             var out;
             value = $(".answer12").data('slider').getValue();
             if (value == 100){
-                out = '100 or more';
+                out = '100%';
             }
             else {
-                out = value
+                out = value + "%"
             }
             $("#answer12slider").text(out);
         });
@@ -706,10 +706,10 @@
             var out;
             value = $(".answer14").data('slider').getValue();
             if (value == 100){
-                out = '100 or more';
+                out = '100%';
             }
             else {
-                out = value
+                out = value + "%"
             }
             $("#answer14slider").text(out);
         });
@@ -746,10 +746,10 @@
             var out;
             value = $(".answer16").data('slider').getValue();
             if (value == 100){
-                out = '100 or more';
+                out = '100%';
             }
             else {
-                out = value
+                out = value + "%"
             }
             $("#answer16slider").text(out);
         });
