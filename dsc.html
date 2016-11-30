@@ -323,7 +323,7 @@
             <!--Save to PDF-->
         <!--</button>-->
     <!--</div>-->
-    <nav class="navbar navbar-inverse navbar-fixed-bottom" >
+    <nav id="navbar" class="navbar navbar-inverse navbar-fixed-bottom" >
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -793,10 +793,12 @@
     }
 
     $(".download-pdf").on("click",function(){
+        $("#navbar").addClass("collapse");
         var pdf = new jsPDF('p', 'pt', 'letter');
         pdf.addHTML($('document')[0], function () {
             pdf.save('Test.pdf');
         });
+        $("#navbar").removeClass("collapse");
     });
 
     function setupSliders() {
