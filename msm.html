@@ -206,6 +206,7 @@
     });
 
     var score = [0,0,0,0,0,0];
+    var resultsToTake;
 
     var g = new JustGage({
         id: "gauge",
@@ -231,6 +232,7 @@
 	function setMSMPage(json){
 		//alert("Set page");
 		var msmData = json.tests.MSM;
+        resultsToTake = json.tests.MSM;
 		$("#title").html(msmData.name);
 		$("#finish").collapse("hide");
 		//loop through the questions and set the text
@@ -245,7 +247,8 @@
 
         //show question 1
         $("#question1").collapse("show");
-
+        //hide the results
+        $("#recommended-actions-display").hide();
 
         //can't do this in a loop, because javascript will assume
         //the current value of num, which at the end will be 7
