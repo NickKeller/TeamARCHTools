@@ -70,22 +70,31 @@
            "description": "For couples in which one partner has test HIV positive and one has not",
            "url": "dsc.html",
            "questions": [{
-               "text": "Are you circumcised?",
+               "text": "What is the gender of the HIV-negative partner?",
                "type": "radio",
                "number": 1,
-               "answers": ["Yes", "No"],
+               "answers": ["Male", "Female"],
                "links": {
                    "Yes": "2",
                    "No": "2"
                }
            }, {
-               "text": "Are you taking PrEP?",
+               "text": "Is the HIV-negative partner currently taking PrEP?",
                "type": "radio",
                "number": 2,
                "answers": ["Yes", "No"],
                "links": {
                    "Yes": "3",
                    "No": "3"
+               }
+           }, {
+               "text": "Is the HIV-negative partner circumcised?",
+               "type": "radio",
+               "number": 31,
+               "answers": ["Yes", "No"],
+               "links": {
+                   "Yes": "2",
+                   "No": "2"
                }
            }, {
                "text": "Is your partner with HIV infection male or female?",

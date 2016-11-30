@@ -30,7 +30,7 @@
                 <div id="question1" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                         <h4 class="panel-title">
-                            <a>Circumcised</a>
+                            <a>HIV-negative partner</a>
                         </h4>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse" data-parent="#accordion">
@@ -40,24 +40,14 @@
                             <!-- Radio Button answers -->
                             <div class="answer1 btn-group" data-toggle="buttons">
                                 <label id="answer11" class="btn btn-primary">
-                                    <input type="radio" value="0"> Yes
+                                    <input type="radio" value="0"> Male
                                 </label>
                                 <label id="answer12" class="btn btn-primary">
-                                    <input type="radio" value="1"> No
+                                    <input type="radio" value="1"> Female
                                 </label>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="question2" class="panel panel-default collapse">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                        <h4 class="panel-title">
-                            <a>PreP Use</a>
-                        </h4>
-                    </div>
-                    <div id="collapse2" class="panel-collapse collapse" data-parent="#accordion">
-                        <div class="panel-body">
+                            <br />
+                            <br />
                             <div id="question2Text"></div>
                             <br/>
                             <!-- Radio Button answers -->
@@ -73,10 +63,33 @@
                     </div>
                 </div>
 
+                <div id="question2" class="panel panel-default collapse">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                        <h4 class="panel-title">
+                            <a>Circumcision</a>
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse" data-parent="#accordion">
+                        <div class="panel-body">
+                            <div id="question31Text"></div>
+                            <br/>
+                            <!-- Radio Button answers -->
+                            <div class="answer31 btn-group" data-toggle="buttons">
+                                <label id="answer311" class="btn btn-primary">
+                                    <input type="radio" value="0"> Yes
+                                </label>
+                                <label id="answer312" class="btn btn-primary">
+                                    <input type="radio" value="1"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="question3" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
                         <h4 class="panel-title">
-                            <a>Gender of HIV Partner</a>
+                            <a>HIV-positive partner</a>
                         </h4>
                     </div>
                     <div id="collapse3" class="panel-collapse collapse" data-parent="#accordion">
@@ -92,18 +105,8 @@
                                     <input type="radio" value="1"> Female
                                 </label>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="question4" class="panel panel-default collapse">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-                        <h4 class="panel-title">
-                            <a>ART Use</a>
-                        </h4>
-                    </div>
-                    <div id="collapse4" class="panel-collapse collapse" data-parent="#accordion">
-                        <div class="panel-body">
+                            <br />
+                            <br />
                             <div id="question4Text"></div>
                             <br/>
                             <!-- Radio Button answers -->
@@ -320,6 +323,8 @@
 
 <script type="text/javascript">
 
+    var negIsMale;
+
     $(document).ready(function(){
         dscSetup();
     });
@@ -350,13 +355,21 @@
         $("#collapse1").collapse("show");
 
         $("#answer11").on("click", function(){
-            UpdateCircumsizeRatios(true);
+            negIsMale = true;
+
             $("#question2").collapse("show");
+            $("#answer32").removeClass('disabled');
         });
 
         $("#answer12").on("click", function(){
+            negIsMale = false;
+
             UpdateCircumsizeRatios(false);
-            $("#question2").collapse("show");
+            $("#question2").collapse("hide");
+            $("#answer311").removeClass("active");
+            $("#answer312").removeClass("active");
+
+            $("#answer32").addClass('disabled');
         });
 
         $("#answer21").on("click", function(){
@@ -369,24 +382,44 @@
             $("#question3").collapse("show");
         });
 
+        $("#answer311").on("click", function(){
+            UpdateCircumsizeRatios(true);
+            $("#question2").collapse("show");
+        });
+
+        $("#answer312").on("click", function(){
+            UpdateCircumsizeRatios(false);
+            $("#question2").collapse("show");
+        });
+
         $("#answer31").on("click", function(){
             UpdateGenderRatios(true);
-            $("#question4").collapse("show");
         });
 
         $("#answer32").on("click", function(){
             UpdateGenderRatios(false);
-            $("#question4").collapse("show");
         });
 
         $("#answer41").on("click", function(){
             UpdateArtRatios(true);
-            $("#question5").collapse("show");
+
+            if (negIsMale && !isMale)
+                $("#question5").collapse("show");
+            else if (!negIsMale && isMale)
+                $("#question7").collapse("show");
+            else
+                $("#question9").collapse("show");
         });
 
         $("#answer42").on("click", function(){
             UpdateArtRatios(false);
-            $("#question5").collapse("show");
+
+            if (negIsMale && !isMale)
+                $("#question5").collapse("show");
+            else if (!negIsMale && isMale)
+                $("#question7").collapse("show");
+            else
+                $("#question9").collapse("show");
         });
 
         $(".answer5").on("change",function(){
@@ -415,7 +448,8 @@
             calcInsertVagUnprotectedRiskFactor(tPM, pCU);
             calcInsertVagProtectedRiskFactor(tPM, pCU);
 
-            $("#question7").collapse("show");
+
+            $("#question9").collapse("show");
         });
 
         $(".answer6").on("slide", function(slideEvt) {
@@ -455,7 +489,7 @@
             calcReceptiveVagUnprotectedRiskFactor(tPM, pCU);
             calcReceptiveVagProtectedRiskFactor(tPM, pCU);
 
-            $("#question9").collapse("show");
+            $("#question11").collapse("show");
         });
 
         $(".answer8").on("slide", function(slideEvt) {
@@ -495,7 +529,10 @@
             calcInsertAnalUnprotectedRiskFactor(tPM, pCU);
             calcInsertAnalProtectedRiskFactor(tPM, pCU);
 
-            $("#question11").collapse("show");
+            if (negIsMale && !isMale)
+                $("#question13").collapse("show");
+            else
+                $("#question11").collapse("show");
         });
 
         $(".answer10").on("slide", function(slideEvt) {
@@ -732,6 +769,10 @@
                 return value;
             }
         })
+
+    }
+
+    function closeSliders() {
 
     }
 
