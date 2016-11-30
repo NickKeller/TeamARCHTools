@@ -346,51 +346,55 @@
 
         //show question 1
         $("#question1").collapse("show");
+        $("#collapse1").collapse("show");
 
         $("#answer11").on("click", function(){
-
+            UpdateCircumsizeRatios(true);
             $("#question2").collapse("show");
         });
 
         $("#answer12").on("click", function(){
-
+            UpdateCircumsizeRatios(false);
             $("#question2").collapse("show");
         });
 
         $("#answer21").on("click", function(){
-
+            UpdatePrepRatios(true);
             $("#question3").collapse("show");
         });
 
         $("#answer22").on("click", function(){
-
+            UpdatePrepRatios(false);
             $("#question3").collapse("show");
         });
 
         $("#answer31").on("click", function(){
-
+            UpdateGenderRatios(true);
             $("#question4").collapse("show");
         });
 
         $("#answer32").on("click", function(){
-
+            UpdateGenderRatios(false);
             $("#question4").collapse("show");
         });
 
         $("#answer41").on("click", function(){
-
+            UpdateArtRatios(true);
             $("#question5").collapse("show");
         });
 
         $("#answer42").on("click", function(){
-
+            UpdateArtRatios(false);
             $("#question5").collapse("show");
         });
 
-        // $(".answer5").on("change",function(){
+        $(".answer5").on("change",function(){
+            tPM = $(".answer5").attr("value");
+            pCU = $(".answer6").attr("value");
 
-        //     $("#question7").collapse("show");
-        // });
+            calcInsertVagUnprotectedRiskFactor(tPM, pCU);
+            calcInsertVagProtectedRiskFactor(tPM, pCU);
+        });
 
         $(".answer5").on("slide", function(slideEvt) {
             var out;
@@ -404,6 +408,11 @@
         });
 
         $(".answer6").on("change",function(){
+            tPM = $(".answer5").attr("value");
+            pCU = $(".answer6").attr("value");
+
+            calcInsertVagUnprotectedRiskFactor(tPM, pCU);
+            calcInsertVagProtectedRiskFactor(tPM, pCU);
 
             $("#question7").collapse("show");
         });
@@ -411,18 +420,21 @@
         $(".answer6").on("slide", function(slideEvt) {
             var out;
             if (slideEvt.value == 100){
-                out = '100 or more';
+                out = '100%';
             }
             else {
-                out = slideEvt.value
+                out = slideEvt.value + "%"
             }
             $("#answer6slider").text(out);
         });
 
-        // $(".answer7").on("change",function(){
+        $(".answer7").on("change",function(){
+            tPM = $(".answer7").attr("value");
+            pCU = $(".answer8").attr("value");
 
-        //     $("#question9").collapse("show");
-        // });
+            calcReceptiveVagUnprotectedRiskFactor(tPM, pCU);
+            calcReceptiveVagProtectedRiskFactor(tPM, pCU);
+        });
 
         $(".answer7").on("slide", function(slideEvt) {
             var out;
@@ -436,6 +448,11 @@
         });
 
         $(".answer8").on("change",function(){
+            tPM = $(".answer7").attr("value");
+            pCU = $(".answer8").attr("value");
+
+            calcReceptiveVagUnprotectedRiskFactor(tPM, pCU);
+            calcReceptiveVagProtectedRiskFactor(tPM, pCU);
 
             $("#question9").collapse("show");
         });
@@ -451,10 +468,13 @@
             $("#answer8slider").text(out);
         });
 
-        // $(".answer9").on("change",function(){
+        $(".answer9").on("change",function(){
+            tPM = $(".answer9").attr("value");
+            pCU = $(".answer10").attr("value");
 
-        //     $("#question11").collapse("show");
-        // });
+            calcInsertAnalUnprotectedRiskFactor(tPM, pCU);
+            calcInsertAnalProtectedRiskFactor(tPM, pCU);
+        });
 
         $(".answer9").on("slide", function(slideEvt) {
             var out;
@@ -468,6 +488,11 @@
         });
 
         $(".answer10").on("change",function(){
+            tPM = $(".answer9").attr("value");
+            pCU = $(".answer10").attr("value");
+
+            calcInsertAnalUnprotectedRiskFactor(tPM, pCU);
+            calcInsertAnalProtectedRiskFactor(tPM, pCU);
 
             $("#question11").collapse("show");
         });
@@ -483,10 +508,13 @@
             $("#answer10slider").text(out);
         });
 
-        // $(".answer11").on("change",function(){
+        $(".answer11").on("change",function(){
+            tPM = $(".answer11").attr("value");
+            pCU = $(".answer12").attr("value");
 
-        //     $("#question13").collapse("show");
-        // });
+            calcReceptiveAnalUnprotectedRiskFactor(tPM, pCU);
+            calcReceptiveAnalProtectedRiskFactor(tPM, pCU);
+        });
 
         $(".answer11").on("slide", function(slideEvt) {
             var out;
@@ -500,6 +528,11 @@
         });
 
         $(".answer12").on("change",function(){
+            tPM = $(".answer11").attr("value");
+            pCU = $(".answer12").attr("value");
+
+            calcReceptiveAnalUnprotectedRiskFactor(tPM, pCU);
+            calcReceptiveAnalProtectedRiskFactor(tPM, pCU);
 
             $("#question13").collapse("show");
         });
@@ -515,10 +548,13 @@
             $("#answer12slider").text(out);
         });
 
-        // $(".answer13").on("change",function(){
+        $(".answer13").on("change",function(){
+            tPM = $(".answer13").attr("value");
+            pCU = $(".answer14").attr("value");
 
-        //      $("#question14").collapse("show");
-        // });
+            calcGiveOralUnprotectedRiskFactor(tPM, pCU);
+            calcGiveOralProtectedRiskFactor(tPM, pCU);
+        });
 
         $(".answer13").on("slide", function(slideEvt) {
             var out;
@@ -532,6 +568,11 @@
         });
 
         $(".answer14").on("change",function(){
+            tPM = $(".answer13").attr("value");
+            pCU = $(".answer14").attr("value");
+
+            calcGiveOralUnprotectedRiskFactor(tPM, pCU);
+            calcGiveOralProtectedRiskFactor(tPM, pCU);
 
             $("#question15").collapse("show");
         });
@@ -547,10 +588,13 @@
             $("#answer14slider").text(out);
         });
 
-        // $(".answer15").on("change",function(){
+        $(".answer15").on("change",function(){
+            tPM = $(".answer15").attr("value");
+            pCU = $(".answer16").attr("value");
 
-        //     $("#question16").collapse("show");
-        // });
+            calcReceiveOralUnprotectedRiskFactor(tPM, pCU);
+            calcReceiveOralProtectedRiskFactor(tPM, pCU);
+        });
 
         $(".answer15").on("slide", function(slideEvt) {
             var out;
@@ -563,10 +607,13 @@
             $("#answer15slider").text(out);
         });
 
-        // $(".answer16").on("change",function(){
+        $(".answer16").on("change",function(){
+            tPM = $(".answer15").attr("value");
+            pCU = $(".answer16").attr("value");
 
-        //     $("#question16").collapse("show");
-        // });
+            calcReceiveOralUnprotectedRiskFactor(tPM, pCU);
+            calcReceiveOralProtectedRiskFactor(tPM, pCU);
+        });
 
         $(".answer16").on("slide", function(slideEvt) {
             var out;
@@ -577,7 +624,7 @@
                 out = slideEvt.value
             }
             $("#answer16slider").text(out);
-        });        
+        });
 
 
 
