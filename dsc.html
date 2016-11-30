@@ -507,13 +507,14 @@
             calcInsertVagProtectedRiskFactor(tPM, pCU);
         });
 
-        $(".answer5").on("slide", function(slideEvt) {
+        $(".answer5").on("change", function() {
             var out;
-            if (slideEvt.value == 50){
+            $(".answer5").data('slider').getValue();
+            if (value == 50){
                 out = '50 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer5slider").text(out);
         });
@@ -529,13 +530,15 @@
             $("#question9").collapse("show");
         });
 
-        $(".answer6").on("slide", function(slideEvt) {
+        $(".answer6").on("change", function() {
             var out;
-            if (slideEvt.value == 100){
+            $(".answer6").data('slider').getValue();
+            value = $(".answer6").attr("slider-value");
+            if (value == 100){
                 out = '100%';
             }
             else {
-                out = slideEvt.value + "%"
+                out = value + "%"
             }
             $("#answer6slider").text(out);
         });
@@ -548,13 +551,14 @@
             calcReceptiveVagProtectedRiskFactor(tPM, pCU);
         });
 
-        $(".answer7").on("slide", function(slideEvt) {
+        $(".answer7").on("change", function() {
             var out;
-            if (slideEvt.value == 50){
+            value = $(".answer7").data('slider').getValue();
+            if (value == 50){
                 out = '50 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer7slider").text(out);
         });
@@ -569,13 +573,14 @@
             $("#question11").collapse("show");
         });
 
-        $(".answer8").on("slide", function(slideEvt) {
+        $(".answer8").on("change", function() {
             var out;
-            if (slideEvt.value == 100){
+            value = $(".answer8").data('slider').getValue();
+            if (value == 100){
                 out = '100 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer8slider").text(out);
         });
@@ -588,13 +593,14 @@
             calcInsertAnalProtectedRiskFactor(tPM, pCU);
         });
 
-        $(".answer9").on("slide", function(slideEvt) {
+        $(".answer9").on("change", function() {
             var out;
-            if (slideEvt.value == 50){
+            value = $(".answer9").data('slider').getValue();
+            if (value == 50){
                 out = '50 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer9slider").text(out);
         });
@@ -612,13 +618,14 @@
                 $("#question11").collapse("show");
         });
 
-        $(".answer10").on("slide", function(slideEvt) {
+        $(".answer10").on("change", function() {
             var out;
-            if (slideEvt.value == 100){
+            value = $(".answer10").data('slider').getValue();
+            if (value == 100){
                 out = '100 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer10slider").text(out);
         });
@@ -631,13 +638,14 @@
             calcReceptiveAnalProtectedRiskFactor(tPM, pCU);
         });
 
-        $(".answer11").on("slide", function(slideEvt) {
+        $(".answer11").on("change", function() {
             var out;
-            if (slideEvt.value == 50){
+            value = $(".answer11").data('slider').getValue();
+            if (value == 50){
                 out = '50 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer11slider").text(out);
         });
@@ -652,13 +660,14 @@
             $("#question13").collapse("show");
         });
 
-        $(".answer12").on("slide", function(slideEvt) {
+        $(".answer12").on("change", function() {
             var out;
-            if (slideEvt.value == 100){
+            value = $(".answer12").data('slider').getValue();
+            if (value == 100){
                 out = '100 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer12slider").text(out);
         });
@@ -671,13 +680,14 @@
             calcGiveOralProtectedRiskFactor(tPM, pCU);
         });
 
-        $(".answer13").on("slide", function(slideEvt) {
+        $(".answer13").on("change", function() {
             var out;
-            if (slideEvt.value == 50){
+            value = $(".answer13").data('slider').getValue();
+            if (value == 50){
                 out = '50 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer13slider").text(out);
         });
@@ -692,13 +702,14 @@
             $("#question15").collapse("show");
         });
 
-        $(".answer14").on("slide", function(slideEvt) {
+        $(".answer14").on("change", function() {
             var out;
-            if (slideEvt.value == 100){
+            value = $(".answer14").data('slider').getValue();
+            if (value == 100){
                 out = '100 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer14slider").text(out);
         });
@@ -711,13 +722,14 @@
             calcReceiveOralProtectedRiskFactor(tPM, pCU);
         });
 
-        $(".answer15").on("slide", function(slideEvt) {
+        $(".answer15").on("change", function() {
             var out;
-            if (slideEvt.value == 50){
+            value = $(".answer15").data('slider').getValue();
+            if (value == 50){
                 out = '50 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer15slider").text(out);
         });
@@ -730,13 +742,14 @@
             calcReceiveOralProtectedRiskFactor(tPM, pCU);
         });
 
-        $(".answer16").on("slide", function(slideEvt) {
+        $(".answer16").on("change", function() {
             var out;
-            if (slideEvt.value == 100){
+            value = $(".answer16").data('slider').getValue();
+            if (value == 100){
                 out = '100 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer16slider").text(out);
         });
