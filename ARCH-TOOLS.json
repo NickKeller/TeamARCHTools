@@ -5,7 +5,7 @@
            "description": "For injection drug users",
            "url": "idu.html",
            "questions": [{
-               "text": "How old are you today?(Years)",
+               "text": "How old are you today? (in years)",
                "type": "radio",
                "name": "gender",
                "number": 1,
@@ -229,7 +229,7 @@
            "description": "For men who have sex with other men",
            "url": "msm.html",
            "questions": [{
-               "text": "How old are you today?(Years)",
+               "text": "How old are you today? (in years)",
                "type": "radio",
                "name": "age",
                "number": 1,
@@ -241,7 +241,7 @@
                    "50+": "2"
                }
            }, {
-               "text": "In the last six months, how many men have you had sex with?",
+               "text": "How many men have you had sex with?",
                "type": "radio",
                "name": "sexFreq",
                "number": 2,
@@ -252,7 +252,7 @@
                    "10+": "3"
                }
            }, {
-               "text": "In the last six months, how many times did you have receptive anal sex (you were the bottom) with a man when he did not use a condom?",
+               "text": "How many times did you have receptive anal sex (you were the bottom) with a man when he did not use a condom?",
                "type": "radio",
                "name": "unprotFreq",
                "number": 3,
@@ -262,7 +262,7 @@
                    "1+": "4"
                }
            }, {
-               "text": "In the last six months, how many of your male sexual partners were HIV positive?",
+               "text": "How many of your male sexual partners were HIV positive?",
                "type": "radio",
                "name": "HIVpos",
                "number": 4,
@@ -273,7 +273,7 @@
                    "2+": "5"
                }
            }, {
-               "text": "In the last six months, how many times did you have insertive anal sex (you were the top) with a man when you did not use a condom?",
+               "text": "How many times did you have insertive anal sex (you were the top) with a man when you did not use a condom?",
                "type": "radio",
                "name": "unprotFreq",
                "number": 5,
@@ -283,7 +283,7 @@
                    "5+": "6"
                }
            }, {
-               "text": "In the last six months, have you used methamphetamines such as crystal or speed?",
+               "text": "Have you used methamphetamines such as crystal or speed?",
                "type": "radio",
                "name": "meth",
                "number": 6,
