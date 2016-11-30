@@ -7,10 +7,12 @@
   <link rel="stylesheet" href="css/bootstrap-slider.min.css">
   <link rel="stylesheet" href="css/archtools.css">
 
+    <script src="js/jspdf.debug.js"></script>
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/bootstrap-slider.min.js"></script>
   <script src="js/Chart.min.js"></script>
+  <script src="js/dsc.js"></script>
   <script src="js/dsc_charts.js"></script>
   <script src="js/loader.js"></script>
   <script src="js/raphael-2.1.4.min.js"></script>
@@ -29,7 +31,7 @@
                 <div id="question1" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                         <h4 class="panel-title">
-                            <a>Question 1</a>
+                            <a>HIV-Negative Partner</a>
                         </h4>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse" data-parent="#accordion">
@@ -39,24 +41,14 @@
                             <!-- Radio Button answers -->
                             <div class="answer1 btn-group" data-toggle="buttons">
                                 <label id="answer11" class="btn btn-primary">
-                                    <input type="radio" value="0"> Yes
+                                    <input type="radio" value="0"> Male
                                 </label>
                                 <label id="answer12" class="btn btn-primary">
-                                    <input type="radio" value="1"> No
+                                    <input type="radio" value="1"> Female
                                 </label>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="question2" class="panel panel-default collapse">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                        <h4 class="panel-title">
-                            <a>Question 2</a>
-                        </h4>
-                    </div>
-                    <div id="collapse2" class="panel-collapse collapse" data-parent="#accordion">
-                        <div class="panel-body">
+                            <br />
+                            <br />
                             <div id="question2Text"></div>
                             <br/>
                             <!-- Radio Button answers -->
@@ -72,10 +64,33 @@
                     </div>
                 </div>
 
+                <div id="question2" class="panel panel-default collapse">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                        <h4 class="panel-title">
+                            <a>Circumcision</a>
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse" data-parent="#accordion">
+                        <div class="panel-body">
+                            <div id="question31Text"></div>
+                            <br/>
+                            <!-- Radio Button answers -->
+                            <div class="answer31 btn-group" data-toggle="buttons">
+                                <label id="answer311" class="btn btn-primary">
+                                    <input type="radio" value="0"> Yes
+                                </label>
+                                <label id="answer312" class="btn btn-primary">
+                                    <input type="radio" value="1"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="question3" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
                         <h4 class="panel-title">
-                            <a>Question 3</a>
+                            <a>HIV-Positive Partner</a>
                         </h4>
                     </div>
                     <div id="collapse3" class="panel-collapse collapse" data-parent="#accordion">
@@ -91,18 +106,8 @@
                                     <input type="radio" value="1"> Female
                                 </label>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="question4" class="panel panel-default collapse">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-                        <h4 class="panel-title">
-                            <a>Question 4</a>
-                        </h4>
-                    </div>
-                    <div id="collapse4" class="panel-collapse collapse" data-parent="#accordion">
-                        <div class="panel-body">
+                            <br />
+                            <br />
                             <div id="question4Text"></div>
                             <br/>
                             <!-- Radio Button answers -->
@@ -117,11 +122,12 @@
                         </div>
                     </div>
                 </div>
+                <h4 id ="last12" class="collapse">Within an average month of sexual activity...</h4>
 
                 <div id="question5" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
                         <h4 class="panel-title">
-                            <a>Question 5</a>
+                            <a>Insertive Vaginal Sex</a>
                         </h4>
                     </div>
                     <div id="collapse5" class="panel-collapse collapse" data-parent="#accordion">
@@ -132,23 +138,12 @@
                                 <input class="answer5 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer5slider">0</span></span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="question6" class="panel panel-default collapse">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
-                        <h4 class="panel-title">
-                            <a>Question 6</a>
-                        </h4>
-                    </div>
-                    <div id="collapse6" class="panel-collapse collapse" data-parent="#accordion">
-                        <div class="panel-body">
+                            <br />
                             <div id="question6Text"></div>
                             <br/>
                             <div class="answersSection">
                                 <input class="answer6 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
-                                <span><span id="answer6slider">0</span></span>
+                                <span><span id="answer6slider">0%</span></span>
                             </div>
                         </div>
                     </div>
@@ -157,7 +152,7 @@
                 <div id="question7" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
                         <h4 class="panel-title">
-                            <a>Question 7</a>
+                            <a>Receptive Vaginal Sex</a>
                         </h4>
                     </div>
                     <div id="collapse7" class="panel-collapse collapse" data-parent="#accordion">
@@ -168,23 +163,12 @@
                                 <input class="answer7 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer7slider">0</span></span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="question8" class="panel panel-default collapse">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse8">
-                        <h4 class="panel-title">
-                            <a>Question 8</a>
-                        </h4>
-                    </div>
-                    <div id="collapse8" class="panel-collapse collapse" data-parent="#accordion">
-                        <div class="panel-body">
+                            <br />
                             <div id="question8Text"></div>
                             <br/>
                             <div class="answersSection">
                                 <input class="answer8 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
-                                <span><span id="answer8slider">0</span></span>
+                                <span><span id="answer8slider">0%</span></span>
                             </div>
                         </div>
                     </div>
@@ -193,7 +177,7 @@
                 <div id="question9" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse9">
                         <h4 class="panel-title">
-                            <a>Question 9</a>
+                            <a>Insertive Anal Sex</a>
                         </h4>
                     </div>
                     <div id="collapse9" class="panel-collapse collapse" data-parent="#accordion">
@@ -204,23 +188,12 @@
                                 <input class="answer9 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer9slider">0</span></span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="question10" class="panel panel-default collapse">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse10">
-                        <h4 class="panel-title">
-                            <a>Question 10</a>
-                        </h4>
-                    </div>
-                    <div id="collapse10" class="panel-collapse collapse" data-parent="#accordion">
-                        <div class="panel-body">
+                            <br />
                             <div id="question10Text"></div>
                             <br/>
                             <div class="answersSection">
                                 <input class="answer10 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
-                                <span><span id="answer10slider">0</span></span>
+                                <span><span id="answer10slider">0%</span></span>
                             </div>
                         </div>
                     </div>
@@ -229,7 +202,7 @@
                 <div id="question11" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse11">
                         <h4 class="panel-title">
-                            <a>Question 11</a>
+                            <a>Receptive Anal Sex</a>
                         </h4>
                     </div>
                     <div id="collapse11" class="panel-collapse collapse" data-parent="#accordion">
@@ -240,32 +213,21 @@
                                 <input class="answer11 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer11slider">0</span></span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="question12" class="panel panel-default collapse">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse12">
-                        <h4 class="panel-title">
-                            <a>Question 12</a>
-                        </h4>
-                    </div>
-                    <div id="collapse12" class="panel-collapse collapse" data-parent="#accordion">
-                        <div class="panel-body">
+                            <br />
                             <div id="question12Text"></div>
                             <br/>
                             <div class="answersSection">
                                 <input class="answer12 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
-                                <span><span id="answer12slider">0</span></span>
+                                <span><span id="answer12slider">0%</span></span>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
 
                 <div id="question13" class="panel panel-default collapse">
                     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse13">
                         <h4 class="panel-title">
-                            <a>Question 13</a>
+                            <a>Giving Oral Sex</a>
                         </h4>
                     </div>
                     <div id="collapse13" class="panel-collapse collapse" data-parent="#accordion">
@@ -276,23 +238,37 @@
                                 <input class="answer13 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
                                 <span><span id="answer13slider">0</span></span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="question14" class="panel panel-default collapse">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse14">
-                        <h4 class="panel-title">
-                            <a>Question 14</a>
-                        </h4>
-                    </div>
-                    <div id="collapse14" class="panel-collapse collapse" data-parent="#accordion">
-                        <div class="panel-body">
+                            <br />
                             <div id="question14Text"></div>
                             <br/>
                             <div class="answersSection">
                                 <input class="answer14 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
-                                <span><span id="answer14slider">0</span></span>
+                                <span><span id="answer14slider">0%</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="question15" class="panel panel-default collapse">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse15">
+                        <h4 class="panel-title">
+                            <a>Receiving Oral Sex</a>
+                        </h4>
+                    </div>
+                    <div id="collapse15" class="panel-collapse collapse" data-parent="#accordion">
+                            <div class="panel-body">
+                            <div id="question15Text"></div>
+                            <br/>
+                            <div class="answersSection">
+                                <input class="answer15 slider" type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer15slider">0</span></span>
+                            </div>
+                            <br />
+                            <div id="question16Text"></div>
+                            <br/>
+                            <div class="answersSection">
+                                <input class="answer16 slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide"/>
+                                <span><span id="answer16slider">0%</span></span>
                             </div>
                         </div>
                     </div>
@@ -307,53 +283,91 @@
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 well">
                     <div class="row">
-                        <h3>Chances of contracting HIV from your partner:</h3>
+                        <h3>Risk of HIV Contraction from Partner</h3>
                         <table class="table table-condensed table-striped table-bordered">
                             <tbody>
                                 <tr>
                                     <td>Per Month</td>
-                                    <td>0.0%</td>
+                                    <td id="monthper">0.0%</td>
                                     <td>OR</td>
-                                    <td>1 in 9727</td>
+                                    <td id="monthodds">1 in 9727</td>
                                 </tr>
                                 <tr>
                                     <td>Per Year</td>
-                                    <td>0.0%</td>
+                                    <td id="yearper">0.0%</td>
                                     <td>OR</td>
-                                    <td>1 in 9727</td>
+                                    <td id="yearodds">1 in 9727</td>
                                 </tr>
                                 <tr>
-                                    <td>In 10 years</td>
-                                    <td>0.0%</td>
+                                    <td id>In 10 years</td>
+                                    <td id="10yearper">0.0%</td>
                                     <td>OR</td>
-                                    <td>1 in 9727</td>
+                                    <td id="10yearodds">1 in 9727</td>
                                 </tr>
                                 <tr>
                                     <td>In 25 years</td>
-                                    <td>0.0%</td>
+                                    <td id="25yearper">0.0%</td>
                                     <td>OR</td>
-                                    <td>1 in 9727</td>
+                                    <td id="25yearodds">1 in 9727</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="col-lg-10 col-lg-offset-1 well">
-                    <h3>How much your specific sexual acts contribute to your risk of contracting HIV</h3>
+                    <h3>Contribution of Sexual Acts to HIV Risk</h3>
                     <canvas id="actChart" class="img-responsive pie"></canvas>
                 </div>
                 <div class="col-lg-10 col-lg-offset-1 well">
-                    <h3>Contributions to chances of contracting HIV by condom use</h3>
+                    <h3>Contribution of Condom Use to HIV Risk</h3>
                     <canvas id="condomChart" class="img-responsive pie"></canvas>
                 </div>
             </div>
         </div>
     </div>
+    <!--<div id ="finish" class="text-center">-->
+        <!--<button type="button" id="pdf-button" data-loading-text="Loading..." class="btn btn-primary btn-lg speedometer download-pdf" autocomplete="off">-->
+            <!--Save to PDF-->
+        <!--</button>-->
+    <!--</div>-->
+    <nav id="navbar" class="navbar navbar-inverse navbar-fixed-bottom" >
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"> ARCH Tools</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="msm.html">MSM</a></li>
+                    <li><a href="idu.html">IDU</a></li>
+                    <li class="active"><a href="dsc.html">DSC</a></li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="download-pdf" href="#"><span class="glyphicon glyphicon-save-file"></span> Save to PDF</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
 </div>
 
 </body>
 
 <script type="text/javascript">
+
+    var negIsMale;
+    var firstOther1 = false;
+    var firstOther2 = false;
+    var otherOption1Chosen = false;
+    var otherOption2Chosen = false;
+    var filledOnce = false;
+    var circDone = false;
 
     $(document).ready(function(){
         dscSetup();
@@ -362,6 +376,7 @@
     function dscSetup(){
         //loads the json from the file, then sets the questions on the page
         $.getJSON("ARCH-TOOLS.json", setDSCPage);
+        updateStats();
     }
 
     function setDSCPage(json){
@@ -381,200 +396,405 @@
 
         //show question 1
         $("#question1").collapse("show");
+        $("#collapse1").collapse("show");
 
         $("#answer11").on("click", function(){
+            if (!negIsMale)
+            {
+                GenderReset(false);
+                $("#answer31").removeClass("active");
+                $("#answer32").removeClass("active");
+                $("#answer41").removeClass("active");
+                $("#answer42").removeClass("active");
+                otherOption1Chosen = false;
+                otherOption2Chosen = false;
+            }
+            negIsMale = true;
 
             $("#question2").collapse("show");
+            $("#answer311").removeClass("active");
+            $("#answer312").removeClass("active");
+            $("#answer32").removeClass('disabled');
+
+            if (firstOther2 && (!negIsMale || circDone))
+                $("#question3").collapse("show");
+            firstOther1 = true;
         });
 
         $("#answer12").on("click", function(){
+            if (negIsMale)
+            {
+                GenderReset(false);
+                $("#answer31").removeClass("active");
+                $("#answer32").removeClass("active");
+                $("#answer41").removeClass("active");
+                $("#answer42").removeClass("active");
+                otherOption1Chosen = false;
+                otherOption2Chosen = false;
+            }
 
-            $("#question2").collapse("show");
+            $("#question2").collapse("hide");
+            $("#answer311").removeClass("active");
+            $("#answer312").removeClass("active");
+            $("#answer32").addClass('disabled');
+            negIsMale = false;
+            UpdateCircumsizeRatios(false);
+
+            if (firstOther2 && (!negIsMale || circDone))
+                $("#question3").collapse("show");
+            firstOther1 = true;
         });
 
         $("#answer21").on("click", function(){
+            UpdatePrepRatios(true);
 
-            $("#question3").collapse("show");
+            if (firstOther1 && (!negIsMale || circDone))
+                $("#question3").collapse("show");
+            firstOther2 = true;
         });
 
         $("#answer22").on("click", function(){
+            UpdatePrepRatios(false);
 
+            if (firstOther1 && (!negIsMale || circDone))
+                $("#question3").collapse("show");
+            firstOther2 = true;
+        });
+
+        $("#answer311").on("click", function(){
+            UpdateCircumsizeRatios(true);
             $("#question3").collapse("show");
+            circDone = true;
+        });
+
+        $("#answer312").on("click", function(){
+            UpdateCircumsizeRatios(false);
+            $("#question3").collapse("show");
+            circDone = true;
         });
 
         $("#answer31").on("click", function(){
+            if (!isMale)
+                GenderReset(true);
 
-            $("#question4").collapse("show");
+            UpdateGenderRatios(true);
+            if (otherOption2Chosen) {
+                if (negIsMale && !isMale)
+                    $("#question5").collapse("show");
+                else if (!negIsMale && isMale)
+                    $("#question7").collapse("show");
+                else
+                    $("#question9").collapse("show");
+            }
+            otherOption1Chosen = true;
         });
 
         $("#answer32").on("click", function(){
+            if (isMale)
+                GenderReset(true);
 
-            $("#question4").collapse("show");
+            UpdateGenderRatios(false);
+            if (otherOption2Chosen) {
+                if (negIsMale && !isMale)
+                    $("#question5").collapse("show");
+                else if (!negIsMale && isMale)
+                    $("#question7").collapse("show");
+                else
+                    $("#question9").collapse("show");
+            }
+            otherOption1Chosen = true;
         });
 
         $("#answer41").on("click", function(){
+            UpdateArtRatios(true);
 
-            $("#question5").collapse("show");
+            if (otherOption1Chosen) {
+                if (negIsMale && !isMale)
+                    $("#question5").collapse("show");
+                else if (!negIsMale && isMale)
+                    $("#question7").collapse("show");
+                else
+                    $("#question9").collapse("show");
+            }
+            otherOption2Chosen = true;
+
+            filledOnce = true;
+
+            $("#last12").collapse("show");
+
         });
 
         $("#answer42").on("click", function(){
+            UpdateArtRatios(false);
 
-            $("#question5").collapse("show");
+            if (otherOption1Chosen) {
+                if (negIsMale && !isMale)
+                    $("#question5").collapse("show");
+                else if (!negIsMale && isMale)
+                    $("#question7").collapse("show");
+                else
+                    $("#question9").collapse("show");
+            }
+            otherOption2Chosen = true;
+
+            filledOnce = true;
+
+            $("#last12").collapse("show");
+
         });
 
         $(".answer5").on("change",function(){
+            tPM = $(".answer5").attr("value");
+            pCU = $(".answer6").attr("value");
 
-            $("#question6").collapse("show");
+            calcInsertVagUnprotectedRiskFactor(tPM, pCU);
+            calcInsertVagProtectedRiskFactor(tPM, pCU);
         });
 
-        $(".answer5").on("slide", function(slideEvt) {
+        $(".answer5").on("change", function() {
             var out;
-            if (slideEvt.value == 50){
+            value = $(".answer5").data('slider').getValue();
+            if (value == 50){
                 out = '50 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer5slider").text(out);
         });
 
         $(".answer6").on("change",function(){
+            tPM = $(".answer5").attr("value");
+            pCU = $(".answer6").attr("value");
 
-            $("#question7").collapse("show");
+            calcInsertVagUnprotectedRiskFactor(tPM, pCU);
+            calcInsertVagProtectedRiskFactor(tPM, pCU);
+
+
+            $("#question9").collapse("show");
         });
 
-        $(".answer6").on("slide", function(slideEvt) {
+        $(".answer6").on("change", function() {
             var out;
-            if (slideEvt.value == 100){
-                out = '100 or more';
+            value = $(".answer6").data('slider').getValue();
+            if (value == 100){
+                out = '100%';
             }
             else {
-                out = slideEvt.value
+                out = value + "%"
             }
             $("#answer6slider").text(out);
         });
 
         $(".answer7").on("change",function(){
+            tPM = $(".answer7").attr("value");
+            pCU = $(".answer8").attr("value");
 
-            $("#question8").collapse("show");
+            calcReceptiveVagUnprotectedRiskFactor(tPM, pCU);
+            calcReceptiveVagProtectedRiskFactor(tPM, pCU);
         });
 
-        $(".answer7").on("slide", function(slideEvt) {
+        $(".answer7").on("change", function() {
             var out;
-            if (slideEvt.value == 50){
+            value = $(".answer7").data('slider').getValue();
+            if (value == 50){
                 out = '50 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer7slider").text(out);
         });
 
         $(".answer8").on("change",function(){
+            tPM = $(".answer7").attr("value");
+            pCU = $(".answer8").attr("value");
 
-            $("#question9").collapse("show");
+            calcReceptiveVagUnprotectedRiskFactor(tPM, pCU);
+            calcReceptiveVagProtectedRiskFactor(tPM, pCU);
+
+            $("#question11").collapse("show");
         });
 
-        $(".answer8").on("slide", function(slideEvt) {
+        $(".answer8").on("change", function() {
             var out;
-            if (slideEvt.value == 100){
-                out = '100 or more';
+            value = $(".answer8").data('slider').getValue();
+            if (value == 100){
+                out = '100%';
             }
             else {
-                out = slideEvt.value
+                out = value + "%"
             }
             $("#answer8slider").text(out);
         });
 
         $(".answer9").on("change",function(){
+            tPM = $(".answer9").attr("value");
+            pCU = $(".answer10").attr("value");
 
-            $("#question10").collapse("show");
+            calcInsertAnalUnprotectedRiskFactor(tPM, pCU);
+            calcInsertAnalProtectedRiskFactor(tPM, pCU);
         });
 
-        $(".answer9").on("slide", function(slideEvt) {
+        $(".answer9").on("change", function() {
             var out;
-            if (slideEvt.value == 50){
+            value = $(".answer9").data('slider').getValue();
+            if (value == 50){
                 out = '50 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer9slider").text(out);
         });
 
         $(".answer10").on("change",function(){
+            tPM = $(".answer9").attr("value");
+            pCU = $(".answer10").attr("value");
 
-            $("#question11").collapse("show");
+            calcInsertAnalUnprotectedRiskFactor(tPM, pCU);
+            calcInsertAnalProtectedRiskFactor(tPM, pCU);
+
+            if (negIsMale && !isMale)
+                $("#question13").collapse("show");
+            else
+                $("#question11").collapse("show");
         });
 
-        $(".answer10").on("slide", function(slideEvt) {
+        $(".answer10").on("change", function() {
             var out;
-            if (slideEvt.value == 100){
-                out = '100 or more';
+            value = $(".answer10").data('slider').getValue();
+            if (value == 100){
+                out = '100%';
             }
             else {
-                out = slideEvt.value
+                out = value + "%"
             }
             $("#answer10slider").text(out);
         });
 
         $(".answer11").on("change",function(){
+            tPM = $(".answer11").attr("value");
+            pCU = $(".answer12").attr("value");
 
-            $("#question12").collapse("show");
+            calcReceptiveAnalUnprotectedRiskFactor(tPM, pCU);
+            calcReceptiveAnalProtectedRiskFactor(tPM, pCU);
         });
 
-        $(".answer11").on("slide", function(slideEvt) {
+        $(".answer11").on("change", function() {
             var out;
-            if (slideEvt.value == 50){
+            value = $(".answer11").data('slider').getValue();
+            if (value == 50){
                 out = '50 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer11slider").text(out);
         });
 
         $(".answer12").on("change",function(){
+            tPM = $(".answer11").attr("value");
+            pCU = $(".answer12").attr("value");
+
+            calcReceptiveAnalUnprotectedRiskFactor(tPM, pCU);
+            calcReceptiveAnalProtectedRiskFactor(tPM, pCU);
 
             $("#question13").collapse("show");
         });
 
-        $(".answer12").on("slide", function(slideEvt) {
+        $(".answer12").on("change", function() {
             var out;
-            if (slideEvt.value == 100){
-                out = '100 or more';
+            value = $(".answer12").data('slider').getValue();
+            if (value == 100){
+                out = '100%';
             }
             else {
-                out = slideEvt.value
+                out = value + "%"
             }
             $("#answer12slider").text(out);
         });
 
         $(".answer13").on("change",function(){
+            tPM = $(".answer13").attr("value");
+            pCU = $(".answer14").attr("value");
 
-            $("#question14").collapse("show");
+            calcGiveOralUnprotectedRiskFactor(tPM, pCU);
+            calcGiveOralProtectedRiskFactor(tPM, pCU);
         });
 
-        $(".answer13").on("slide", function(slideEvt) {
+        $(".answer13").on("change", function() {
             var out;
-            if (slideEvt.value == 50){
+            value = $(".answer13").data('slider').getValue();
+            if (value == 50){
                 out = '50 or more';
             }
             else {
-                out = slideEvt.value
+                out = value
             }
             $("#answer13slider").text(out);
         });
 
-        $(".answer14").on("slide", function(slideEvt) {
+        $(".answer14").on("change",function(){
+            tPM = $(".answer13").attr("value");
+            pCU = $(".answer14").attr("value");
+
+            calcGiveOralUnprotectedRiskFactor(tPM, pCU);
+            calcGiveOralProtectedRiskFactor(tPM, pCU);
+
+            $("#question15").collapse("show");
+        });
+
+        $(".answer14").on("change", function() {
             var out;
-            if (slideEvt.value == 100){
-                out = '100 or more';
+            value = $(".answer14").data('slider').getValue();
+            if (value == 100){
+                out = '100%';
             }
             else {
-                out = slideEvt.value
+                out = value + "%"
             }
             $("#answer14slider").text(out);
+        });
+
+        $(".answer15").on("change",function(){
+            tPM = $(".answer15").attr("value");
+            pCU = $(".answer16").attr("value");
+
+            calcReceiveOralUnprotectedRiskFactor(tPM, pCU);
+            calcReceiveOralProtectedRiskFactor(tPM, pCU);
+        });
+
+        $(".answer15").on("change", function() {
+            var out;
+            value = $(".answer15").data('slider').getValue();
+            if (value == 50){
+                out = '50 or more';
+            }
+            else {
+                out = value
+            }
+            $("#answer15slider").text(out);
+        });
+
+        $(".answer16").on("change",function(){
+            tPM = $(".answer15").attr("value");
+            pCU = $(".answer16").attr("value");
+
+            calcReceiveOralUnprotectedRiskFactor(tPM, pCU);
+            calcReceiveOralProtectedRiskFactor(tPM, pCU);
+        });
+
+        $(".answer16").on("change", function() {
+            var out;
+            value = $(".answer16").data('slider').getValue();
+            if (value == 100){
+                out = '100%';
+            }
+            else {
+                out = value + "%"
+            }
+            $("#answer16slider").text(out);
         });
 
 
@@ -583,6 +803,15 @@
         setupSliders();
 
     }
+
+    $(".download-pdf").on("click",function(){
+        $("#navbar").addClass("collapse");
+        var pdf = new jsPDF('p', 'pt', 'letter');
+        pdf.addHTML($('document')[0], function () {
+            pdf.save('Test.pdf');
+        });
+        $("#navbar").removeClass("collapse");
+    });
 
     function setupSliders() {
 
@@ -665,10 +894,87 @@
                 }
                 return value;
             }
-        })                                           
+        })
+        $('.answer15').slider({
+            formatter: function(value) {
+                if(value == 50) {
+                    return '50 or more'
+                }
+                return value;
+            }
+        })
+        $('.answer16').slider({
+            formatter: function(value) {
+                if(value == 100) {
+                    return '100 or more'
+                }
+                return value;
+            }
+        })
+
     }
 
+    function GenderReset(isSecond) {
+        $("#question5").collapse("hide");
+        $("#question7").collapse("hide");
+        $("#question9").collapse("hide");
+        $("#question11").collapse("hide");
+        $("#question13").collapse("hide");
+        $("#question15").collapse("hide");
 
+
+        $(".answer5").attr('data-slider-value', 0);
+        $("#answer5slider").text(0);
+        $(".answer5").slider('refresh');
+        $(".answer6").attr('data-slider-value', 0);
+        $("#answer6slider").text(0);
+        $(".answer6").slider('refresh');
+        $(".answer7").attr('data-slider-value', 0);
+        $("#answer7slider").text(0);
+        $(".answer7").slider('refresh');
+        $(".answer8").attr('data-slider-value', 0);
+        $("#answer8slider").text(0);
+        $(".answer8").slider('refresh');
+        $(".answer9").attr('data-slider-value', 0);
+        $("#answer9slider").text(0);
+        $(".answer9").slider('refresh');
+        $(".answer10").attr('data-slider-value', 0);
+        $("#answer10slider").text(0);
+        $(".answer10").slider('refresh');
+        $(".answer11").attr('data-slider-value', 0);
+        $("#answer11slider").text(0);
+        $(".answer11").slider('refresh');
+        $(".answer12").attr('data-slider-value', 0);
+        $("#answer12slider").text(0);
+        $(".answer12").slider('refresh');
+        $(".answer13").attr('data-slider-value', 0);
+        $("#answer13slider").text(0);
+        $(".answer13").slider('refresh');
+        $(".answer14").attr('data-slider-value', 0);
+        $("#answer14slider").text(0);
+        $(".answer14").slider('refresh');
+        $(".answer15").attr('data-slider-value', 0);
+        $("#answer15slider").text(0);
+        $(".answer15").slider('refresh');
+        $(".answer16").attr('data-slider-value', 0);
+        $("#answer16slider").text(0);
+        $(".answer16").slider('refresh');
+
+
+
+
+
+        resetCalculations();
+
+        if (filledOnce && isMale) {
+            if (negIsMale && !isMale)
+                $("#question5").collapse("show");
+            else if (!negIsMale && isMale)
+                $("#question7").collapse("show");
+            else
+                $("#question9").collapse("show");
+        }
+    }
 
 </script>
 </html>

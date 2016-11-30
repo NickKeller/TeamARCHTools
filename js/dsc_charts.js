@@ -1,22 +1,30 @@
+    var actChart, condomChart;
+
     window.onload = function() {
         var ctxAct = "actChart";
         var dataAct = {
             labels: [
-                "Insertive anal sex",
-                "Giving oral sex",
                 "Insertive vaginal sex",
-                "Receiving oral sex"
+                "Receiving vaginal sex",
+                "Receiving oral sex",
+                "Giving oral sex",
+                "Receiving anal sex",
+                "Insertive anal sex"
             ],
             datasets: [{
-                data: [300, 50, 100, 300],
+                data: [0, 0, 0, 0, 0, 0],
                 backgroundColor: [
                     "#FF6384",
+                    "#A098DF",
+                    "#CBAD98",
                     "#36A2EB",
                     "#FFCE56",
                     "#BBA2EB"
                 ],
                 hoverBackgroundColor: [
                     "#FF6384",
+                    "#A098DF",
+                    "#CBAD98",
                     "#36A2EB",
                     "#FFCE56",
                     "#BBA2EB"
@@ -25,12 +33,12 @@
         };
 
 
-        var myPieChart = new Chart(ctxAct, {
+        actChart = new Chart(ctxAct, {
             type: 'pie',
             data: dataAct,
             options: {
                 legend: {
-                    position: 'top'
+                    position: 'bottom'
                 }
             }
         });
@@ -38,12 +46,12 @@
         var ctxCondom = "condomChart";
         var dataCondom = {
             labels: [
-                "HIV",
-                "Condoms",
-                "Drugs"
+                "No condom used",
+                "Condom broke/slipped during use OR used incorrectly",
+                "Condom used without errors"
             ],
             datasets: [{
-                data: [300, 50, 100],
+                data: [0, 0, 0],
                 backgroundColor: [
                     "#FF6384",
                     "#36A2EB",
@@ -57,7 +65,7 @@
             }]
         };
 
-        var myPieChart = new Chart(ctxCondom, {
+        condomChart = new Chart(ctxCondom, {
             type: 'pie',
             data: dataCondom
         });
