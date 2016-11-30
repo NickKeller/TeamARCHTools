@@ -115,7 +115,7 @@
                    "No": "5"
                }
            }, {
-               "text": "How many times each month do you have insertive vaginal sex with your partner?",
+               "text": "How many times do you have insertive vaginal sex with your partner?",
                "type": "radio",
                "number": 5,
                "answers": ["Once", "A lot"],
@@ -133,7 +133,7 @@
                    "A lot": "7"
                }
            }, {
-               "text": "How many times each month do you have receptive vaginal sex with your partner?",
+               "text": "How many times do you have receptive vaginal sex with your partner?",
                "type": "radio",
                "number": 7,
                "answers": ["Once", "A lot"],
@@ -151,7 +151,7 @@
                    "A lot": "9"
                }
            }, {
-               "text": "How many times each month do you have insertive anal sex with your partner?",
+               "text": "How many times do you have insertive anal sex with your partner?",
                "type": "radio",
                "number": 9,
                "answers": ["Once", "A lot"],
@@ -169,7 +169,7 @@
                    "A lot": "11"
                }
            }, {
-               "text": "How many times each month do you have receptive anal sex with your partner?",
+               "text": "How many times do you have receptive anal sex with your partner?",
                "type": "radio",
                "number": 11,
                "answers": ["Once", "A lot"],
@@ -187,7 +187,7 @@
                    "No": "13"
                }
            }, {
-               "text": "How many times each month do you give oral sex to your partner?",
+               "text": "How many times do you give oral sex to your partner?",
                "type": "radio",
                "number": 13,
                "answers": ["Once", "A lot"],
@@ -205,7 +205,7 @@
                    "No": "Y"
                }
            }, {
-               "text": "How many times each month do you receive oral sex from your partner?",
+               "text": "How many times do you receive oral sex from your partner?",
                "type": "radio",
                "number": 15,
                "answers": ["Once", "A lot"],

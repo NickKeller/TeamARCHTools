@@ -47,7 +47,7 @@
         var dataCondom = {
             labels: [
                 "No condom used",
-                "Condom used, but used incorrrectly OR the condom broke/slipped during use",
+                "Condom broke/slipped during use OR used incorrectly",
                 "Condom used without errors"
             ],
             datasets: [{
