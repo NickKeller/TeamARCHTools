@@ -433,12 +433,15 @@
                 otherOption2Chosen = false;
             }
 
+            //disables the female to female option
             $("#question2").collapse("hide");
             $("#answer311").removeClass("active");
             $("#answer312").removeClass("active");
             $("#answer32").addClass('disabled');
             negIsMale = false;
             UpdateCircumsizeRatios(false);
+            //make a tooltip appear
+            alert("This tool is not designed for serodiscordant partnerships between females");
 
             if (firstOther2 && (!negIsMale || circDone))
                 $("#question3").collapse("show");
