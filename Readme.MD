@@ -40,7 +40,18 @@ Version 1.0.0:
 
 ## Credits
 
-TODO: Write credits
+This project was created by a Georgia Tech Capstone design team in conjunction with the United States Centers for Disease Control and Prevention.
+
+Project head: Dawn K. Smith, MD MS MPH
+
+Georgia Tech Capstone team:
+* David Gil
+* Neal Kaviratna
+* Nick Keller
+* Sai Paladagu
+* Sumit Patel
+* Yongxin Wang
+* Michael Wonderley
 
 ## License
 
@@ -53,4 +64,4 @@ The project utilizes code licensed under the terms of the [MIT License](https://
 * [JSPDF](https://github.com/MrRio/jsPDF)
 * [Raphael.js](https://github.com/DmitryBaranovskiy/raphael)
 
-As well as JQuery, whose license can be found in [here](../js/jquery_license).
+As well as JQuery, whose license can be found [here](../js/jquery_license).
