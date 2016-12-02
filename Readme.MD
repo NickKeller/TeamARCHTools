@@ -64,4 +64,4 @@ The project utilizes code licensed under the terms of the [MIT License](https://
 * [JSPDF](https://github.com/MrRio/jsPDF)
 * [Raphael.js](https://github.com/DmitryBaranovskiy/raphael)
 
-As well as JQuery, whose license can be found [here](../js/jquery_license).
+As well as JQuery, whose license can be found [here](../master/js/jquery_license).
