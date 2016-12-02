@@ -36,7 +36,7 @@ Version 1.0.0:
 - MSM test added
 - IDU test added
 - DSC test added
--- Female Serodiscordant couples not currently supported.
+..- Female Serodiscordant couples not currently supported.
 
 ## Credits
 
@@ -44,4 +44,13 @@ TODO: Write credits
 
 ## License
 
-TODO: Write license
+This project constitutes a work of the United States Government and is not subject to domestic copyright protection under 17 USC § 105.
+
+The project utilizes code licensed under the terms of the [MIT License](https://opensource.org/licenses/mit-license.php)
+* [Bootstrap](http://v4-alpha.getbootstrap.com/about/license/)
+* [Charts.js](http://www.chartjs.org/)
+* [Just Gauge.js](http://justgage.com/)
+* [JSPDF](https://github.com/MrRio/jsPDF)
+* [Raphael.js](https://github.com/DmitryBaranovskiy/raphael)
+
+As well as JQuery, whose license can be found in [here](../js/jquery_license).
