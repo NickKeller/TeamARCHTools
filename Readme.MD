@@ -1,6 +1,6 @@
-# Project Name
+# Arch Tools Assessment Suite
 
-The ARCH Tools assessment suite is composed of 3 tests for assessing the risk of HIV in patients.
+The CDC's ARCH Tools assessment suite is composed of 3 tests for assessing the risk of HIV in patients:
 
 - Men who have Sex with Men
 - Intravenous Drug Users
@@ -8,7 +8,15 @@ The ARCH Tools assessment suite is composed of 3 tests for assessing the risk of
 
 ## Installation
 
-### Building
+### Pre-requisites:
+
+*
+*
+
+### Building:
+
+1. Sign up or Log in to [Adobe Phonegap](https://build.phonegap.com/)
+2. Select this repository from your list of repos, or paste in the git link: ```https://github.com/NickKeller/TeamARCHTools.git```
 
 ### Loading
 
