@@ -10,7 +10,7 @@ The CDC's ARCH Tools assessment suite is composed of 3 tests for assessing the r
 
 ###Pre-requisites: None
 
-### Building:
+### Building for mobile:
 
 1. Sign up or Log in to [Adobe Phonegap Build](https://build.phonegap.com/)
 2. Within Phonegap Build, select this repository from your list of repos, or paste in the git link: ```https://github.com/NickKeller/TeamARCHTools.git```
