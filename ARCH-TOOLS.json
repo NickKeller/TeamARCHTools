@@ -301,8 +301,8 @@
            ">45": "Go to a doctor to evaluate for PrEP or other intensive HIV prevention services"
        },
        "MSM":{
-           "<10":"Go to a doctor to provide indicated standard HIV prevention services",
-           ">10":"Go to a doctor to evaluate for PrEP or other intensive HIV prevention services"
+           "<10": "Go to a doctor to provide indicated standard HIV prevention services",
+           ">10": "Go to a doctor to evaluate for PrEP or other intensive HIV prevention services"
        },
        "DSC":{
            "placeholder":"placeholder"
