@@ -21,24 +21,24 @@ div.tool-link {
 	margin-right: 10px;
 }
 
-h3 {
+html {
   font-size: 14px;
 }
 
 @include media-breakpoint-up(sm) {
-  h3 {
+  html {
     font-size: 16px;
   }
 }
 
 @include media-breakpoint-up(md) {
-  h3 {
+  html {
     font-size: 20px;
   }
 }
 
 @include media-breakpoint-up(lg) {
-  h3 {
+  html {
     font-size: 28px;
   }
 }
