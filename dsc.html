@@ -26,6 +26,7 @@
     <div class="row">
         <div class="col-lg-6">
             <h3 class="text-center">Questions</h3>
+            <!-- Questions -->
             <div class="panel-group" id="accordion">
 
                 <div id="question1" class="panel panel-default collapse">
@@ -280,7 +281,9 @@
             <div class="row text-center">
                 <h3>Results and Recommendations</h3>
             </div>
+            <!-- Results -->
             <div class="row">
+                <!-- Risk projections over time table -->
                 <div class="col-lg-10 col-lg-offset-1 well">
                     <div class="row text-center">
                         <h3>Risk of HIV Contraction from Partner</h3>
@@ -314,10 +317,14 @@
                         </table>
                     </div>
                 </div>
+
+                <!-- Risk contributions from acts chart -->
                 <div class="col-lg-5 col-lg-offset-1 well">
                     <h3>Contribution of Sexual Acts to HIV Risk</h3>
                     <canvas id="actChart" class="img-responsive pie"></canvas>
                 </div>
+
+                <!-- Risk contribution by condom usage chart -->
                 <div class="col-lg-5 well">
                     <h3>Contribution of Condom Use to HIV Risk</h3>
                     <canvas id="condomChart" class="img-responsive pie"></canvas>
@@ -363,7 +370,11 @@
 
 <script type="text/javascript">
 
+    // What gender is the HIV-positive partner, used to give correct assessment
     var negIsMale;
+
+    // variables used to ensure preliminary questions are all answered
+    // before proceeding.
     var firstOther1 = false;
     var firstOther2 = false;
     var otherOption1Chosen = false;
@@ -375,12 +386,24 @@
         dscSetup();
     });
 
+
+    /**
+     * dscSetup - loads the json from the file
+     * then sets the questions on the page.
+     */
     function dscSetup(){
-        //loads the json from the file, then sets the questions on the page
+        //
         $.getJSON("ARCH-TOOLS.json", setDSCPage);
         updateStats();
     }
 
+
+    /**
+     * setDSCPage - Sets up all questions on page
+     * and hooks up sliders to text displays
+     *
+     * @param  {json} json file containing assessment info.
+     */
     function setDSCPage(json){
         //alert("Set page");
         var dscData = json.tests.DSC;
@@ -809,6 +832,13 @@
 
     }
 
+
+    /**
+     * download - downloads current page as pdf
+     *
+     * @param  {event} "click"   click event on download button
+     * @param  {function} function the anon function that handles pdf saving
+     */
     $(".download-pdf").on("click",function(){
         $("#navbar").addClass("collapse");
         var pdf = new jsPDF('p', 'pt', 'letter');
@@ -818,6 +848,10 @@
         $("#navbar").removeClass("collapse");
     });
 
+
+    /**
+     * setupSliders - sets up slider tooltipss
+     */
     function setupSliders() {
 
         $('.answer5').slider({
@@ -919,6 +953,12 @@
 
     }
 
+
+    /**
+     * GenderReset - resets form if the patients genders are changed
+     *
+     * @param  {bool} isSecond Is this the 2nd partner or the first?
+     */
     function GenderReset(isSecond) {
         $("#question5").collapse("hide");
         $("#question7").collapse("hide");
