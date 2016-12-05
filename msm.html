@@ -19,11 +19,11 @@
 
 <div class="container">
     <div class="row">
-        <h2 id="title"></h2>
+        <h2 id="title" class="text-center"></h2><hr>
     </div>
     <div class="row">
         <div id="accordion" class="panel-group col-lg-6">
-            <h2>Questions</h2>
+            <h2 class="text-center">Questions</h2>
             <div id ="question1" class="panel panel-default question">
                 <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                     <h4 class="panel-title">
@@ -156,13 +156,17 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <h2>Results and Recommendations</h2>
-            <div id="gauge" style="width:350px; height:280px"></div>
-            <h3>Recommended Actions</h3>
-            <div id="recommended-actions-display">
-                <ul>
-                    <li id="recommended-actions"></li>
-                </ul>
+            <h2 class="text-center">Results and Recommendations</h2>
+            <div class="well">
+                <div id="gauge" class="gauge" style="width:350px; height:280px"></div>
+            </div>
+            <h3 class="text-center">Recommended Actions</h3>
+            <div class="well">
+                <div id="recommended-actions-display">
+                    <ul>
+                        <li id="recommended-actions"></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

@@ -435,12 +435,49 @@ function updateStats()
     var _raContribPercent = (_riskByRA / totalContribToRisk) * 100;
     var _iaContribPercent = (_riskByIA / totalContribToRisk) * 100;
 
-    actChart.data.datasets[0].data[0] = _ivContribPercent.toFixed(1);
-    actChart.data.datasets[0].data[1] = _rvContribPercent.toFixed(1);
-    actChart.data.datasets[0].data[2] = _roContribPercent.toFixed(1);
-    actChart.data.datasets[0].data[3] = _goContribPercent.toFixed(1);
-    actChart.data.datasets[0].data[4] = _raContribPercent.toFixed(1);
-    actChart.data.datasets[0].data[5] = _iaContribPercent.toFixed(1);
+    labels = []
+    data = []
+
+    if (_ivContribPercent.toFixed(1) > 0)
+    {
+        labels.unshift("Insertive vaginal sex");
+        data.unshift(_ivContribPercent.toFixed(1));
+    }
+    if (_rvContribPercent.toFixed(1) > 0)
+    {
+        labels.unshift("Receiving vaginal sex");
+        data.unshift(_rvContribPercent.toFixed(1));
+    }
+    if (_roContribPercent.toFixed(1) > 0)
+    {
+        labels.unshift("Receiving oral sex");
+        data.unshift(_roContribPercent.toFixed(1));
+    }
+    if (_goContribPercent.toFixed(1) > 0)
+    {
+        labels.unshift("Giving oral sex");
+        data.unshift(_goContribPercent.toFixed(1));
+    }
+    if (_raContribPercent.toFixed(1) > 0)
+    {
+        labels.unshift("Receiving anal sex");
+        data.unshift(_raContribPercent.toFixed(1));
+    }
+    if (_iaContribPercent.toFixed(1) > 0)
+    {
+        labels.unshift("Insertive anal sex");
+        data.unshift(_iaContribPercent.toFixed(1));
+    }
+
+    actChart.config.data.labels = labels;
+    actChart.data.datasets[0].data = data;
+
+    // actChart.data.datasets[0].data[0] = _ivContribPercent.toFixed(1);
+    // actChart.data.datasets[0].data[1] = _rvContribPercent.toFixed(1);
+    // actChart.data.datasets[0].data[2] = _roContribPercent.toFixed(1);
+    // actChart.data.datasets[0].data[3] = _goContribPercent.toFixed(1);
+    // actChart.data.datasets[0].data[4] = _raContribPercent.toFixed(1);
+    // actChart.data.datasets[0].data[5] = _iaContribPercent.toFixed(1);
 
     actChart.update();
 

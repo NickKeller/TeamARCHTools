@@ -11,8 +11,13 @@ div.tool-link {
 }
 
 .pie {
-	max-height: 400px;
-	max-width: 400px;
+	max-height: 200px;
+	max-width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.gauge {
 	margin-left: auto;
 	margin-right: auto;
 }

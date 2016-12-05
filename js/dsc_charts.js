@@ -4,12 +4,6 @@
         var ctxAct = "actChart";
         var dataAct = {
             labels: [
-                "Insertive vaginal sex",
-                "Receiving vaginal sex",
-                "Receiving oral sex",
-                "Giving oral sex",
-                "Receiving anal sex",
-                "Insertive anal sex"
             ],
             datasets: [{
                 data: [0, 0, 0, 0, 0, 0],
@@ -18,16 +12,16 @@
                     "#A098DF",
                     "#CBAD98",
                     "#36A2EB",
-                    "#FFCE56",
-                    "#BBA2EB"
+                    "#A045F6",
+                    "#53B301"
                 ],
                 hoverBackgroundColor: [
                     "#FF6384",
                     "#A098DF",
                     "#CBAD98",
                     "#36A2EB",
-                    "#FFCE56",
-                    "#BBA2EB"
+                    "#A045F6",
+                    "#53B301"
                 ]
             }]
         };
@@ -47,7 +41,7 @@
         var dataCondom = {
             labels: [
                 "No condom used",
-                "Condom broke/slipped during use OR used incorrectly",
+                "Condom broken/slipped",
                 "Condom used without errors"
             ],
             datasets: [{
@@ -67,6 +61,11 @@
 
         condomChart = new Chart(ctxCondom, {
             type: 'pie',
-            data: dataCondom
+            data: dataCondom,
+            options: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
         });
     }
