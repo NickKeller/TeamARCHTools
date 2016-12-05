@@ -1,3 +1,8 @@
+/**
+ * This file contains the risk calculations for Discordant Couples.
+ * @author Neal Kaviratna, based on SexualActStats.m  by jtq6 on 7/3/13.
+ */
+
 // Probability Constants
 const pIV = 0.0008;
 const pRV = 0.0008;
@@ -14,12 +19,16 @@ const RR_PREP_MSM = 1.79;
 const RR_CIRC_VAG = 1.85;
 const RR_CIRC_ANAL = 3.41;
 
-var ulcerPresentPercent = 0;
-var isMale = true;
-
+// Current risk ratios
 var _rrCondom, _rrArt, _rrPrepHetro, _rrPrepMsm, _rrCircVag, _rrCircAnal;
 _rrCondom = RR_CONDOM;
 
+// Non act risk factors
+var ulcerPresentPercent = 0;
+var isMale = true;
+
+// Sexual act risk factors and cotributors
+// APM = Acts Per Month, PCU = Percent With Condom Usage
 var InsertVagProtectedRiskFactor=1, InsertVagUnprotectedRiskFactor=1,
     ReceptiveVagProtectedRiskFactor=1, ReceptiveVagUnprotectedRiskFactor=1,
     InsertAnalProtectedRiskFactor=1, InsertAnalUnprotectedRiskFactor=1,
@@ -41,6 +50,13 @@ var InsertVagProtectedLastPCU = 0, InsertVagUnprotectedLastPCU = 0,
     GiveOralProtectedLastPCU = 0, GiveOralUnprotectedLastPCU = 0,
     ReceiveOralProtectedLastPCU = 0, ReceiveOralUnprotectedLastPCU = 0;
 
+
+/**
+ * UpdateArtRatios - updates risk ratios based on new ART info.
+ * Recalc and Update in try-catch block in case all questions not answered yet
+ *
+ * @param  {bool} isOnArt Is the HIV-positive partner on ART?
+ */
 function UpdateArtRatios(isOnArt) {
     if (isOnArt)
         _rrArt = RR_ART;
@@ -55,6 +71,12 @@ function UpdateArtRatios(isOnArt) {
     }
 }
 
+/**
+ * UpdateCircumsizeRatios - updates risk ratios based on new Circumsision info.
+ * Recalc and Update in try-catch block in case all questions not answered yet
+ *
+ * @param  {type} isCircumcised is the Male HIV-negative partner circumsized?
+ */
 function UpdateCircumsizeRatios(isCircumcised) {
     if (isCircumcised && isMale)
         _rrCircVag = RR_CIRC_VAG;
@@ -74,6 +96,12 @@ function UpdateCircumsizeRatios(isCircumcised) {
     }
 }
 
+/**
+ * UpdateGenderRatios - updates risk ratios based on new gender info.
+ * Recalc and Update in try-catch block in case all questions not answered yet
+ *
+ * @param  {type} _isMale is the HIV-positive partner male?
+ */
 function UpdateGenderRatios(_isMale) {
     isMale = _isMale;
 
@@ -85,6 +113,12 @@ function UpdateGenderRatios(_isMale) {
     }
 }
 
+/**
+ * UpdatePrepRatios - updates risk ratios based on new ART info.
+ * Recalc and Update in try-catch block in case all questions not answered yet
+ *
+ * @param  {type} isOnPrep is the HIV-negative partner on Prep?
+ */
 function UpdatePrepRatios(isOnPrep) {
     if (isOnPrep)
         _rrPrepHetro = RR_PREP_HET;
@@ -104,6 +138,13 @@ function UpdatePrepRatios(isOnPrep) {
     }
 }
 
+
+/**
+ * calcInsertVagProtectedRiskFactor
+ *
+ * @param  {type} timesPerMonth          # of times partners have piv sex/month
+ * @param  {type} percentWithCondomUsage % of times partners use condoms
+ */
 function calcInsertVagProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     InsertVagProtectedLastAPM = timesPerMonth;
@@ -115,6 +156,12 @@ function calcInsertVagProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
     updateStats();
 }
 
+/**
+ * calcInsertVagUnprotectedRiskFactor
+ *
+ * @param  {type} timesPerMonth          # of times partners have uiv sex/month
+ * @param  {type} percentWithCondomUsage % of times partners use condoms
+ */
 function calcInsertVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
    InsertVagUnprotectedLastAPM = timesPerMonth;
@@ -126,7 +173,12 @@ function calcInsertVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsag
    updateStats();
 }
 
-
+/**
+ * calcReceptiveVagProtectedRiskFactor
+ *
+ * @param  {type} timesPerMonth          # of times partners have prv sex/month
+ * @param  {type} percentWithCondomUsage % of times partners use condoms
+ */
 function calcReceptiveVagProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     ReceptiveVagProtectedLastAPM = timesPerMonth;
@@ -137,6 +189,13 @@ function calcReceptiveVagProtectedRiskFactor(timesPerMonth, percentWithCondomUsa
     ReceptiveVagProtectedRiskFactor =  riskFactor;
     updateStats();
 }
+
+/**
+ * calcReceptiveVagUnprotectedRiskFactor
+ *
+ * @param  {type} timesPerMonth          # of times partners have urv sex/month
+ * @param  {type} percentWithCondomUsage % of times partners use condoms
+ */
 function calcReceptiveVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     ReceptiveVagUnprotectedLastAPM = timesPerMonth;
@@ -148,6 +207,12 @@ function calcReceptiveVagUnprotectedRiskFactor(timesPerMonth, percentWithCondomU
     updateStats();
 }
 
+/**
+ * calcReceiveOralProtectedRiskFactor
+ *
+ * @param  {type} timesPerMonth          # of times partners have pro sex/month
+ * @param  {type} percentWithCondomUsage % of times partners use condoms
+ */
 function calcReceiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     ReceiveOralProtectedLastAPM = timesPerMonth;
@@ -159,6 +224,12 @@ function calcReceiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsag
     updateStats();
 }
 
+/**
+ * calcReceiveOralUnprotectedRiskFactor
+ *
+ * @param  {type} timesPerMonth          # of times partners have uro sex/month
+ * @param  {type} percentWithCondomUsage % of times partners use condoms
+ */
 function calcReceiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     ReceiveOralUnprotectedLastAPM = timesPerMonth;
@@ -170,6 +241,12 @@ function calcReceiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUs
     updateStats();
 }
 
+/**
+ * calcGiveOralProtectedRiskFactor
+ *
+ * @param  {type} timesPerMonth          # of times partners have pgo sex/month
+ * @param  {type} percentWithCondomUsage % of times partners use condoms
+ */
 function calcGiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     GiveOralProtectedLastAPM = timesPerMonth;
@@ -181,6 +258,12 @@ function calcGiveOralProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
     updateStats();
 }
 
+/**
+ * calcGiveOralUnprotectedRiskFactor
+ *
+ * @param  {type} timesPerMonth          # of times partners have ugo sex/month
+ * @param  {type} percentWithCondomUsage % of times partners use condoms
+ */
 function calcGiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     GiveOralUnprotectedLastAPM = timesPerMonth;
@@ -192,6 +275,12 @@ function calcGiveOralUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage
     updateStats();
 }
 
+/**
+ * calcInsertAnalProtectedRiskFactor
+ *
+ * @param  {type} timesPerMonth          # of times partners have pia sex/month
+ * @param  {type} percentWithCondomUsage % of times partners use condoms
+ */
 function calcInsertAnalProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     InsertAnalProtectedLastAPM = timesPerMonth;
@@ -203,6 +292,12 @@ function calcInsertAnalProtectedRiskFactor(timesPerMonth, percentWithCondomUsage
     updateStats();
 }
 
+/**
+ * calcInsertAnalUnprotectedRiskFactor
+ *
+ * @param  {type} timesPerMonth          # of times partners have uia sex/month
+ * @param  {type} percentWithCondomUsage % of times partners use condoms
+ */
 function calcInsertAnalUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     InsertAnalUnprotectedLastAPM = timesPerMonth;
@@ -214,6 +309,12 @@ function calcInsertAnalUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsa
     updateStats();
 }
 
+/**
+ * calcReceptiveAnalProtectedRiskFactor
+ *
+ * @param  {type} timesPerMonth          # of times partners have pra sex/month
+ * @param  {type} percentWithCondomUsage % of times partners use condoms
+ */
 function calcReceptiveAnalProtectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     ReceptiveAnalProtectedLastAPM = timesPerMonth;
@@ -225,6 +326,12 @@ function calcReceptiveAnalProtectedRiskFactor(timesPerMonth, percentWithCondomUs
     updateStats();
 }
 
+/**
+ * calcReceptiveAnalUnprotectedRiskFactor
+ *
+ * @param  {type} timesPerMonth          # of times partners have ura sex/month
+ * @param  {type} percentWithCondomUsage % of times partners use condoms
+ */
 function calcReceptiveAnalUnprotectedRiskFactor(timesPerMonth, percentWithCondomUsage)
 {
     ReceptiveAnalUnprotectedLastAPM = timesPerMonth;
@@ -236,6 +343,11 @@ function calcReceptiveAnalUnprotectedRiskFactor(timesPerMonth, percentWithCondom
     updateStats();
 }
 
+
+/**
+ * recalcStats - Recalculates all stats with updated risk factors, necessary for
+ * properly updating dynamic graphs.
+ */
 function recalcStats()
 {
     recalcInsertVagProtectedRiskFactor();
@@ -349,6 +461,10 @@ function recalcReceptiveAnalUnprotectedRiskFactor()
     updateStats();
 }
 
+
+/**
+ * resetCalculations - reset all calculations and rist factors to default.
+ */
 function resetCalculations() {
         InsertVagProtectedRiskFactor=1, InsertVagUnprotectedRiskFactor=1,
             ReceptiveVagProtectedRiskFactor=1, ReceptiveVagUnprotectedRiskFactor=1,
@@ -374,6 +490,10 @@ function resetCalculations() {
 }
 
 
+/**
+ * updateStats - Calculate statistics for discordant couples and display them on
+ * the tables and charts on the Discordant assessment page.
+ */
 function updateStats()
 {
     var _chancesPerMonthPercent = 1 - (InsertVagUnprotectedRiskFactor * InsertVagProtectedRiskFactor *

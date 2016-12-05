@@ -1,3 +1,9 @@
+/**
+ * This file sets up the Sexual act chart and Condom use chart and makes them
+ * globally available via the actChart and condomChart variables.
+ * The script runs on page load of the Discordant Couples assessment.
+ */
+
     var actChart, condomChart;
 
     window.onload = function() {
