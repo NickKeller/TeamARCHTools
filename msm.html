@@ -155,6 +155,7 @@
                 </div>
             </div>
         </div>
+        <!--This is the fancy gauge that appears and updates dynamically based off of user input-->
         <div class="col-lg-6">
             <h2 class="text-center">Results and Recommendations</h2>
             <div class="well">
@@ -176,6 +177,7 @@
 			<!--Save to PDF-->
 		<!--</button>-->
 	<!--</div>-->
+    <!--This is the nav bar that goes on the bottmo-->
     <nav id="navbar" class="navbar navbar-inverse navbar-fixed-bottom" >
         <div class="container-fluid">
             <div class="navbar-header">
@@ -225,6 +227,11 @@
         levelColorsGradient: true
     });
 
+    /**
+     * msmSetup - Calls getJSON to load the question text from the JSON file
+     *
+     * @return {Nothing}  Returns nothing
+     */
     function msmSetup(){
     	//loads the json from the file, then sets the questions on the page
     	$.getJSON("ARCH-TOOLS.json", setMSMPage);
@@ -235,6 +242,12 @@
     	// 	$("#finish").collapse("show");
     	// });
 
+    /**
+	 * setMSMPage - The thing that actually does the work in setting the html on the page
+	 *
+	 * @param  {json} json The json object that was loaded from ARCH-TOOLS.json
+	 * @return {none}      Returns nothing
+	 */
 	function setMSMPage(json){
 		//alert("Set page");
 		msmData = json.tests.MSM;
@@ -395,6 +408,12 @@
         setupSliders();
 	}
 
+    /**
+     * setScore - Sets the score on the gauge, which will update it with a new number
+     *
+     * @param  {int} val The score to update the gauge to
+     * @return {none}     Returns nothing
+     */
     function setScore(val){
         var total = 0;
 
@@ -411,6 +430,7 @@
         $("#recommended-actions").html(actionToDisplay);
     }
 
+
    $(".download-pdf").on("click",function(){
         $("#gauge").find("text")[1].style.fontSize = "125px";
         $("#navbar").addClass("collapse");
@@ -422,6 +442,11 @@
         $("#gauge").find("text")[1].style.fontSize = "49px";
     });
 
+    /**
+     * setupSliders - Initializes the sliders used on this page
+     *
+     * @return {none}  Returns nothing
+     */
     function setupSliders() {
         $('.answer1').slider({
         	formatter: function(value) {
