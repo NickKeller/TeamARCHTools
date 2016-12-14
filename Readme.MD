@@ -30,6 +30,11 @@ The CDC's ARCH Tools assessment suite is composed of 3 tests for assessing the r
 2. Upload file to developer portal
 3. Publish app to mobile market
 
+#### Notes for loading on desktop browser:
+
+- Will not work locally on Chrome browser
+- Uploading all files to a website will host application correctly. Example: http://nkaviratna.net/TeamARCHTools/
+
 ## Release Notes:
 
 Version 1.0.0:
